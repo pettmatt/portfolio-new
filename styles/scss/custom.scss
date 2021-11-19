@@ -1,0 +1,63 @@
+.container {
+  padding: 0 25vw;
+}
+
+nav div {
+  float: right;
+  a {
+    background-color: #eee;
+    padding: 0.3em 0.4em;
+  }
+}
+
+.landing {
+  height: 50vh;
+  background-color:pink;
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.box {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.grid-list {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.grid-box {
+  max-width: 18em;
+  text-align: center;
+  padding: 1em;
+  border: 3px solid black;
+}
+
+.project-item {
+  margin: 3em 0;
+  max-height: 205px;
+  display: flex;
+  align-items: flex-start;
+  .image-container {
+    min-height: auto;
+    min-width: 40%;
+    flex: 1;
+  }
+  .text-container {
+    h2, p {
+      margin: 0;
+    }
+  }
+}
+
+.project-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.project-item:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
