@@ -20,4 +20,5 @@ function watch() {
 }
 
 exports.default = watch;
+exports.watch = watch;
 exports.compileSCSS = compileSCSS;

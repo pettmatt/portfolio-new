@@ -1,4 +1,4 @@
-export default function Gridlist() {
+export default function Gridlist({data}) {
   const array = [
     {name: '1', description: 'Duis occaecat id magna pariatur ea tempor consectetur eu laborum. Dolor esse nostrud veniam reprehenderit sunt adipisicing ea elit culpa voluptate culpa ullamco. Enim sint anim duis labore sit proident consectetur commodo. Pariatur officia magna ea velit labore nostrud cillum pariatur deserunt eu duis. Aliqua dolor consequat commodo laborum. Commodo nulla ipsum duis ad dolor irure esse nulla consectetur deserunt. Commodo ea cillum minim cillum dolore sunt.'},
     {name: '2', description: 'Duis occaecat id magna pariatur ea tempor consectetur eu laborum. Dolor esse nostrud veniam reprehenderit sunt adipisicing ea elit culpa voluptate culpa ullamco. Enim sint anim duis labore sit proident consectetur commodo. Pariatur officia magna ea velit labore nostrud cillum pariatur deserunt eu duis. Aliqua dolor consequat commodo laborum. Commodo nulla ipsum duis ad dolor irure esse nulla consectetur deserunt. Commodo ea cillum minim cillum dolore sunt.'},

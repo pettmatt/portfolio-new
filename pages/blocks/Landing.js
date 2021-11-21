@@ -1,13 +1,10 @@
-export default function Landing({styles}) {
+export default function Landing({header, subHeader}) {
   return (
-    <div className="landing">
-      <h1>Petteri Mattila</h1>
-      <h3>Job title</h3>
-      <a className="fake-button">Action button</a>
+    <div id="landing">
+      <h1>{ header }</h1>
+      <h3>{ subHeader }</h3>
 
-      <div>
-        Timeline element
-      </div>
+      <div className="decoration-text">Welcome</div>
     </div>
   )
 }

@@ -1,25 +1,97 @@
+/* HEADER */
+nav {
+  position: fixed;
+  div {
+    float: right;
+    a {
+      background-color: rgb(109, 109, 109);
+      padding: 0.3em 0.4em;
+    }
+  }
+}
+
+/* LANDING */
+#landing {
+  //padding-left: 2.2em;
+  //padding-right: 2.2em;
+  margin-top: 2.4em;
+  height: 50vh;
+  //background-color:rgb(68, 68, 68);
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  border-radius: 0.6rem;
+  div {
+    position: relative;
+    top: 30vh;
+  }
+  h1 {
+    font-size: $custom-font-large;
+    margin-bottom: 0;
+  }
+  h3 {
+    font-size: $font-tiny;
+  }
+}
+
+/* EXPERIENCE */
+.project-item:nth-child(odd) {
+  flex-direction: row;
+  .text-container {
+    margin-left: 2em;
+    h2, p {
+      margin: 0;
+    }
+
+    h2 {
+      margin-bottom: 0.4em;
+    }
+  }
+}
+
+.project-item:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+  .text-container {
+    margin-right: 2em;
+    h2, p {
+      margin: 0;
+    }
+
+    h2 {
+      margin-bottom: 0.4em;
+    }
+  }
+}
+
+#skill-list {
+  overflow-y: scroll;
+  height: 30em;
+  h2 {
+    margin-top: 0.4em;
+  }
+}
+
+/* CONTACT */
+#contact {
+  p {
+    text-align: center;
+    top: 5.5em;
+    position: relative;
+    transform: rotate(-25deg);
+  }
+}
+
+/* CUSTOM ELEMENTS */
 .container {
   padding: 0 25vw;
 }
 
-nav div {
-  float: right;
-  a {
-    background-color: #eee;
-    padding: 0.3em 0.4em;
-  }
-}
-
-.landing {
-  height: 50vh;
-  background-color:pink;
-  border-bottom-left-radius: 0.4rem;
-  border-bottom-right-radius: 0.4rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-
 .box {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.skill-card {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .grid-list {
@@ -31,9 +103,26 @@ nav div {
 
 .grid-box {
   max-width: 18em;
-  text-align: center;
-  padding: 1em;
-  border: 3px solid black;
+  text-align: left;
+  padding: 1em 2em;
+  border: 0px solid black;
+  background-color: rgb(68, 68, 68);
+  margin: 0.2em;
+  border-radius: 0.3em;
+}
+
+.grid-list-2 {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.grid-box-2 {
+  max-width: 50%;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .project-item {
@@ -51,13 +140,4 @@ nav div {
       margin: 0;
     }
   }
-}
-
-.project-item:nth-child(odd) {
-  flex-direction: row;
-}
-
-.project-item:nth-child(even) {
-  flex-direction: row-reverse;
-  text-align: right;
 }

@@ -1,9 +1,19 @@
 html,
-body {
+body, textarea {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  background-color: $color_secondary;
+  color: $color_font;
+}
+
+h1 {
+  font-size: $font-large;
+  color: $color_primary;
 }
 
 a {
@@ -15,10 +25,51 @@ a {
   box-sizing: border-box;
 }
 
+nav {
+  z-index: 99;
+}
+
 nav a {
   margin-left: 0.7rem;
 }
 
 .inline {
   display: inline;
+}
+
+textarea {
+  height: 10em;
+}
+
+input, textarea {
+  margin-top: 0.7em;
+  margin-bottom: 1.2em;
+  width: 30em;
+  padding: 0.7em;
+  border-radius: 0.3em;
+  border: 0px;
+  background-color: rgb(219, 219, 219);
+}
+
+button {
+  width: 100%;
+  padding: 0.5em;
+  border: 0px;
+  border-radius: 0.3em;
+  font-weight: bold;
+  background-color: rgba(0,0,0,0);
+  border: 3px solid $color_primary;
+  color: $color_primary;
+  transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+
+button:hover {
+  background-color: $color_primary;
+  color: #000;
+  cursor: pointer;
+}
+
+.section {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }

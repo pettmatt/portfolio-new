@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 
-export default function Header({ title }) {
+export default function Header({ title, showBlogLink }) {
   return (
     <>
     <Head>
@@ -14,10 +14,10 @@ export default function Header({ title }) {
     <nav>
       <a href="#" className='inline'>Pettmatt.</a>
       <div className='inline'>
-        <a href="#">Articles</a>
-        <a href="#">Experience</a>
-        <a href="#">Me</a>
-        <a href="#">Contact</a>
+        { showBlogLink ? <a href="/blogs">Blogs</a> : '' }
+        <a href="#experience">Experience</a>
+        <a href="#me">Me</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
     </>
