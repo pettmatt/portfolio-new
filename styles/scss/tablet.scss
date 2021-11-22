@@ -11,6 +11,12 @@
 }
 
 @media only screen and (max-width: $tablet) {
+  #landing {
+    .deccoration-text {
+      top: 15vh;
+    }
+  }
+
   #experience {
     .project-item {
       flex-direction: column;

@@ -9,7 +9,7 @@ function compileSCSS() {
     .pipe(sass().on('error', sass.logError))
     .pipe(uglifycss({
       //"maxLineLen": 80,
-      'uglifyComments': true
+      'uglifyComments': false
     }))
     .pipe(rename('./styles/main.css'))
     .pipe(gulp.dest('./'))

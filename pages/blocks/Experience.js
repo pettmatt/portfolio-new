@@ -9,6 +9,8 @@ export default function Experience({description}) {
 
       <Projects />
 
+      <div className="decoration-text"><h3>Skills</h3></div>
+
       <div id="skill-list">
         <Gridlist />
       </div>

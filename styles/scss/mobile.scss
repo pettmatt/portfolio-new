@@ -28,7 +28,18 @@
     }
 
     #message-box {
-      height: 18em;
+      top: 3em;
+      left: 0;
     }
+  }
+
+  .section .decoration-text {
+    display: none;
+  }
+
+  #landing .decoration-text {
+    transform: none;
+    position: relative;
+    top: -10em;
   }
 }

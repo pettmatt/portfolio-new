@@ -20,16 +20,9 @@ nav {
   border-bottom-left-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
   border-radius: 0.6rem;
-  div {
-    position: relative;
-    top: 30vh;
-  }
   h1 {
     font-size: $custom-font-large;
     margin-bottom: 0;
-  }
-  h3 {
-    font-size: $font-tiny;
   }
 }
 
@@ -139,5 +132,36 @@ nav {
     h2, p {
       margin: 0;
     }
+  }
+}
+
+.decoration-text h3 {
+  font-size: 6rem;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #333;
+}
+
+.decoration-text {
+  position: relative;
+  h3 {
+    margin-top: 0;
+  }
+}
+
+#landing .decoration-text {
+  right: 0em;
+  text-align: right;
+}
+
+.section:nth-child(odd) {
+  .decoration-text {
+    right: 0em;
+  }
+}
+
+.section:nth-child(even) {
+  .decoration-text {
+    left: 0em;
+    text-align: right;
   }
 }

@@ -4,7 +4,7 @@ export default function Landing({header, subHeader}) {
       <h1>{ header }</h1>
       <h3>{ subHeader }</h3>
 
-      <div className="decoration-text">Welcome</div>
+      <div className="decoration-text"><h3>Welcome</h3></div>
     </div>
   )
 }
