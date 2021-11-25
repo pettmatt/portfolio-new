@@ -2,8 +2,6 @@ import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 
 import { fetchMyThings } from './api/strapi'
 
-import styles from '../styles/Home.module.css'
-
 import Header from './blocks/header'
 import Footer from './blocks/footer'
 
@@ -14,9 +12,9 @@ import Contact from './blocks/Contact'
 
 export default function Home({body}) {
   return (
-    <div className='container'>
+    <div className='main-container'>
 
-      <main className={styles.main}>
+      <main>
         
         <Header 
           title='Frontpage' 

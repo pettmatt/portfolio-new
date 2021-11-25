@@ -1,19 +1,52 @@
+#test {
+  background-color: pink;
+  color: navajowhite;
+  height: 10em;
+  width: 10em;
+  margin: auto;
+  top: 40%;
+}
+
+#__next {
+  position: relative;
+  bottom: 2em;
+}
+
 html,
 body, textarea {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  overflow-x: hidden;
 }
 
 body {
-  background-color: $color_secondary;
-  color: $color_font;
+  background-color: $color_background_2;
+  color: $color_font_1;
+  .main-container .section  {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    &:nth-child(even) {
+      background-color: $color_background_1;
+      h1 {
+        color: $color_font_1;
+      }
+    }
+    &:nth-child(odd) {
+      h1, p, label {
+        color: $color_font_3;
+      }
+
+      label {
+        font-weight: bolder;
+      }
+    }
+  }
 }
 
 h1 {
-  font-size: $font-large;
-  color: $color_primary;
+  font-size: $font_size_medium;
 }
 
 h2 {
@@ -21,7 +54,7 @@ h2 {
 }
 
 h3 {
-  font-size: $font-tiny;
+  font-size: $font_size_extra_small;
 }
 
 a {
@@ -52,32 +85,43 @@ textarea {
 input, textarea {
   margin-top: 0.7em;
   margin-bottom: 1.2em;
-  width: 30em;
+  width: 100%;
   padding: 0.7em;
-  border-radius: 0.3em;
-  border: 0px;
-  background-color: rgb(219, 219, 219);
+  //border-radius: 0.3em;
+  border: 3px solid $color_background_1;
+  //background-color: rgb(219, 219, 219);
 }
 
 button {
   width: 100%;
   padding: 0.5em;
   border: 0px;
-  border-radius: 0.3em;
+  //border-radius: 0.3em;
   font-weight: bold;
-  background-color: rgba(0,0,0,0);
-  border: 3px solid $color_primary;
-  color: $color_primary;
+  background-color: $color_background_1;
+  border: 3px solid $color_font_3;
+  color: $color_font_1;
   transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
 }
 
 button:hover {
-  background-color: $color_primary;
-  color: #000;
+  background-color: rgba(0,0,0,0);
+  color: $color_font_3;
   cursor: pointer;
 }
 
 .section {
   margin-top: 2em;
   margin-bottom: 2em;
+}
+
+#experience, #me, #contact {
+  padding-bottom: 2em;
+  h1 {
+    bottom: 0.38em;
+    position: relative;
+    font-size: $font_size_huge;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }

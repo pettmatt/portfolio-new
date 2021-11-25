@@ -12,8 +12,8 @@
 
 @media only screen and (max-width: $tablet) {
   #landing {
-    .deccoration-text {
-      top: 15vh;
+    div:nth-child(2) {
+      display: none;
     }
   }
 

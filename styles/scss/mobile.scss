@@ -3,6 +3,32 @@
     padding: 0 2rem;
   }
 
+  #landing {
+    h1 {
+      font-size: $font_size_landing_medium;
+    }
+    #start {
+      font-size: $font_size_small;
+    }
+    p {
+      font-size: $font_size_landing_small;
+      span {
+        width: 100%;
+        display: block;
+        font-size: $font_size_small;
+      }
+    }
+    h3 {
+      font-size: $font_size_medium;
+    }
+  }
+
+  #experience {
+    .project-container {
+      margin: 0vw;
+    }
+  }
+
   #contact {
     input, textarea {
       width: 100%;
@@ -26,20 +52,5 @@
       width: 100%;
       margin: 0;
     }
-
-    #message-box {
-      top: 3em;
-      left: 0;
-    }
-  }
-
-  .section .decoration-text {
-    display: none;
-  }
-
-  #landing .decoration-text {
-    transform: none;
-    position: relative;
-    top: -10em;
   }
 }

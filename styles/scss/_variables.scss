@@ -1,19 +1,20 @@
 $mobile: 550px;
 $tablet: 1150px;
 
-$color_primary: #07eda4;
-$color_secondary: rgb(58, 58, 58);
-$color_secondary_light: rgb(68, 68, 68);
+$side_space: 10vw;
 
-$color_font: #eee;
+$color_background_1: #000;
+$color_background_2: #fff;
 
-$font-family-header: none;
-$font-family-paragraph: none;
-$font-family-decoration: none;
+$color_font_1: #fff;
+$color_font_2: #646464;
+$color_font_3: #000;
 
-$font-huge: 3rem;
-$font-large: 2.5rem;
-$font-medium: 2rem;
-$font-tiny: 1rem;
+$font_size_landing_huge: 7rem;
+$font_size_landing_medium: 5rem;
+$font_size_landing_small: 3rem;
 
-$custom-font-large: 5rem;
+$font_size_huge: 5rem;
+$font_size_medium: 3rem;
+$font_size_small: 1.5rem;
+$font_size_extra_small: 1rem;

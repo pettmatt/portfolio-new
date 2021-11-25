@@ -12,46 +12,73 @@ nav {
 
 /* LANDING */
 #landing {
-  //padding-left: 2.2em;
-  //padding-right: 2.2em;
-  margin-top: 2.4em;
-  height: 50vh;
-  //background-color:rgb(68, 68, 68);
-  border-bottom-left-radius: 0.4rem;
-  border-bottom-right-radius: 0.4rem;
-  border-radius: 0.6rem;
-  h1 {
-    font-size: $custom-font-large;
-    margin-bottom: 0;
+  height: 100vh;
+  padding-top: 4em;
+  margin-bottom: 0;
+  background-color: $color_background_1;
+
+  div > {
+    display: flex;
+    width: 50%;
   }
+  h3, p {
+    color: $color_font_2;
+    margin: 0.2em 0;
+  }
+  h1 {
+    font-size: $font_size_landing_huge;
+  }
+  h3 {
+    font-size: $font_size_landing_medium;
+  }
+  p {
+    font-size: $font_size_landing_small;
+  }
+  h3, p:nth-child(4) {
+    color: $color_font_1;
+  }
+  p:nth-child(4) span {
+    color: $color_font_2;
+  }
+}
+
+#landing .decoration-text {
+  right: 0em;
+  text-align: right;
 }
 
 /* EXPERIENCE */
-.project-item:nth-child(odd) {
-  flex-direction: row;
-  .text-container {
-    margin-left: 2em;
-    h2, p {
-      margin: 0;
-    }
-
+#experience {
+  margin-top: 0;
+  .project-container {
+    margin: 0 10vw;
     h2 {
-      margin-bottom: 0.4em;
+      color: $color_font_3;
     }
-  }
-}
-
-.project-item:nth-child(even) {
-  flex-direction: row-reverse;
-  text-align: right;
-  .text-container {
-    margin-right: 2em;
-    h2, p {
-      margin: 0;
+    .project-item:nth-child(odd) {
+      flex-direction: row;
+      .text-container {
+        margin-left: 2em;
+        h2, p {
+          margin: 0;
+        }
+        h2 {
+          margin-bottom: 0.4em;
+        }
+      }
     }
-
-    h2 {
-      margin-bottom: 0.4em;
+    .project-item:nth-child(even) {
+      flex-direction: row-reverse;
+      text-align: right;
+      .text-container {
+        margin-right: 2em;
+        h2, p {
+          margin: 0;
+        }
+        h2 {
+          margin-bottom: 0.4em;
+        }
+      }
     }
   }
 }
@@ -64,14 +91,34 @@ nav {
   }
 }
 
+/* ME */
+#me {
+  margin-bottom: 0;
+}
+
 /* CONTACT */
 #contact {
-  p {
-    text-align: center;
-    top: 5.5em;
-    position: relative;
-    transform: rotate(-25deg);
+  #message-box {
+  background-color: $color_background_1;
+  padding: 0 1em;
+    p {
+      color: $color_font_1;
+      text-align: left;
+      position: relative;
+    }
+    li {
+      margin: 0 1em;
+    }
   }
+}
+
+/* FOOTER */
+footer {
+  background-color: $color_background_1;
+  text-align: center;
+  position: relative;
+  top: 2em;
+  padding: 1em 0;
 }
 
 /* CUSTOM ELEMENTS */
@@ -99,7 +146,7 @@ nav {
   text-align: left;
   padding: 1em 2em;
   border: 0px solid black;
-  background-color: rgb(68, 68, 68);
+  background-color: $color_background_1;
   margin: 0.2em;
   border-radius: 0.3em;
 }
@@ -146,11 +193,6 @@ nav {
   h3 {
     margin-top: 0;
   }
-}
-
-#landing .decoration-text {
-  right: 0em;
-  text-align: right;
 }
 
 .section:nth-child(odd) {
