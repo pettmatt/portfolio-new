@@ -1,7 +1,5 @@
-import Image from 'next/image'
-
 export default function Gridlist({toolkit, toolkitDesc}) {
-  const array = toolkit
+  const list = toolkit
 
   return (
     <>
@@ -12,11 +10,9 @@ export default function Gridlist({toolkit, toolkitDesc}) {
       'This section includes tools I have used regularly in personal or collaboration projects.'}
     </small></p>
     <div className='grid-list'>
-      { array.map(item => (
+      { list.map(item => (
         <div className={ item.confident ? 'grid-box' : 'grid-box' } 
         key={item.id}>
-          {//<Image id="background" src={'http://localhost:8085' + item.background.url} 
-          /*alt={item.name + ' image'} width="100" height="100" />*/}
           { item.deviconClass ?
               item.deviconClass.includes('-') ? 
                 <i className={'devicon-' + item.deviconClass + ' colored'}></i> :
