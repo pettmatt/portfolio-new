@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# DELETE THIS IF API FOLDER CONTAINS SOMETHING USEFUL
+/pages/api
