@@ -1,6 +1,10 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['wallup.net']
+    domains: [
+      'localhost', 
+      'strapi-pm-portfolio.herokuapp.com',
+      'res.cloudinary.com'
+    ]
   }
 }

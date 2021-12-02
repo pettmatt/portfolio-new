@@ -15,7 +15,6 @@ export default function Landing({header, subHeader}) {
       </div>
 
       <div>
-        <div id="test"></div>
       </div>
     </div>
   )

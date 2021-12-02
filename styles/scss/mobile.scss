@@ -3,12 +3,33 @@
     padding: 0 2rem;
   }
 
+  /* HEADER */
+  nav {
+    position: fixed;
+    margin: 1em 0;
+    width: 100%;
+    div {
+      a {
+        padding: 0.3em 0.4em;
+      }
+    }
+  }
+
   #landing {
     h1 {
       font-size: $font_size_landing_medium;
     }
     #start {
       font-size: $font_size_small;
+      position: relative;
+      top: 0.5em;
+    }
+    #end {
+      font-size: 2rem;
+      span {
+        position: relative;
+        top: -0.6em;
+      } 
     }
     p {
       font-size: $font_size_landing_small;
@@ -18,6 +39,9 @@
         font-size: $font_size_small;
       }
     }
+    #name {
+      margin: 0;
+    }
     h3 {
       font-size: $font_size_medium;
     }
@@ -25,7 +49,18 @@
 
   #experience {
     .project-container {
-      margin: 0vw;
+      margin-left: 0vw;
+      margin-right: 0vw;
+      .project-item {
+        min-width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .grid-list {
+      .grid-box {
+        //max-width: 8em;
+      }
     }
   }
 
@@ -34,16 +69,10 @@
       width: 100%;
     }
 
-    .project-item {
-      flex-direction: column;
-      max-height: none;
-      .image-container {
-        margin-bottom: 0.2em;
-        width: 100% !important;
-      }
-      .text-container {
-        margin: 0;
-        text-align: left;
+    ul {
+      padding: 0;
+      li {
+        margin: 0.4em 0;
       }
     }
 
@@ -51,6 +80,32 @@
       max-width: 100%;
       width: 100%;
       margin: 0;
+    }
+
+    .grid-box {
+      max-width: 15em;
+      text-align: left;
+      padding: 0.5em 1em;
+      border: 0 solid black;
+      background-color: #000;
+      margin: .2em;
+      border-radius: .3em;
+      p {
+        margin-top: 0;
+      }
+    }
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: left;
+    a {
+      padding: 1em;
+    }
+
+    #socials a {
+      margin: 0;
+      padding: 1em 0.4em;
     }
   }
 }

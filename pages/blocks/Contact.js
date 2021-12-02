@@ -1,12 +1,34 @@
-import handleOnSubmit from '../api/email'
+import ReactMarkdown from 'react-markdown'
 
-export default function Contact({message}) {
+export default function Contact({message, email, location}) {
+
   return (
     <div id="contact" className="section">
       <h1>Contact</h1>
 
       <div className="grid-list-2">
-        <form className="grid-box-2" method="POST" onSubmit={handleOnSubmit}>
+        
+        <div className="space-container">
+          <a className="fake-button" href="mailto:petterimattila4@outlook.com">Want to ask something?</a>
+        </div>
+
+        <div id="message-box" className="grid-box-2">
+          <div>
+            <h3>Message to you</h3>
+            { <ReactMarkdown>{message}</ReactMarkdown> }
+            <ul>
+              { email ? <li><b>Email:</b> {email}</li> : ''  }
+              { location ? <li><b>Located:</b> {location}</li> : ''  }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/**
+ * <form className="grid-box-2" method="POST" onSubmit={handleOnSubmit}>
           <label htmlFor="e-mail">Your email *</label> 
           <br />
 
@@ -25,27 +47,4 @@ export default function Contact({message}) {
           <textarea name="message" placeholder="What's on your mind?" required />
           <button type="submit">Send your message</button>
         </form>
-        
-        <div id="message-box" className="grid-box-2">
-          <div>
-            <h3>Message to you</h3>
-            <p>
-              Thank you for coming this far. <br />
-              If you've anything to say or ask you can contact me through this email form. 
-              You can also find me from <a href="#">LinkedIn</a>.
-              Feel free to just say hi.
-            </p>
-            <p>
-              <li>It would be highly It would be highly It would be highly It would be highly</li>
-              <li>Something something</li>
-              <li>Something something</li>
-            </p>
-            <p>
-            { message }
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+ */

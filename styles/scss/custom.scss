@@ -1,12 +1,26 @@
 /* HEADER */
 nav {
   position: fixed;
+  margin: 1em 0;
+  width: 100%;
   div {
     float: right;
+    margin-right: 1em;
     a {
-      background-color: rgb(109, 109, 109);
+      background-color: $color_background_1;
       padding: 0.3em 0.4em;
     }
+  }
+}
+
+#socials {
+  margin-right: 0.5em;
+  position: fixed;
+  bottom: 1em;
+  right: 0.5em;
+  z-index: 99;
+  a {
+    margin: 0 0.5em;
   }
 }
 
@@ -16,7 +30,12 @@ nav {
   padding-top: 4em;
   margin-bottom: 0;
   background-color: $color_background_1;
-
+  #name {
+    font-weight: unset;
+  }
+  #end {
+    font-weight: unset;
+  }
   div > {
     display: flex;
     width: 50%;
@@ -50,33 +69,40 @@ nav {
 /* EXPERIENCE */
 #experience {
   margin-top: 0;
+  > p {
+    padding: $more_margin_to_content;
+  }
   .project-container {
-    margin: 0 10vw;
+    margin: $more_margin_to_content;
+    margin-bottom: 5em;
+    margin-top: 3em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     h2 {
+      margin: 0;
       color: $color_font_3;
     }
-    .project-item:nth-child(odd) {
-      flex-direction: row;
-      .text-container {
-        margin-left: 2em;
-        h2, p {
-          margin: 0;
-        }
-        h2 {
-          margin-bottom: 0.4em;
+    p {
+      margin-top: 0;
+      padding: 1em;
+    }
+    .project-item {  
+      min-width: 25em;
+      max-width: 25em;
+      border: 0.1em solid rgb(196, 196, 196);
+      margin: 0.5em;
+      span {
+        width: 100% !important;
+        img {
+          object-fit: cover;
         }
       }
-    }
-    .project-item:nth-child(even) {
-      flex-direction: row-reverse;
-      text-align: right;
       .text-container {
-        margin-right: 2em;
-        h2, p {
-          margin: 0;
-        }
-        h2 {
-          margin-bottom: 0.4em;
+        position: relative;
+        text-align: center;
+        a {
+          margin: 0 !important;
         }
       }
     }
@@ -84,23 +110,71 @@ nav {
 }
 
 #skill-list {
-  overflow-y: scroll;
-  height: 30em;
-  h2 {
-    margin-top: 0.4em;
+  > h2 {color:$color_font_3}
+  > p {position:relative; bottom: 2.6em;}
+  .grid-list {
+    padding: 0 15vw;
+    background-color: rgba(0, 0, 0, 0);
+    .grid-box {
+      //border: .1em solid #c4c4c4;
+      background-color: $color_background_2;
+      color: $color_font_3;
+      .no-icon {
+        font-size: $font_size_medium;
+        text-align: center;
+      }
+      i {
+        font-size: $font_size_huge;
+        text-align: center;
+        color: rgb(0, 0, 0); // Gets rid of the default color
+      }
+      p {
+        font-weight: 600;
+        text-align: center;
+        margin-top: 0.4em;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .grid-list-3 {
+    padding: 0 10vw;
+    .grid-box {
+      min-width: 100%;
+      background-color: $color_background_2;
+      margin-top: 0;
+      margin-bottom: 0;
+      &:nth-child(odd) {
+        border: .1em solid #c4c4c4;
+      }
+    }
   }
 }
 
+.grid-list .highlighted {
+  background-color: $color_background_1 !important;
+  p {
+    color: $color_font_1 !important;
+  }
+}
+
+
+
 /* ME */
 #me {
-  margin-bottom: 0;
+  min-height: 25em;
+  p {
+    padding: $more_margin_to_content;
+  }
 }
 
 /* CONTACT */
 #contact {
   #message-box {
   background-color: $color_background_1;
-  padding: 0 1em;
+  padding: 0 2em;
+  padding-bottom: 1em;
+  max-width: 25em;
     p {
       color: $color_font_1;
       text-align: left;
@@ -163,23 +237,6 @@ footer {
   margin-right: 1em;
   padding-top: 1em;
   padding-bottom: 1em;
-}
-
-.project-item {
-  margin: 3em 0;
-  max-height: 205px;
-  display: flex;
-  align-items: flex-start;
-  .image-container {
-    min-height: auto;
-    min-width: 40%;
-    flex: 1;
-  }
-  .text-container {
-    h2, p {
-      margin: 0;
-    }
-  }
 }
 
 .decoration-text h3 {

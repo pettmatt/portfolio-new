@@ -1,22 +1,41 @@
-export default function Gridlist({data}) {
-  const array = [
-    {name: '1', description: 'Duis occaecat id magna pariatur ea tempor consectetur eu laborum. Dolor esse nostrud veniam reprehenderit sunt adipisicing ea elit culpa voluptate culpa ullamco. Enim sint anim duis labore sit proident consectetur commodo. Pariatur officia magna ea velit labore nostrud cillum pariatur deserunt eu duis. Aliqua dolor consequat commodo laborum. Commodo nulla ipsum duis ad dolor irure esse nulla consectetur deserunt. Commodo ea cillum minim cillum dolore sunt.'},
-    {name: '2', description: 'Duis occaecat id magna pariatur ea tempor consectetur eu laborum. Dolor esse nostrud veniam reprehenderit sunt adipisicing ea elit culpa voluptate culpa ullamco. Enim sint anim duis labore sit proident consectetur commodo. Pariatur officia magna ea velit labore nostrud cillum pariatur deserunt eu duis. Aliqua dolor consequat commodo laborum. Commodo nulla ipsum duis ad dolor irure esse nulla consectetur deserunt. Commodo ea cillum minim cillum dolore sunt.'},
-    {name: '3', description: 'Duis occaecat id magna pariatur ea tempor consectetur eu laborum. Dolor esse nostrud veniam reprehenderit sunt adipisicing ea elit culpa voluptate culpa ullamco. Enim sint anim duis labore sit proident consectetur commodo. Pariatur officia magna ea velit labore nostrud cillum pariatur deserunt eu duis. Aliqua dolor consequat commodo laborum. Commodo nulla ipsum duis ad dolor irure esse nulla consectetur deserunt. Commodo ea cillum minim cillum dolore sunt.'},
-    {name: '4', description: 'Duis occaecat id magna pariatur ea tempor consectetur eu laborum. Dolor esse nostrud veniam reprehenderit sunt adipisicing ea elit culpa voluptate culpa ullamco. Enim sint anim duis labore sit proident consectetur commodo. Pariatur officia magna ea velit labore nostrud cillum pariatur deserunt eu duis. Aliqua dolor consequat commodo laborum. Commodo nulla ipsum duis ad dolor irure esse nulla consectetur deserunt. Commodo ea cillum minim cillum dolore sunt.'},
-    {name: '5', description: 'Duis occaecat id magna pariatur ea tempor consectetur eu laborum. Dolor esse nostrud veniam reprehenderit sunt adipisicing ea elit culpa voluptate culpa ullamco. Enim sint anim duis labore sit proident consectetur commodo. Pariatur officia magna ea velit labore nostrud cillum pariatur deserunt eu duis. Aliqua dolor consequat commodo laborum. Commodo nulla ipsum duis ad dolor irure esse nulla consectetur deserunt. Commodo ea cillum minim cillum dolore sunt.'},
-    {name: '6', description: 'Duis occaecat id magna pariatur ea tempor consectetur eu laborum. Dolor esse nostrud veniam reprehenderit sunt adipisicing ea elit culpa voluptate culpa ullamco. Enim sint anim duis labore sit proident consectetur commodo. Pariatur officia magna ea velit labore nostrud cillum pariatur deserunt eu duis. Aliqua dolor consequat commodo laborum. Commodo nulla ipsum duis ad dolor irure esse nulla consectetur deserunt. Commodo ea cillum minim cillum dolore sunt.'},
-  ]
+import Image from 'next/image'
+
+export default function Gridlist({toolkit, toolkitDesc}) {
+  const array = toolkit
 
   return (
+    <>
+    <h1>Toolkit</h1>
+    <p><small>
+      { toolkitDesc ? 
+      toolkitDesc : 
+      'This section includes tools I have used regularly in personal or collaboration projects.'}
+    </small></p>
     <div className='grid-list'>
       { array.map(item => (
-        <div className='grid-box' key={item.name}>
-          <h2>{item.name}</h2>
-          <p>{item.description}</p>
+        <div className={ item.confident ? 'grid-box' : 'grid-box' } 
+        key={item.id}>
+          {//<Image id="background" src={'http://localhost:8085' + item.background.url} 
+          /*alt={item.name + ' image'} width="100" height="100" />*/}
+          { item.deviconClass ?
+              item.deviconClass.includes('-') ? 
+                <i className={'devicon-' + item.deviconClass + ' colored'}></i> :
+            <i className={'devicon-' + item.deviconClass + '-plain colored'}></i> :
+            <i className={'no-icon colored'}>{'</>'}</i>
+          }
+          
+          <p>{item.name}</p>
         </div>
         )
       ) }
     </div>
+    </>
   )
 }
+
+// highlight class: highlighted
+
+/**
+ *             (Number(item.acquired.substring(5, 7)) - Number(thisMonth)) ?
+            Number(item.acquired.substring(5, 7)) :
+ */

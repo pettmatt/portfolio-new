@@ -18,16 +18,31 @@
   }
 
   #experience {
-    .project-item {
-      flex-direction: column;
-      max-height: none;
-      .image-container {
-        margin-bottom: 0.2em;
-      }
-      .text-container {
-        margin: 0;
-        text-align: left;
+    .project-container {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    p {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  #contact {
+    .grid-list-2 {
+      flex-flow: wrap-reverse;
+      .space-container {
+        position: relative;
+        top: 3em;
+        width: 100%;
+        text-align: center;
       }
     }
+  }
+
+  #skill-list .grid-list {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
