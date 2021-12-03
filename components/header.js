@@ -7,9 +7,8 @@ export default function Header({ title, showBlogLink }) {
     <Head>
       <meta charSet="UTF-8" />
       <meta name="description" content="Collection of my projects and skills also known as portfolio." />
-      <meta name="" content="" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta property="og:image" content="/icon.png" />
+      <meta property="og:image" content="https://portfolio-2021-dod0vijx1-pettmatt.vercel.app/icon.png" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:title" content="PettMatt : Web Developer" />
       <meta property="og:description" content="Collection of my projects and skills also known as portfolio." />
