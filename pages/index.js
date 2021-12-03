@@ -1,15 +1,15 @@
-import Header from './blocks/header'
-import Footer from './blocks/footer'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
-import Landing from './blocks/Landing'
-import Experience from './blocks/Experience'
-import Me from './blocks/Me'
-import Contact from './blocks/Contact'
+import Landing from '../components/Landing'
+import Experience from '../components/Experience'
+import Me from '../components/Me'
+import Contact from '../components/Contact'
 
 console.log('Work in progress')
 
 export default function Home({ body }) {
-
+  
   return (
     <div className='main-container'>
       <main>
@@ -46,66 +46,16 @@ export async function getStaticProps() {
   const res = await fetch(process.env.NEXT_PUBLIC_URL)
   const data = await res.json()
 
+  if(!data) {
+    return {
+      notFound: true,
+    }
+  }
+
   // Forward to frontend use
-  return {props: {body: data}}
+  return {
+    props: {
+      body: data
+    }
+  }
 }
-
-// export async function getStaticProps() {
-//   const client = new ApolloClient({
-//     uri: 'http://localhost:1337/graphql',
-//     cache: new InMemoryCache()
-//   })
-
-//   const { data } = await client.query({
-//     query: gql`
-//       query{
-//         frontpage{
-//           landingName,
-//           landingSubTitle,
-//           experienceDesc,
-//           meDesc,
-//           thankYouMessage,
-//           showBlogs,
-//           email,
-//           projects{
-//             id,
-//             title,
-//             link,
-//             thumbnail{id,url}
-//           },
-//           skills{
-//             id,
-//             name,
-//             confident,
-//             show,
-//             background{id,url}
-//           }
-//           socials{
-//             id,
-//             name,
-//             link
-//           }
-//         }
-//       }
-//     `
-//   })
-
-//   return {
-//     props: {
-//       body: data.frontpage,
-//     }
-//   }
-// }
-
-// export async function getStaticProps() {
-//   const url = `${
-//     process.env.NEXT_PUBLIC_URL || 'http://localhost:1337/'
-//   }frontpage`
-
-//   const response = await fetch(url)
-//   return { 
-//     props: {
-//       data: await response.json()
-//     }
-//   }
-// }

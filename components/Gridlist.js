@@ -1,5 +1,5 @@
 export default function Gridlist({toolkit, toolkitDesc}) {
-  const list = toolkit
+  let list = toolkit
 
   return (
     <>
@@ -11,7 +11,7 @@ export default function Gridlist({toolkit, toolkitDesc}) {
     </small></p>
     <div className='grid-list'>
       { list.map(item => (
-        <div className={ item.confident ? 'grid-box' : 'grid-box' } 
+        <div className={ item.confident ? 'grid-box' : 'grid-box' }
         key={item.id}>
           { item.deviconClass ?
               item.deviconClass.includes('-') ? 
@@ -27,6 +27,22 @@ export default function Gridlist({toolkit, toolkitDesc}) {
     </div>
     </>
   )
+}
+
+// Used while building the application
+// Index.js has the "real" fetching function
+export async function getStaticProps() {
+  // Fetch data from backend
+  const res = await fetch(process.env.NEXT_PUBLIC_URL)
+  const data = await res.json()
+
+  // Forward to frontend use
+  return {
+    props: {
+      toolkit: data.skills,
+      toolkitDesc: data.toolkitDesc
+    }
+  }
 }
 
 // highlight class: highlighted

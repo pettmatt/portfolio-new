@@ -8,6 +8,17 @@
       width: 100%;
     }
   }
+
+  #experience {
+    .project-container {
+      margin-left: 0;
+      margin-right: 0;
+      .project-item {
+        min-width: 20em;
+        max-width: 20em;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: $tablet) {

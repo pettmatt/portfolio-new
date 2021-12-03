@@ -2,12 +2,11 @@ import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
 
 export default function Projects({projects}) {
-
-  const array = projects
+  let list = projects
 
   return (
     <div className='project-container'>
-      { array.map(item => (
+      { list.map(item => (
       <div key={item.id} className='project-item'>
         <div className='image-container'>
           <a href={item.link}>
@@ -26,4 +25,19 @@ export default function Projects({projects}) {
         
     </div>
   )
+}
+
+// Used while building the application
+// Index.js has the "real" fetching function
+export async function getStaticProps() {
+  // Fetch data from backend
+  const res = await fetch(process.env.NEXT_PUBLIC_URL)
+  const data = await res.json()
+
+  // Forward to frontend use
+  return {
+    props: {
+      projects: data.projects
+    }
+  }
 }

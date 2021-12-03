@@ -11,9 +11,8 @@ export default function Header({ title, showBlogLink }) {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta property="og:image" content="/icon.png" />
       <meta property="og:locale" content="en_US" />
-      <meta property="og:title" content="PettMatt : Web Developer Portfolio" />
+      <meta property="og:title" content="PettMatt : Web Developer" />
       <meta property="og:description" content="Collection of my projects and skills also known as portfolio." />
-      <meta property="og:url" content="https://pettmatt.github.io/portfolio/" />
       <meta property="og:site_name" content="PettMatt" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:label1" content="Est. reading time" />

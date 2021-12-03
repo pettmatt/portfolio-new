@@ -86,10 +86,11 @@ nav {
     p {
       margin-top: 0;
       padding: 1em;
+      margin-bottom: 0;
     }
-    .project-item {  
-      min-width: 25em;
-      max-width: 25em;
+    .project-item {
+      min-width: 25%;
+      max-width: 25%;
       border: 0.1em solid rgb(196, 196, 196);
       margin: 0.5em;
       span {
