@@ -13,6 +13,11 @@ nav {
   }
 }
 
+#socials a, nav > a,
+#socials a, nav > a {
+  padding: 0.3em 0.4em;
+}
+
 #socials {
   margin-right: 0.5em;
   position: fixed;
@@ -21,6 +26,7 @@ nav {
   z-index: 99;
   a {
     margin: 0 0.5em;
+    color: $color_font_1;
   }
 }
 

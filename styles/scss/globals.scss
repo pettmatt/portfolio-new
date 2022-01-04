@@ -66,7 +66,9 @@ a {
   box-sizing: border-box;
 }
 
-p a {
+p a,
+footer > a,
+footer > a {
   //color: $color_highlight;
   font-weight: bold;
   border-bottom: 0em solid $color_font_1;
@@ -76,24 +78,34 @@ p a {
 }
 
 p a:hover, 
-p a:active {
+p a:active,
+footer > a:hover,
+footer > a:active {
   //color: $color_highlight;
   border-bottom: 0.3em solid $color_font_1;
 }
 
-nav > a, #socials a, footer a {
-  transition: font-weight 250ms ease-in-out;
+#experience p a:hover, 
+#p a:active {
+  //color: $color_highlight;
+  border-bottom: 0.3em solid $color_font_3;
 }
 
-#socials a:hover, nav > a:hover, footer a:hover,
-#socials a:active, nav > a:active, footer a:active {
-  font-weight: bold;
-}
+// nav > a, #socials a, footer a {
+//   transition: font-weight 250ms ease-in-out;
+// }
 
-nav div a {
+// #socials a:hover, nav > a:hover, footer a:hover,
+// #socials a:active, nav > a:active, footer a:active {
+//   font-weight: bold;
+// }
+
+nav > a, #socials a, nav div a {
   transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
 }
 
+#socials a:hover, nav > a:hover,
+#socials a:active, nav > a:active,
 nav div a:hover,
 nav div a:active {
   background-color: $color_background_2;
@@ -204,7 +216,7 @@ button:active {
 #experience, #me, #contact {
   padding-bottom: 2em;
   h1 {
-    bottom: 0.38em;
+    bottom: 1.9rem;
     position: relative;
     font-size: $font_size_huge;
     margin-top: 0;

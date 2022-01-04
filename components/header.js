@@ -15,7 +15,7 @@ export default function Header({ title, showBlogLink }) {
       <meta property="og:site_name" content="PettMatt" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:label1" content="Est. reading time" />
-      <meta name="twitter:data1" content="1 minute" />
+      <meta name="twitter:data1" content="2 minute" />
       <title>PettMatt : { title }</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>

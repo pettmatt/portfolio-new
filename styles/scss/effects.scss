@@ -1,0 +1,9 @@
+// Mix blend
+// Note to self. This effect works only to the child which takes the wanted
+// color based on their parent.
+
+// So effect needs to be applied to nav NOT to links, because it's the child of main which contains bg-color.
+
+nav, footer {
+  mix-blend-mode: difference;
+}

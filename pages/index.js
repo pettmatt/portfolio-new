@@ -34,9 +34,9 @@ export default function Home({ body }) {
           message={ body.contactMessage }
           location={ body.location } />
 
+        <Footer 
+          socials={body.socials} />
       </main>
-      <Footer 
-        socials={body.socials} />
     </div>
   )
 }
