@@ -34,7 +34,7 @@ yarn-error.log*
 .vercel
 
 # DELETE THIS IF API FOLDER CONTAINS SOMETHING USEFUL
-/pages/api
-/pages/api/email
+# /pages/api
+# /pages/api/email
 /pages/api/mailRequest
 /pages/api/strapi
