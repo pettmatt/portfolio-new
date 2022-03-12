@@ -22,26 +22,32 @@ export default function Email() {
 }
 
 async function handleOnSubmit(e) {
-  e.preventDefault();
+  e.preventDefault()
 
-  const formData = {};
+  const formData = {}
 
   // Get elements and their values
   Array.from(e.currentTarget.elements).forEach(field => {
     if ( !field.name ) return;
     formData[field.name] = field.value;
-  });
+  })
 
   const res = await fetch('/api/email', {
     method: 'POST',
     body: JSON.stringify(formData)
-  });
+  })
 
-  // console.log(res)
+  console.log(res)
 
   if(res.status === 200) {
     console.log('Message send')
     // document.getElementsByTagName('form')[0].innerHTML += 
     // '<div id="message-box" class="email-message-box">Email send successfully</div>'
+    
+    // Clear fields
+    Array.from(e.currentTarget.elements).forEach(field => {
+      field.value = ''
+    })
   }
+  else console.log('Something went wrong while sending message')
 }

@@ -23,7 +23,7 @@ async function emailResponse(req, res) {
   }
 
   await mail.send(data).then(() => {
-    res.status(200).json({ status: 'Ok' });
+    res.status(200).json({ status: 'Ok' })
   })
 }
 
