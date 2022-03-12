@@ -1,4 +1,5 @@
 import ReactMarkdown from 'react-markdown'
+import Email from './Email'
 
 export default function Contact({message, email, location}) {
 
@@ -7,10 +8,8 @@ export default function Contact({message, email, location}) {
       <h1>Contact</h1>
 
       <div className="grid-list-2">
-        
-        <div className="space-container">
-          <a className="fake-button" href="mailto:petterimattila4@outlook.com">Want to ask something?</a>
-        </div>
+
+        <Email />
 
         <div id="message-box" className="grid-box-2">
           <div>
@@ -26,6 +25,10 @@ export default function Contact({message, email, location}) {
     </div>
   )
 }
+
+/* <div className="space-container">
+  <a className="fake-button" href="mailto:petterimattila4@outlook.com">Want to ask something?</a>
+</div> */
 
 /**
  * <form className="grid-box-2" method="POST" onSubmit={handleOnSubmit}>

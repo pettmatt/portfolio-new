@@ -176,18 +176,40 @@ nav {
 /* CONTACT */
 #contact {
   #message-box {
-  background-color: $color_background_1;
-  padding: 0 2em;
-  padding-bottom: 1em;
-  max-width: 25em;
+    background-color: $color_background_1;
+    padding: 0 2em;
+    padding-bottom: 1em;
+    max-width: 25em;
+    max-height: 17em;
     p {
       color: $color_font_1;
       text-align: left;
       position: relative;
     }
-    li {
-      margin: 0 1em;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        margin: 0.6em 0;
+      }
     }
+  }
+
+  form {
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .email-message-box {
+    position: relative;
+    top: 1em;
+    padding: 0.5em;
   }
 }
 
@@ -240,8 +262,9 @@ footer {
   max-width: 50%;
   margin-left: 1em;
   margin-right: 1em;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  p {
+    margin-top: 0;
+  }
 }
 
 .decoration-text h3 {
