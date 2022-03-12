@@ -26,8 +26,10 @@ async function handleOnSubmit(e) {
 
   const formData = {}
 
+  const inputElements = e.currentTarget.elements
+
   // Get elements and their values
-  Array.from(e.currentTarget.elements).forEach(field => {
+  Array.from(inputElements).forEach(field => {
     if ( !field.name ) return;
     formData[field.name] = field.value;
   })
@@ -37,7 +39,7 @@ async function handleOnSubmit(e) {
     body: JSON.stringify(formData)
   })
 
-  console.log(res)
+  // console.log(res)
 
   if(res.status === 200) {
     console.log('Message send')
@@ -45,7 +47,7 @@ async function handleOnSubmit(e) {
     // '<div id="message-box" class="email-message-box">Email send successfully</div>'
     
     // Clear fields
-    Array.from(e.currentTarget.elements).forEach(field => {
+    Array.from(inputElements).forEach(field => {
       field.value = ''
     })
   }
