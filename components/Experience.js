@@ -1,23 +1,18 @@
 import ReactMarkdown from 'react-markdown'
-import Gridlist from './Gridlist'
+import Skills from './Skills'
 import Projects from './Projects'
 
-export default function Experience({description, projects, toolkit, toolkitDesc}) {
+export default function Experience({ description, projects, toolkit, toolkitDesc }) {
 
   return (
-    <div id="experience" className="section">
+    <div id='experience' className='section'>
       <h1>Experience</h1>
 
-      {<ReactMarkdown>{ description }</ReactMarkdown>}
+      {<ReactMarkdown className='centered'>{ description }</ReactMarkdown>}
 
-      <Projects 
-        projects={ projects } />
+      <Projects projects={ projects } />
 
-      <div id="skill-list">
-        <Gridlist 
-          toolkit={toolkit}
-          toolkitDesc={toolkitDesc} />
-      </div>
+      <Skills toolkitDesc={ toolkitDesc } toolkit={ toolkit } />
     </div>
   )
 }

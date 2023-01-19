@@ -1,70 +1,14 @@
 @media only screen and (min-width: $mobile) and (max-width: $tablet) {
-  .container {
-    padding: 0 7rem;
-  }
 
-  #contact {
-    input, textarea {
-      width: 100%;
-    }
-
-    .grid-list-2 {
-      .grid-box-2 {
-        margin-top: 3em;
-      }
-    }
-  }
-
-  #experience {
-    .project-container {
-      margin-left: 0;
-      margin-right: 0;
-      .project-item {
-        min-width: 20em;
-        max-width: 20em;
-      }
-    }
-  }
 }
 
 @media only screen and (max-width: $tablet) {
   #landing {
-    div:nth-child(2) {
-      display: none;
+    h1 {
+      font-size: $font_size_landing_medium;
     }
-  }
-
-  #experience {
-    .project-container {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
     p {
-      padding-left: 0;
-      padding-right: 0;
+      font-size: $font_size_medium - 1rem;
     }
-  }
-
-  #contact {
-    .grid-list-2 {
-      flex-flow: wrap-reverse;
-      .space-container {
-        position: relative;
-        top: 3em;
-        width: 100%;
-        text-align: center;
-      }
-    }
-  }
-
-  #skill-list .grid-list {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  footer a {
-    padding: 0.1rem 0.2rem;
-    margin: 1rem;
   }
 }

@@ -1,121 +1,20 @@
 @media only screen and (max-width: $mobile) {
-  .container {
-    padding: 0 2rem;
-  }
-
-  /* HEADER */
-  nav {
-    position: fixed;
-    margin: 1em 0;
-    width: 100%;
-    div {
-      a {
-        padding: 0.3em 0.4em;
-      }
-    }
+  .section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 
   #landing {
-    h1 {
-      font-size: $font_size_landing_medium;
-    }
-    #start {
-      font-size: $font_size_small;
-      position: relative;
-      top: 0.5em;
-    }
-    #end {
-      font-size: 2rem;
-      span {
-        position: relative;
-        top: -0.6em;
-      } 
-    }
-    p {
-      font-size: $font_size_landing_small;
-      span {
-        width: 100%;
-        display: block;
-        font-size: $font_size_small;
+    div {
+      h1 {
+        font-size: $font_size_landing_small + 1;
       }
-    }
-    #name {
-      margin: 0;
-    }
-    h3 {
-      font-size: $font_size_medium;
-    }
-  }
-
-  #experience {
-    .project-container {
-      margin-left: 0vw;
-      margin-right: 0vw;
-      .project-item {
-        min-width: 100%;
-        max-width: 100%;
+      h3 {
+        font-size: $font_size_landing_small;
       }
-    }
-
-    .grid-list {
-      .grid-box {
-        //max-width: 8em;
-      }
-    }
-  }
-
-  #contact {
-    input, textarea {
-      width: 100%;
-    }
-
-    ul {
-      padding: 0;
-      li {
-        margin: 0.4em 0;
-      }
-    }
-
-    #message-box {
-      max-height: 23em;
-    }
-
-    .grid-box-2 {
-      max-width: 100%;
-      width: 100%;
-    }
-
-    .grid-box {
-      max-width: 15em;
-      text-align: left;
-      padding: 0.5em 1em;
-      border: 0 solid black;
-      background-color: #000;
-      margin: .2em;
-      border-radius: .3em;
       p {
-        margin-top: 0;
+        font-size: $font_size_landing_small - 1;
       }
-    }
-
-    form {
-      margin-top: 3em;
-      p {
-        margin: 0;
-      }
-    }
-  }
-
-  /* FOOTER */
-  footer {
-    text-align: left;
-    a {
-      padding: 1em;
-    }
-
-    #socials a {
-      margin-left: 0.1rem;
-      padding: 0.3em 0.4em;
     }
   }
 }

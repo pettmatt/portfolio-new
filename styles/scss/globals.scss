@@ -7,10 +7,10 @@
   top: 40%;
 }
 
-#__next {
-  position: relative;
-  bottom: 2em;
-}
+// #__next {
+//   position: relative;
+//   bottom: 2em;
+// }
 
 html,
 body, textarea {
@@ -18,7 +18,6 @@ body, textarea {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  overflow-x: hidden;
 }
 
 body {
@@ -57,6 +56,10 @@ h3 {
   font-size: $font_size_extra_small;
 }
 
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -66,23 +69,12 @@ a {
   box-sizing: border-box;
 }
 
-p a,
-footer > a,
 footer > a {
-  //color: $color_highlight;
-  font-weight: bold;
-  border-bottom: 0em solid $color_font_1;
-  transition: /*color 250ms ease-in-out,*/ 
-    /*font-weight 250ms ease-in-out,*/
-    border-bottom 100ms ease-in-out;
-}
-
-p a:hover, 
-p a:active,
-footer > a:hover,
-footer > a:active {
-  //color: $color_highlight;
-  border-bottom: 0.3em solid $color_font_1;
+  font-weight: 600;
+  padding: 0.5rem;
+//   border-bottom: 0em solid $color_font_1;
+//   transition:
+//     border-bottom 100ms ease-in-out;
 }
 
 #experience p a:hover, 
@@ -91,23 +83,18 @@ footer > a:active {
   border-bottom: 0.3em solid $color_font_3;
 }
 
-// nav > a, #socials a, footer a {
-//   transition: font-weight 250ms ease-in-out;
-// }
-
-// #socials a:hover, nav > a:hover, footer a:hover,
-// #socials a:active, nav > a:active, footer a:active {
-//   font-weight: bold;
-// }
-
-nav > a, #socials a, nav div a {
+nav > a, #socials a, nav div a, footer a, #links a {
   transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
 }
 
 #socials a:hover, nav > a:hover,
 #socials a:active, nav > a:active,
 nav div a:hover,
-nav div a:active {
+nav div a:active,
+footer a:hover,
+footer a:active,
+#links a:hover,
+#links a:active {
   background-color: $color_background_2;
   color: $color_font_3;
 }
@@ -180,15 +167,9 @@ button:active {
 }
 
 .space-container {
-  margin-bottom: 2em;
   .fake-button {
     margin: 0 auto;
   }
-}
-
-.section {
-  margin-top: 2em;
-  margin-bottom: 2em;
 }
 
 .project-item {
@@ -210,17 +191,37 @@ button:active {
   }
 }
 
-.grid-list .grid-box img {
+.flex-list .grid-box img {
   object-fit: contain;
 }
 
 #experience, #me, #contact {
-  padding-bottom: 2em;
+  // padding-bottom: 2em;
   h1 {
-    bottom: 1.9rem;
-    position: relative;
+    // bottom: 1.9rem;
+    // position: relative;
     font-size: $font_size_huge;
-    margin-top: 0;
-    margin-bottom: 0;
+    // margin-top: 0;
+    // margin-bottom: 0;
+  }
+}
+
+#me {
+  p {
+    margin: 0;
+    padding-bottom: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .section {
+    .centered {
+      padding: $more_margin_to_content;
+    }
+  }
+
+  .main-container .section  {
+    padding-left: $side_space !important;
+    padding-right: $side_space !important;
   }
 }

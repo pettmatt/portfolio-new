@@ -1,3 +1,4 @@
+// Not in use. Retired in January 2023.
 const sanitizeHtml = require('sanitize-html')
 const mail = require('@sendgrid/mail')
 mail.setApiKey(process.env.SENDGRID_API_KEY)

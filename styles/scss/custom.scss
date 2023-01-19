@@ -18,22 +18,22 @@ nav {
   padding: 0.3em 0.4em;
 }
 
-#socials {
-  margin-right: 0.5em;
-  position: fixed;
-  bottom: 1em;
-  right: 0.5em;
-  z-index: 99;
-  a {
-    margin: 0 0.5em;
-    color: $color_font_1;
-  }
-}
+// #socials {
+//   margin-right: 0.5em;
+//   position: fixed;
+//   bottom: 1em;
+//   right: 0.5em;
+//   z-index: 99;
+//   a {
+//     margin: 0 0.5em;
+//     color: $color_font_1;
+//   }
+// }
 
 /* LANDING */
 #landing {
   height: 100vh;
-  padding-top: 4em;
+  padding-top: 4rem;
   margin-bottom: 0;
   background-color: $color_background_1;
   #name {
@@ -52,6 +52,8 @@ nav {
   }
   h1 {
     font-size: $font_size_landing_huge;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
   }
   h3 {
     font-size: $font_size_landing_medium;
@@ -74,14 +76,7 @@ nav {
 
 /* EXPERIENCE */
 #experience {
-  margin-top: 0;
-  > p {
-    padding: $more_margin_to_content;
-  }
   .project-container {
-    margin: $more_margin_to_content;
-    margin-bottom: 5em;
-    margin-top: 3em;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -90,9 +85,7 @@ nav {
       color: $color_font_3;
     }
     p {
-      margin-top: 0;
       padding: 1em;
-      margin-bottom: 0;
     }
     .project-item {
       min-width: 25%;
@@ -108,20 +101,18 @@ nav {
       .text-container {
         position: relative;
         text-align: center;
-        a {
-          margin: 0 !important;
-        }
       }
     }
   }
 }
 
-#skill-list {
-  > h2 {color:$color_font_3}
-  > p {position:relative; bottom: 2.6em;}
-  .grid-list {
-    padding: 0 15vw;
+.skills-toolkit {
+  > h2 { color: $color_font_3; }
+  > p { margin-top: 0.3rem; }
+  .flex-list {
+    // padding: 0 15vw;
     background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 1rem;
     .grid-box {
       //border: .1em solid #c4c4c4;
       background-color: $color_background_2;
@@ -134,23 +125,25 @@ nav {
         font-size: $font_size_huge;
         text-align: center;
         color: rgb(0, 0, 0); // Gets rid of the default color
+        min-height: 5rem !important;
+        display: block;
       }
       p {
         font-weight: 600;
         text-align: center;
-        margin-top: 0.4em;
-        margin-bottom: 0;
+        // margin-top: 0.4em;
+        // margin-bottom: 0;
       }
     }
   }
 
   .grid-list-3 {
-    padding: 0 10vw;
+    // padding: 0 10vw;
     .grid-box {
-      min-width: 100%;
+      // min-width: 100%;
       background-color: $color_background_2;
-      margin-top: 0;
-      margin-bottom: 0;
+      // margin-top: 0;
+      // margin-bottom: 0;
       &:nth-child(odd) {
         border: .1em solid #c4c4c4;
       }
@@ -158,7 +151,7 @@ nav {
   }
 }
 
-.grid-list .highlighted {
+.flex-list .highlighted {
   background-color: $color_background_1 !important;
   p {
     color: $color_font_1 !important;
@@ -167,49 +160,34 @@ nav {
 
 /* ME */
 #me {
-  min-height: 25em;
-  p {
-    padding: $more_margin_to_content;
+  // min-height: 25em;
+  .centered {
+    padding-bottom: 1rem;
   }
 }
 
-/* CONTACT */
-#contact {
-  #message-box {
-    background-color: $color_background_1;
-    padding: 0 2em;
-    padding-bottom: 1em;
-    max-width: 25em;
-    max-height: 17em;
-    p {
-      color: $color_font_1;
-      text-align: left;
-      position: relative;
-    }
+/* Socials */
+
+#links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vh;
+  text-align: center;
+  > div {
     ul {
+      padding-left: 0;
       list-style: none;
-      margin: 0;
-      padding: 0;
       li {
-        margin: 0.6em 0;
+        padding: 0 1rem;
+        font-size: 1.5rem;
+        display: inline-block;
+        color: $color_font_3 !important;
+        a {
+          padding: 0.3rem 0.5rem;
+        }
       }
-    }
-  }
-
-  form {
-    p {
-      margin-bottom: 0;
-    }
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  .email-message-box {
-    position: relative;
-    top: 1em;
-    padding: 0.5em;
+    } 
   }
 }
 
@@ -223,10 +201,6 @@ footer {
 }
 
 /* CUSTOM ELEMENTS */
-.container {
-  padding: 0 25vw;
-}
-
 .box {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
@@ -235,17 +209,18 @@ footer {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.grid-list {
+.flex-list {
   margin: 0 auto;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  // flex-flow: row wrap;
+  // justify-content: center;
+  overflow-x: scroll;
 }
 
 .grid-box {
   max-width: 18em;
   text-align: left;
-  padding: 1em 2em;
+  padding: 0em 2em;
   border: 0px solid black;
   background-color: $color_background_1;
   margin: 0.2em;
@@ -263,7 +238,7 @@ footer {
   margin-left: 1em;
   margin-right: 1em;
   p {
-    margin-top: 0;
+    // margin-top: 0;
   }
 }
 

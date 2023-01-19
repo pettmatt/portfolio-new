@@ -8,9 +8,7 @@ export default function Contact({message, email, location}) {
       <h1>Contact</h1>
 
       <div className="grid-list-2">
-
         <Email />
-
         <div id="message-box" className="grid-box-2">
           <div>
             <h3>Message to you</h3>

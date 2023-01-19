@@ -4,58 +4,59 @@ import Footer from '../components/footer'
 import Landing from '../components/Landing'
 import Experience from '../components/Experience'
 import Me from '../components/Me'
-import Contact from '../components/Contact'
+import Socials from '../components/Socials'
 
-console.log('Work in progress')
+export default function Home(props) {
+  const frontpage = props.frontpage.attributes
+  const projects = props.projects
+  const socials = props.socials
+  const toolkit = props.skills
 
-export default function Home({ body }) {
-  
   return (
     <div className='main-container'>
       <main>
-        
-        <Header 
-          title='Portfolio'
-          showBlogLink={ body.showBlogs } />
+        <Header title='Web Developer' showBlogLink={ frontpage.showBlogs } />
 
-        <Landing/>
+        <Landing />
 
         <Experience 
-          description={ body.experienceDesc }
-          projects={ body.projects }
-          toolkit={ body.skills } 
-          toolkitDesc={ body.toolkitDesc }/>
+          description={ frontpage.experienceDesc }
+          projects={ projects }
+          toolkit={toolkit}
+          toolkitDesc={ frontpage.toolkitDesc } />
 
-        <Me 
-          description={ body.meDesc} />
+        <Me description={ frontpage.meDesc } />
 
-        <Contact 
-          email={ body.email }
-          message={ body.contactMessage }
-          location={ body.location } />
+        <Socials socials={ socials } />
 
-        <Footer 
-          socials={body.socials} />
+        <Footer socials={ socials } />
       </main>
     </div>
   )
+
 }
 
 export async function getStaticProps() {
   // Fetch data from backend
-  const res = await fetch(process.env.NEXT_PUBLIC_URL)
-  const data = await res.json()
+  const frontpageRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/frontpage`)
+  const frontpageData = await frontpageRes.json()
 
-  if(!data) {
-    return {
-      notFound: true,
-    }
-  }
+  const projectsRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/projects`)
+  const projectData = await projectsRes.json()
+
+  const socialsRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/socials`)
+  const socialsData = await socialsRes.json()
+
+  const skillsRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/skills`)
+  const skillsData = await skillsRes.json()
 
   // Forward to frontend use
   return {
     props: {
-      body: data
+      frontpage: frontpageData.data,
+      projects: projectData.data,
+      socials: socialsData.data,
+      skills: skillsData.data
     }
   }
 }
