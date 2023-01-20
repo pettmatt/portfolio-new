@@ -1,4 +1,4 @@
-import SwiperPlugin from '../plugins/swiper'
+import SwiperPlugin from './Swiper'
 
 export default function Skills({ toolkit, toolkitDesc }) {
   const confidentSkills = toolkit.filter(skill => skill.attributes.confident)
