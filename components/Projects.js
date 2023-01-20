@@ -16,8 +16,8 @@ export default function Projects(props) {
           </a>
         </div>
         <div className='text-container'>
-        <a href={project.link}><h2>{project.title}</h2></a>
-          {<ReactMarkdown>{project.description}</ReactMarkdown>}
+        <a href={project.link}><h2>{ project.title }</h2></a>
+          {<ReactMarkdown>{ project.description }</ReactMarkdown>}
         </div>
       </div>
       )) }
@@ -27,15 +27,15 @@ export default function Projects(props) {
 
 // Used while building the application
 // Index.js has the "real" fetching function
-export async function getStaticProps() {
-  // Fetch data from backend
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/projects`)
-  const data = await res.json()
+// export async function getStaticProps() {
+//   // Fetch data from backend
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/projects`)
+//   const data = await res.json()
 
-  // Forward to frontend use
-  return {
-    props: {
-      projects: data
-    }
-  }
-}
+//   // Forward to frontend use
+//   return {
+//     props: {
+//       projects: data
+//     }
+//   }
+// }

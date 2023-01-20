@@ -1,3 +1,4 @@
+import 'swiper/css'
 import '../styles/main.css'
 import '../styles/devicon-master/devicon.min.css'
 

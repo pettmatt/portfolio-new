@@ -108,7 +108,7 @@ nav {
 
 .skills-toolkit {
   > h2 { color: $color_font_3; }
-  > p { margin-top: 0.3rem; }
+  > p { margin-top: 0rem; }
   .flex-list {
     // padding: 0 15vw;
     background-color: rgba(0, 0, 0, 0);
@@ -138,12 +138,8 @@ nav {
   }
 
   .grid-list-3 {
-    // padding: 0 10vw;
     .grid-box {
-      // min-width: 100%;
       background-color: $color_background_2;
-      // margin-top: 0;
-      // margin-bottom: 0;
       &:nth-child(odd) {
         border: .1em solid #c4c4c4;
       }
@@ -211,16 +207,15 @@ footer {
 
 .flex-list {
   margin: 0 auto;
-  display: flex;
+  // display: flex;
   // flex-flow: row wrap;
   // justify-content: center;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
 .grid-box {
   max-width: 18em;
   text-align: left;
-  padding: 0em 2em;
   border: 0px solid black;
   background-color: $color_background_1;
   margin: 0.2em;
@@ -237,9 +232,9 @@ footer {
   max-width: 50%;
   margin-left: 1em;
   margin-right: 1em;
-  p {
+  // p {
     // margin-top: 0;
-  }
+  // }
 }
 
 .decoration-text h3 {
@@ -266,4 +261,8 @@ footer {
     left: 0em;
     text-align: right;
   }
+}
+
+.swiper {
+  cursor: grab;
 }

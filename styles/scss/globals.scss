@@ -92,11 +92,15 @@ nav > a, #socials a, nav div a, footer a, #links a {
 nav div a:hover,
 nav div a:active,
 footer a:hover,
-footer a:active,
-#links a:hover,
-#links a:active {
+footer a:active {
   background-color: $color_background_2;
   color: $color_font_3;
+}
+
+#links a:hover,
+#links a:active {
+  background-color: $color_background_1;
+  color: $color_font_1;
 }
 
 nav {

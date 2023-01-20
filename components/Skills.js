@@ -1,3 +1,5 @@
+import SwiperPlugin from '../plugins/swiper'
+
 export default function Skills({ toolkit, toolkitDesc }) {
   const confidentSkills = toolkit.filter(skill => skill.attributes.confident)
   const normalSkills = toolkit.filter(skill => !skill.attributes.confident)
@@ -29,17 +31,7 @@ function Showcase({ skills, header }) {
     <div className='skills-showcase centered'>
       <p className='skills-header'><b>{ header } ({ skills.length + 1 })</b></p>
       <div className='flex-list'>
-        { reorderedSkills.map(skill => (
-          <div className={'grid-box'} key={skill.id}>
-            { skill.attributes.deviconClass ?
-                skill.attributes.deviconClass.includes('-') ? 
-                  <i className={'devicon-' + skill.attributes.deviconClass + ' colored'}></i> :
-                  <i className={'devicon-' + skill.attributes.deviconClass + '-plain colored'}></i> :
-                  <i className={'no-icon colored'}>{'</>'}</i>
-            }
-            <p>{skill.attributes.name}</p>
-          </div>
-        )) }
+        <SwiperPlugin content={ reorderedSkills } />
       </div>
     </div>
   )
