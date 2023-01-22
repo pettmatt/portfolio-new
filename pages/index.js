@@ -29,8 +29,8 @@ export default function Home(props) {
 
         <Socials socials={ socials } />
 
-        <Footer socials={ socials } />
       </main>
+      <Footer socials={ socials } />
     </div>
   )
 
