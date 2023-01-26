@@ -15,7 +15,6 @@ export default function Skills({ toolkit, toolkitDesc }) {
       
       <Showcase skills={confidentSkills} header={'Tools with work experience'} />
       <Showcase skills={normalSkills} header={'Tools with previous experience'} />
-
     </div>
   )
 }
@@ -29,7 +28,7 @@ function Showcase({ skills, header }) {
 
   return (
     <div className='skills-showcase centered'>
-      <p className='skills-header'><b>{ header } ({ skills.length + 1 })</b></p>
+      <p className='skills-header'><b>{ header } ({ skills.length })</b></p>
       <div className='flex-list'>
         <SwiperPlugin content={ reorderedSkills } />
       </div>
