@@ -1,0 +1,13 @@
+body {
+  background-color: #000;
+  height: 100vw;
+  #__next {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    #error {
+      width: 90vw;
+      padding: 10% 0;
+    }
+  }
+}

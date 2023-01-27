@@ -7,10 +7,10 @@ import Me from '../components/Me'
 import Socials from '../components/Socials'
 
 export default function Home(props) {
-  const frontpage = props.frontpage.attributes
-  const projects = props.projects
-  const socials = props.socials
-  const toolkit = props.skills
+  const frontpage = props.frontpage?.attributes
+  const projects = props?.projects
+  const socials = props?.socials
+  const toolkit = props?.skills
 
   return (
     <div className='main-container'>
@@ -41,7 +41,8 @@ export async function getStaticProps() {
   const frontpageRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/frontpage`)
   const frontpageData = await frontpageRes.json()
 
-  const projectsRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/projects`)
+  // Without 'populate'
+  const projectsRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/projects?populate=*`)
   const projectData = await projectsRes.json()
 
   const socialsRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/socials`)

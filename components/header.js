@@ -1,7 +1,17 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
+import { useState } from 'react'
 
 export default function Header({ title, showBlogLink }) {
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+  const toggleMenu = () => {
+    (showMobileMenu) ?
+    setShowMobileMenu(false) :
+    setShowMobileMenu(true)
+  }
+
   return (
     <>
     <Head>
@@ -24,22 +34,39 @@ export default function Header({ title, showBlogLink }) {
       <Link href='/#' scroll={true}>
         <a className='inline'>pettmatt</a>
       </Link>
-      <div className='inline'>
-        { showBlogLink ? <a href='/blogs'>Blogs</a> : '' }
-        <Link href='/#experience'>
-          <a>Experience</a>
-        </Link>
+      <Links menuClassName='inline wide-menu' showbloglink={ showBlogLink.toString() } />
 
-        <Link href='/#me' scroll={true}>
-          <a>Me</a>
-        </Link>
-        
-        <Link href='/#links' scroll={true}>
-          <a>Links</a>
-        </Link>
+      <div className='burger-container inline'>
+        <button id='burger-button' onClick={ toggleMenu }>
+          <Image src='/menu-icon.svg' alt='Burger-menu icon' width={50} height={50} />
+        </button>
       </div>
-    </nav>
 
+      { showMobileMenu &&
+        <Links menuClassName='narrow-menu' showbloglink={ showBlogLink.toString() } />
+      }
+    </nav>
     </>
+  )
+}
+
+const Links = ({ menuClassName, showbloglink }) => {
+  return (
+    <div className={ menuClassName }>
+      { Boolean('true' === showbloglink) ? <Link href='/blogs'>
+        <a>Blogs</a>
+      </Link> : '' }
+      <Link href='/#experience'>
+        <a>Experience</a>
+      </Link>
+
+      <Link href='/#me' scroll={true}>
+        <a>Me</a>
+      </Link>
+      
+      <Link href='/#links' scroll={true}>
+        <a>Links</a>
+      </Link>
+    </div>
   )
 }

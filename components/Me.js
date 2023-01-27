@@ -4,7 +4,7 @@ export default function Me({description}) {
   return (
     <div id="me" className="section">
       <h1>Me</h1>
-      {<ReactMarkdown className='centered'>{description}</ReactMarkdown>}
+      {<ReactMarkdown>{description}</ReactMarkdown>}
     </div>
   )
 }

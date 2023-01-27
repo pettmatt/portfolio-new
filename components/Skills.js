@@ -10,11 +10,11 @@ export default function Skills({ toolkit, toolkitDesc }) {
       <p><small>
         { toolkitDesc ? 
         toolkitDesc : 
-        'This section includes tools that I have used regularly in personal or other projects.'}
+        'This section includes tools that I have used regularly in projects.'}
       </small></p>
       
       <Showcase skills={confidentSkills} header={'Tools with work experience'} />
-      <Showcase skills={normalSkills} header={'Tools with previous experience'} />
+      <Showcase skills={normalSkills} header={'Familiar through hobbies & studies'} />
     </div>
   )
 }

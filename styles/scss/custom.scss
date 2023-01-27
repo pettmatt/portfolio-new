@@ -67,40 +67,38 @@ nav {
   p:nth-child(4) span {
     color: $color_font_2;
   }
-}
-
-#landing .decoration-text {
-  right: 0em;
-  text-align: right;
+  .decoration-text {
+    right: 0em;
+    text-align: right;
+  }
 }
 
 /* EXPERIENCE */
-#experience {
-  .project-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    h2 {
-      margin: 0;
-      color: $color_font_3;
-    }
-    p {
-      padding: 1em;
-    }
-    .project-item {
-      min-width: 25%;
-      max-width: 25%;
-      border: 0.1em solid rgb(196, 196, 196);
-      margin: 0.5em;
-      span {
-        width: 100% !important;
-        img {
-          object-fit: cover;
-        }
+.block-container {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-flow: wrap;
+  gap: 1em;
+  .block-item {
+    width: 30%;
+    border: 0.1em solid rgb(196, 196, 196);
+    border-radius: 0.5em;
+    span {
+      width: 100% !important;
+      img {
+        object-fit: cover;
+        border-radius: 0.5em 0.5em 0 0;
       }
-      .text-container {
-        position: relative;
-        text-align: center;
+    }
+    .text-container {
+      padding: 0 1em;
+      h2 {
+        margin: 0;
+        color: $color_font_3;
+      }
+      p {
+        margin-top: 0.3em;
       }
     }
   }
@@ -232,9 +230,6 @@ footer {
   max-width: 50%;
   margin-left: 1em;
   margin-right: 1em;
-  // p {
-    // margin-top: 0;
-  // }
 }
 
 .decoration-text h3 {
@@ -265,4 +260,37 @@ footer {
 
 .swiper {
   cursor: grab;
+}
+
+// Archive and other sub pages
+#sub-landing {
+  min-height: 30vh;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  background-color: $color_background_1;
+  p {
+    color: $color_font_2;
+    margin: 0.2em 0;
+    width: 70%;
+  }
+  .slogan {
+    font-size: $font_size_small;
+  }
+  .description {
+    font-size: $font_size_extra_small;
+  }
+  h1 {
+    font-size: $font_size_landing_small;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+}
+
+#blog-list {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: $color_font_3;
+  p {
+    font-weight: 700;
+  }
 }

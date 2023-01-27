@@ -1,5 +1,11 @@
 @media only screen and (min-width: $mobile) and (max-width: $tablet) {
-
+  #experience {
+    .project-container {
+      .project-item {
+        width: 50%;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: $tablet) {
@@ -9,6 +15,20 @@
     }
     p {
       font-size: $font_size_medium - 1rem;
+    }
+  }
+
+  /* EXPERIENCE */
+  .block-container {
+    .block-item {
+      width: 48%;
+    }
+  }
+
+  // Archive and other sub pages
+  #sub-landing {
+    p {
+      width: 100%;
     }
   }
 }

@@ -17,4 +17,21 @@
       }
     }
   }
+
+  nav #burger-button {
+    display: block;
+  }
+
+  nav #wide-menu {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: ($mobile - 200px)) {
+  /* EXPERIENCE */
+  .block-container {
+    .block-item {
+      width: 100% !important;
+    }
+  }
 }

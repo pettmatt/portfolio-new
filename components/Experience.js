@@ -8,8 +8,9 @@ export default function Experience({ description, projects, toolkit, toolkitDesc
     <div id='experience' className='section'>
       <h1>Experience</h1>
 
-      {<ReactMarkdown className='centered'>{ description }</ReactMarkdown>}
+      {<ReactMarkdown>{ description }</ReactMarkdown>}
 
+      <h1>Side Projects</h1>
       <Projects projects={ projects } />
 
       <Skills toolkitDesc={ toolkitDesc } toolkit={ toolkit } />

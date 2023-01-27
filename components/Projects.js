@@ -1,41 +1,32 @@
 import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Projects(props) {
   const projects = props.projects
 
   return (
-    <div className='project-container'>
+    <div className='block-container'>
       { projects.map(project => (
-      <div key={project.id} className='project-project'>
+      <div key={ project.id } className='block-item'>
         <div className='image-container'>
-          <a href={project.link}>
-          <Image src={project.thumbnail !== null ? project.thumbnail.url 
-          : '/imageNotFound.png'}
-          height='200' width='350' alt={project.name + ' image'} />
-          </a>
+          <Link href={ project?.attributes.link }>
+            <a>
+              <Image src={ project?.attributes.thumbnail.data.attributes.url }
+              height='200' width='350' alt={ project?.attributes.title + ' image' } />
+            </a>
+          </Link>
         </div>
         <div className='text-container'>
-        <a href={project.link}><h2>{ project.title }</h2></a>
-          {<ReactMarkdown>{ project.description }</ReactMarkdown>}
+        <Link href={ project?.attributes.link }>
+          <a>
+            <h2>{ project?.attributes.title }</h2>
+          </a>
+        </Link>
+          {<ReactMarkdown>{ project?.attributes.description }</ReactMarkdown>}
         </div>
       </div>
       )) }
     </div>
   )
 }
-
-// Used while building the application
-// Index.js has the "real" fetching function
-// export async function getStaticProps() {
-//   // Fetch data from backend
-//   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/projects`)
-//   const data = await res.json()
-
-//   // Forward to frontend use
-//   return {
-//     props: {
-//       projects: data
-//     }
-//   }
-// }

@@ -112,6 +112,7 @@ nav a {
 }
 
 .inline {
+  position: relative;
   display: inline;
 }
 
@@ -176,7 +177,7 @@ button:active {
   }
 }
 
-.project-item {
+.block-item {
   border-radius: 0.2em;
   transition: box-shadow 250ms ease-in-out,
               border-radius 250ms ease-in-out;
@@ -186,8 +187,8 @@ button:active {
   }
 }
 
-.project-item:hover,
-.project-item:active {
+.block-item:hover,
+.block-item:active {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   border-radius: 0.5em;
   img {
@@ -215,6 +216,10 @@ button:active {
     margin: 0;
     padding-bottom: 1.2rem;
   }
+}
+
+#burger-button {
+  display: none;
 }
 
 @media only screen and (min-width: $tablet) {
