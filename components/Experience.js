@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 import Skills from './Skills'
-import Projects from './Projects'
+import DisplayBlock from './DisplayBlock'
 
 export default function Experience({ description, projects, toolkit, toolkitDesc }) {
 
@@ -11,7 +11,7 @@ export default function Experience({ description, projects, toolkit, toolkitDesc
       {<ReactMarkdown>{ description }</ReactMarkdown>}
 
       <h1>Side Projects</h1>
-      <Projects projects={ projects } />
+      <DisplayBlock blocks={ projects } />
 
       <Skills toolkitDesc={ toolkitDesc } toolkit={ toolkit } />
     </div>

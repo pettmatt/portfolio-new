@@ -99,6 +99,15 @@ nav {
       }
       p {
         margin-top: 0.3em;
+        color: $color_font_3;
+      }
+      .tag {
+        width: fit-content;
+        background-color: $color_background_1;
+        color: $color_font_1;
+        padding: 0.3em 0.5em;
+        margin: 0.3em 0;
+        font-size: 0.8rem;
       }
     }
   }
@@ -273,7 +282,7 @@ footer {
     margin: 0.2em 0;
     width: 70%;
   }
-  .slogan {
+  .motto {
     font-size: $font_size_small;
   }
   .description {
@@ -284,13 +293,29 @@ footer {
     margin-top: 0rem;
     margin-bottom: 0rem;
   }
+  .blog-details {
+    color: $color_font_1;
+    margin-top: 1rem;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+  }
 }
 
 #blog-list {
   margin-top: 1rem;
   margin-bottom: 1rem;
   color: $color_font_3;
-  p {
+  p:nth-child(1) {
     font-weight: 700;
   }
+}
+
+#article-container {
+  margin: 0 auto;
+  width: 38vw;
+  padding: 1rem 0 !important;
+  color: $color_font_3;
 }

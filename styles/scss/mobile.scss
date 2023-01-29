@@ -25,6 +25,10 @@
   nav #wide-menu {
     display: none !important;
   }
+
+  #article-container {
+    width: 95vw;
+  }
 }
 
 @media only screen and (max-width: ($mobile - 200px)) {
