@@ -8,6 +8,9 @@ export default function Header({ title, showBlogLink, description, estimate, ima
 
   useEffect(() => {
     window.addEventListener('resize', () => setShowMobileMenu(false))
+    return () => (
+      window.addEventListener('resize', () => setShowMobileMenu(false))
+    )
   }, [])
 
   const toggleMenu = () => {
