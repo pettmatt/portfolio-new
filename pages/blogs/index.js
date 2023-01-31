@@ -18,7 +18,7 @@ export default function BlogArchive(props) {
         </header>
         
         <div id='blog-list' className='section'>
-          <p>There are currently { blogs?.length || 0 } blogs</p>
+          <p>There are currently { blogs?.length || 0 } blog posts</p>
           <BlogBlocks blocks={ blogs } />
         </div>
       </main>
