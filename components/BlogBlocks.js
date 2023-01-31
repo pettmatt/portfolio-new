@@ -13,8 +13,7 @@ export default function BlogBlocks(props) {
         <div className='image-container'>
           <Link href={ '/blogs/' + replaceCharacterInString(block.attributes.header, ' ', '-') }>
             <a>
-              <Image src={ block.attributes.thumbnail.data.attributes.url }
-              height='200' width='350' alt={ block.attributes.title + ' image' } />
+              <Image src={ block.attributes.thumbnail.data.attributes.url } height='200' width='350' alt={ block.attributes.title + ' image' } />
             </a>
           </Link>
         </div>

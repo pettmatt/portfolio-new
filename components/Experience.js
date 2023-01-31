@@ -10,7 +10,7 @@ export default function Experience({ description, projects, toolkit, toolkitDesc
 
       {<ReactMarkdown>{ description }</ReactMarkdown>}
 
-      <h1>Side Projects</h1>
+      <h1>Projects</h1>
       <DisplayBlock blocks={ projects } />
 
       <Skills toolkitDesc={ toolkitDesc } toolkit={ toolkit } />

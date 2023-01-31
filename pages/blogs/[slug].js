@@ -6,6 +6,8 @@ import { replaceCharacterInString } from '../../services/utils'
 
 export default function BlogArchive(props) {
   const blog = props.blog
+  const createDate = new Date(blog.attributes.createdAt)
+  const updateDate = new Date(blog.attributes.updatedAt)
 
   return (
     <div className='main-container'>
@@ -21,16 +23,20 @@ export default function BlogArchive(props) {
         <div id='article-container' className='section'>
           <article>
             <h1>{ blog.attributes.header }</h1>
-            <p aria-label='subject tag'>{ blog.attributes.tags }</p>
+            <div className='tag'>{ blog.attributes.tags }</div>
 
-            <div className='blog-details'>
+            <div className='blog-details' aria-label='Element contains the date and estimated read time'>
               <ul>
-                <li aria-label='Blog was posted'>
-                  Posted { blog.attributes.createdAt }
-                </li>
-                <li aria-label='updated'>
-                  Updated { blog.attributes.updatedAt }
-                </li>
+                {
+                (createDate.getMonth() + 1 === updateDate.getMonth() + 1) ?
+                  <li aria-label='Blog post date'>
+                    Posted on <span>{ `${createDate.getDate()} ${pickAMonth(createDate.getMonth())} ${createDate.getFullYear()}` }</span>
+                  </li>
+                :
+                  <li aria-label='Blog update date'>
+                    Updated on { `${updateDate.getDate()} ${pickAMonth(updateDate.getMonth())} ${updateDate.getFullYear()}` }
+                  </li>
+                }
                 <li aria-label='read time estimate'>
                   { blog.attributes.read_time }
                 </li>
@@ -74,4 +80,10 @@ export async function getStaticPaths() {
     paths: blogsData.data.map(blog => `/blogs/${ replaceCharacterInString(blog.attributes.header, ' ', '-') }`) || [],
     fallback: false
   }
+}
+
+const pickAMonth = (index) => {
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+  return months[index]
 }

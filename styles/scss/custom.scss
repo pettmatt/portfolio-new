@@ -101,16 +101,17 @@ nav {
         margin-top: 0.3em;
         color: $color_font_3;
       }
-      .tag {
-        width: fit-content;
-        background-color: $color_background_1;
-        color: $color_font_1;
-        padding: 0.3em 0.5em;
-        margin: 0.3em 0;
-        font-size: 0.8rem;
-      }
     }
   }
+}
+
+.tag {
+  width: fit-content;
+  background-color: $color_background_1;
+  color: $color_font_1;
+  padding: 0.3em 0.5em;
+  margin: 0.3em 0;
+  font-size: 0.8rem;
 }
 
 .skills-toolkit {
@@ -302,6 +303,15 @@ footer {
       margin: 0;
     }
   }
+  .background-image {
+    display: flex;
+    justify-content: center;
+    max-height: 15em;
+    img {
+      transform: scale(180%);
+      object-fit: contain;
+    }
+  }
 }
 
 #blog-list {
@@ -318,4 +328,12 @@ footer {
   width: 38vw;
   padding: 1rem 0 !important;
   color: $color_font_3;
+  .blog-details {
+    ul {
+      padding-left: 0;
+      list-style-type: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+  }
 }
