@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
-import Header from '../../components/header'
+import Header from '../../components/blogHeader'
 import Footer from '../../components/footer'
 import { replaceCharacterInString } from '../../services/utils'
 
@@ -12,7 +12,11 @@ export default function BlogArchive(props) {
   return (
     <div className='main-container'>
       <main>
-        <Header title='Blogs : [SLUG]' showBlogLink={true} />
+        <Header showBlogLink={true}
+        title={`Blogs : ${ blog.attributes.header }`} description={blog.attributes.content.substring(
+          0,
+          blog.attributes.content.indexOf('.') + 1
+        )} estimate={blog.attributes.read_time} />
         <header id='sub-landing' className='section'>
           <div id='image-effect' className='background-image'>
             <Image src={ blog.attributes.thumbnail.data.attributes.url }

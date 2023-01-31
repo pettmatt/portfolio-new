@@ -1,10 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Header({ title, showBlogLink, description, estimate, image }) {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setShowMobileMenu(false))
+  }, [])
 
   const toggleMenu = () => {
     (showMobileMenu) ?
@@ -34,17 +38,21 @@ export default function Header({ title, showBlogLink, description, estimate, ima
       <Link href='/#' scroll={true}>
         <a className='inline'>pettmatt</a>
       </Link>
-      <Links menuClassName='inline wide-menu' showbloglink={ showBlogLink.toString() } />
 
+      <Links menuClassName='inline wide-menu' showbloglink={ showBlogLink.toString() } />
+      
       <div className='burger-container inline'>
-        <button id='burger-button' onClick={ toggleMenu }>
-          <Image src='/menu-icon.svg' alt='Burger-menu icon' width={50} height={50} />
+        <button aria-label='mobile navigation toggle button' id='burger-button' onClick={ toggleMenu }>
+          { showMobileMenu 
+          ? 'X'
+          : <Image src='/menu-icon.svg' alt='Burger-menu icon' width={100} height={100} /> }
         </button>
       </div>
 
       { showMobileMenu &&
         <Links menuClassName='narrow-menu' showbloglink={ showBlogLink.toString() } />
       }
+
     </nav>
     </>
   )

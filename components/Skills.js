@@ -14,7 +14,7 @@ export default function Skills({ toolkit, toolkitDesc }) {
       </small></p>
       
       <Showcase skills={confidentSkills} header={'Tools with work experience'} />
-      <Showcase skills={normalSkills} header={'Familiar through hobbies & studies'} />
+      <Showcase skills={normalSkills} header={'Familiar through studies'} />
     </div>
   )
 }

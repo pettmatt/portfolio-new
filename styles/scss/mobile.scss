@@ -18,11 +18,22 @@
     }
   }
 
-  nav #burger-button {
+  nav .burger-container {
     display: block;
+    width: 2rem;
+    height: 2rem;
+    #burger-button {
+      font-size: 1.5rem;
+      min-width: 100%;
+      min-height: 100%;
+      display: block;
+      padding: 0;
+      margin: auto;
+      color: $color_font_1;
+    }
   }
 
-  nav #wide-menu {
+  nav .wide-menu {
     display: none !important;
   }
 
