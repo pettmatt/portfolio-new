@@ -1,6 +1,7 @@
+"use client"
 import Image from "next/image"
 
-export default function BlogHeader({ blog }) {
+export default function BlogHeader({ blog = {} }: { blog: Object }) {
     return (
         <header id="sub-landing" className="section">
             <div id="image-effect" className="background-image">

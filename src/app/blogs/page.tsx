@@ -1,4 +1,9 @@
 // import BlogBlocks from "../../components/BlogBlocks"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Pettmatt : Blog archive"
+}
 
 export default function BlogArchive(props) {
     const blogpage = props.blogpage?.attributes
