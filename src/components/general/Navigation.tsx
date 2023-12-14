@@ -4,13 +4,13 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function Navigation({ showBlogLink = false }) {
-    const [mobileView, setMobileView] = useState(false)
+    // const [mobileView, setMobileView] = useState(false)
     const [showMobileMenu, setShowMobileMenu] = useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     useEffect(() => {
         const handleResize = () => {
-            const isMobileView = document.documentElement.clientWidth > 500
-            setMobileView(isMobileView)
+            let isMobileView = document.documentElement.clientWidth < 640
         }
 
         window.addEventListener("resize", handleResize)
@@ -26,26 +26,28 @@ export default function Navigation({ showBlogLink = false }) {
     }
 
     return (
-        <nav className="w-screen h-12 flex px-4 py-2">
-            <Link aria-label="To front page" href="/#">
+        <nav className="w-screen px-1 py-2 fixed flex justify-between">
+            <Link aria-label="To front page" href="/#" className="px-4 py-2">
                 pettmatt
             </Link>
 
-            {
-                mobileView &&
-                    <Links menuClassName="inline wide-menu" showbloglink={ showBlogLink.toString() } />
+            { !showMobileMenu &&
+                <Links menuClassName="wide-menu" showbloglink={ showBlogLink.toString() } />
             }
 
-            <div className="burger-container inline">
-                <button aria-label="mobile navigation toggle button" id="burger-button" onClick={ toggleMenu }>
-                    { 
-                        (showMobileMenu)
-                            ? "X"
-                            : <Image src="/menu-icon.svg" alt="Mobile open the menu icon"
-                                width={ 100 } height={ 100 } />
-                    }
-                </button>
-            </div>
+            { showMobileMenu &&
+                <div className="burger-container">
+                    <button aria-label="mobile navigation toggle button" id="burger-button" onClick={ toggleMenu }>
+                        { 
+                            (mobileMenuOpen)
+                                ? "X"
+                                : <Image src="/menu-icon.svg" className="h-12 px-4"
+                                    alt="Mobile open the menu icon" width={ 100 } height={ 100 } />
+                        }
+                    </button>
+                </div>
+            }
+
 
             { showMobileMenu &&
                 <Links menuClassName="narrow-menu" showbloglink={ showBlogLink.toString() } />
@@ -56,35 +58,35 @@ export default function Navigation({ showBlogLink = false }) {
 
 const Links = ({ menuClassName = "", showbloglink = "true" }) => {
     return (
-        <div className={ menuClassName }>
+        <div className={ menuClassName + " flex justify-end" }>
             { 
                 Boolean("true" === showbloglink)
                     ? (
-                        <Link href="/blogs">
+                        <Link href="/blogs" className="px-4 py-2">
                             Blogs
                         </Link>
                     )
                     : ""
             }
-            <Link href="/#about">
+            <Link href="/#about" className="px-4 py-2">
                 About
             </Link>
 
-            <Link href="/#projects-&-blogs">
-                Projects & Blogs
+            <Link href="/#own-projects" className="px-4 py-2">
+                Projects
             </Link>
 
-            <Link href="/#toolkit">
+            <Link href="/#toolkit" className="px-4 py-2">
                 Toolkit
             </Link>
 
-            { (false === true) &&
-                <Link href="/#projects-&-blogs">
-                    Worked with . . .
+            { (true) &&
+                <Link href="/#worked-with" className="px-4 py-2">
+                    Previous works
                 </Link>
             }
 
-            <Link href="/#links">
+            <Link href="/#links" className="px-4 py-2">
                 Links
             </Link>
         </div>

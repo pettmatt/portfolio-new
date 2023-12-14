@@ -16,7 +16,16 @@ const config: Config = {
       minHeight: {
         "half": "50vh",
         "1/4": "25vh",
-      }
+      },
+      maxWidth: {
+        "custom": "60vw",
+      },
+      height: {
+        "3/4": "75vh",
+      },
+      text: {
+        "custom": "5vw",
+      },
     },
   },
   plugins: [],

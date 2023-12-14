@@ -1,0 +1,26 @@
+main > *:not(:first-child) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+main > *:not(:first-child) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+main > .custom-height:first-child {
+    height: 65vh;
+}
+
+main > *:nth-child(odd) {
+    background-color: #000;
+    color: #fff;
+}
+
+main #links {
+    text-align: center;
+}
+
+/* main #links ul li {
+    display: inline;
+} */
