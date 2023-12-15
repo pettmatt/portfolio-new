@@ -1,31 +1,32 @@
+import { blogsWrapped, connectionsWrapped, cv, projectsWrapped, skillsWrapped, socialsWrapped } from "./strapi-components"
+
 export interface blogpage {
-    blogpage: {
-        id: Number,
-        attributes: {
-            landing_roles: string
-            about_text: string
-            projects_and_blogs_text: string
-            toolkit_text: string
-            links_text: string
-            createdAt: string
-            updatedAt: string
-            publishedAt: string
-        }
+    id: Number,
+    attributes: {
+        page_title: string
+        description_text: string
+        blogs: blogsWrapped
+        createdAt: string
+        updatedAt: string
+        publishedAt: string
     }
 }
 
 export interface frontpage {
-    frontpage: {
-        id: Number,
-        attributes: {
-            landing_roles: string
-            about_text: string
-            projects_and_blogs_text: string
-            toolkit_text: string
-            links_text: string
-            createdAt: string
-            updatedAt: string
-            publishedAt: string
-        }
+    id: Number,
+    attributes: {
+        landing_roles: string
+        about_text: string
+        projects_text: string
+        toolkit_text: string
+        links_text: string
+        createdAt: string
+        updatedAt: string
+        publishedAt: string
+        projects: projectsWrapped
+        skills: skillsWrapped
+        socials: socialsWrapped
+        cvs: cv
+        connects: connectionsWrapped
     }
 }

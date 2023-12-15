@@ -6,11 +6,11 @@ export default function Landing() {
                     aria-label="Hello, I am your ordinary web developer with versatile skills"
                 >
                     <span aria-hidden className="text-6xl md:text-9xl my-12">Hello.</span>
-                    <span aria-hidden className="text-2xl my-4">I am</span>
+                    <span aria-hidden className="text-3xl my-4">I am</span>
                     {/* whitespace-nowrap, min-[410px]:whitespace-wrap */}
-                    <span aria-hidden className="name whitespace-nowrap text-custom">Petteri Mattila</span>
-                    {/*  whitespace-nowrap,  */}
-                    <span aria-hidden className="flex gap-2 whitespace-nowrap min-[410px]:flex-column sm:flex-row text-2xl my-6">
+                    <span aria-hidden className="name text-c whitespace-nowrap">Petteri Mattila</span>
+                    {/*  whitespace-nowrap, min-[410px]:flex-column */}
+                    <span aria-hidden className="flex gap-2 min-[440px]:flex-row flex-col text-3xl my-6 whitespace-nowrap ">
                         {/* Iterate a role array, web developer, backend, frontend,
                         debugger, optimizer, updater, tester, concepter. */}
                         your ordinary <span className="role">web developer</span>

@@ -1,12 +1,12 @@
-"use client"
+import { blog } from "@/types/strapi-components"
 import Image from "next/image"
 
-export default function BlogHeader({ blog = {} }: { blog: Object }) {
+export default function BlogHeader({ blog }: { blog: blog }) {
     return (
         <header id="sub-landing" className="section">
             <div id="image-effect" className="background-image">
             <Image src={ blog.attributes.thumbnail.data.attributes.url }
-                height="500" width="500" alt={ blog.attributes.header + " thumbnail" } />
+                height="500" width="500" alt={ `${ blog.attributes.header } thumbnail` } />
             </div>
         </header>
     )

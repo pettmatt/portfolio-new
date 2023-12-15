@@ -1,28 +1,32 @@
 // import BlogBlocks from "../../components/BlogBlocks"
 import { Metadata } from "next"
+import { blogpage } from "@/types/strapi-pages"
+import { getData } from "@/services/cmsGetRequest"
+import Blocks from "@/components/general/Blocks"
+import Navigation from "@/components/general/Navigation"
 
 export const metadata: Metadata = {
     title: "Pettmatt : Blog archive"
 }
 
-export default function BlogArchive(props) {
-    const blogpage = props.blogpage?.attributes
-    const blogs = props?.blogs
+export default async function BlogArchive() {
+    const pageData: blogpage = await getData("/blogpage?populate=*", "Blogpage")
+    const { page_title, description_text, blogs } = pageData.attributes
 
     return (
-        <div className="main-container">
+        <>
+            <Navigation />
             <main>
                 <header id="sub-landing" className="section">
-                    <h1>Blog page is working</h1>
-                    {/* <h1>{ blogpage.page_header }</h1> */}
-                    {/* <p className="description">{ blogpage.about_text }</p> */}
+                    <h1>{ page_title }</h1>
+                    <p className="description">{ description_text }</p>
                 </header>
                 
                 <div id="blog-list" className="section">
-                    {/* <p>There are currently { blogs?.length || 0 } blog posts</p> */}
-                    {/* <BlogBlocks blocks={ blogs } /> */}
+                    <h2>There are currently <span>{ blogs.data.length | 0 }</span> blog posts</h2>
+                    <Blocks blocks={ blogs.data } />
                 </div>
             </main>
-        </div>
+        </>
     )
 }

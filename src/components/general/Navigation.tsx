@@ -32,7 +32,7 @@ export default function Navigation({ showBlogLink = false }) {
             </Link>
 
             { !showMobileMenu &&
-                <Links menuClassName="wide-menu" showbloglink={ showBlogLink.toString() } />
+                <Links menuClassName="wide-screen-menu" showbloglink={ showBlogLink } />
             }
 
             { showMobileMenu &&
@@ -48,31 +48,24 @@ export default function Navigation({ showBlogLink = false }) {
                 </div>
             }
 
-
             { showMobileMenu &&
-                <Links menuClassName="narrow-menu" showbloglink={ showBlogLink.toString() } />
+                <Links menuClassName="narrow-screen-menu" showbloglink={ showBlogLink } />
             }
         </nav>
     )
 }
 
-const Links = ({ menuClassName = "", showbloglink = "true" }) => {
+const Links = ({ menuClassName = "", showbloglink = true }) => {
     return (
-        <div className={ menuClassName + " flex justify-end" }>
-            { 
-                Boolean("true" === showbloglink)
-                    ? (
-                        <Link href="/blogs" className="px-4 py-2">
-                            Blogs
-                        </Link>
-                    )
-                    : ""
+        <div className={ `${ menuClassName } flex justify-end` }>
+            {
+                (showbloglink) &&
+                    <Link href="/blogs" className="px-4 py-2">
+                        Blogs
+                    </Link>
             }
-            <Link href="/#about" className="px-4 py-2">
-                About
-            </Link>
 
-            <Link href="/#own-projects" className="px-4 py-2">
+            <Link href="/#personal-projects" className="px-4 py-2">
                 Projects
             </Link>
 
@@ -82,7 +75,7 @@ const Links = ({ menuClassName = "", showbloglink = "true" }) => {
 
             { (true) &&
                 <Link href="/#worked-with" className="px-4 py-2">
-                    Previous works
+                    Works
                 </Link>
             }
 
@@ -91,4 +84,4 @@ const Links = ({ menuClassName = "", showbloglink = "true" }) => {
             </Link>
         </div>
     )
-  }
+}
