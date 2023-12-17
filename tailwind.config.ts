@@ -18,14 +18,22 @@ const config: Config = {
         "1/4": "25vh",
       },
       maxWidth: {
-        "custom": "60vw",
+        "custom-l-thin": "60vw",
+        "custom-l-wide": "80vw",
       },
       height: {
         "3/4": "75vh",
+        "third": "33vh",
       },
-      text: {
-        "custom": "5vw",
+      backgroundColor: {
+        "custom-black": "#000",
       },
+      textColor: {
+        "custom-white": "#fff",
+      },
+      borderColor: {
+        "custom-default": "#bbb",
+      }
     },
   },
   plugins: [],

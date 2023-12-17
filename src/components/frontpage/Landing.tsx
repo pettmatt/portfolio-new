@@ -5,7 +5,7 @@ export default function Landing() {
                 <h1 className="flex flex-col"
                     aria-label="Hello, I am your ordinary web developer with versatile skills"
                 >
-                    <span aria-hidden className="text-6xl md:text-9xl my-12">Hello.</span>
+                    <span aria-hidden className="text-8xl sm:text-9xl my-12">Hello.</span>
                     <span aria-hidden className="text-3xl my-4">I am</span>
                     {/* whitespace-nowrap, min-[410px]:whitespace-wrap */}
                     <span aria-hidden className="name text-c whitespace-nowrap">Petteri Mattila</span>

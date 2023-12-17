@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown"
+// import BlogHeader from "@/components/blogs/BlogHeader"
 import { getData } from "@/services/cmsGetRequest"
 import { replaceCharacterInString } from "@/services/utilities"
-// import BlogHeader from "@/components/blogs/BlogHeader"
 
 export default async function Blogpage(props) {
     console.log("props", props)
@@ -11,7 +11,7 @@ export default async function Blogpage(props) {
 
     return (
         <div className="main-container">
-            <main>asd
+            <main>
                 {/* <BlogHeader props={ blog } /> */}
 
                 <div id="article-container" className="section">

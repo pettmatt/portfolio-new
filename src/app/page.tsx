@@ -17,7 +17,7 @@ export default async function Home() {
             <Navigation showBlogLink={ true } />
             <main className="flex flex-col items-start justify-center">
 
-                <SectionWrapper overwriteHeight="3/4">
+                <SectionWrapper overwriteHeight="3/4" background_color="bg-custom-black">
                     <Landing />
                 </SectionWrapper>
 
@@ -39,7 +39,7 @@ export default async function Home() {
                     </ul>
                 </SectionWrapper>
 
-                <SectionWrapper header="Worked with" >
+                <SectionWrapper header="Worked with" background_color="bg-custom-black">
                     <ul>
                         {
                             connects.data.map((company, index) => {
@@ -50,7 +50,7 @@ export default async function Home() {
                     </ul>
                 </SectionWrapper>
 
-                <SectionWrapper header="Links">
+                <SectionWrapper header="Links" background_color="bg-custom-black">
                     <ul className="text-center my-20">
                         {
                             socials.data.map((social, index) => (
