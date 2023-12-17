@@ -74,8 +74,8 @@ const Links = ({ menuClassName = "", showbloglink = true }) => {
             </Link>
 
             { (true) &&
-                <Link href="/#worked-with" className="px-4 py-2">
-                    Works
+                <Link href="/#freelancing" className="px-4 py-2">
+                    Freelancing
                 </Link>
             }
 

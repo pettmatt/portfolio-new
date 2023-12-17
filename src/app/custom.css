@@ -25,3 +25,8 @@ main #landing .name {
         font-size: 3rem;
     }
 }
+
+/* Image */
+.block-wrapper header img {
+    transform: translateY(-20%);
+}

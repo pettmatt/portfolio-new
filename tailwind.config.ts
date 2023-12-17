@@ -25,6 +25,11 @@ const config: Config = {
         "3/4": "75vh",
         "third": "33vh",
       },
+      width: {
+        "custom-1/2": "48.6%",
+        "custom-1/3": "31.4%",
+        "custom-1/4": "23.6%",
+      },
       backgroundColor: {
         "custom-black": "#000",
       },

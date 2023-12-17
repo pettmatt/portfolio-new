@@ -39,13 +39,12 @@ export default async function Home() {
                     </ul>
                 </SectionWrapper>
 
-                <SectionWrapper header="Worked with" background_color="bg-custom-black">
+                <SectionWrapper header="Freelancing" background_color="bg-custom-black">
                     <ul>
                         {
-                            connects.data.map((company, index) => {
-                                const key = `link-${ index }`
-                                return <li key={ key }>{ company.attributes.name }</li>
-                            })
+                            connects.data.map((company, index) =>
+                                <li key={`link-${ index }`}>{ company.attributes.name }</li>
+                            )
                         }
                     </ul>
                 </SectionWrapper>

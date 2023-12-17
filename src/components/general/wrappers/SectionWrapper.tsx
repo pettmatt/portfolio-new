@@ -18,10 +18,10 @@ export default function SectionWrapper(props: Props) {
                     <div id={ headerToId(header!) || "" } className="section-header mb-6">
                         <h2 className="text-6xl">{ header }</h2>
                         {
-                            description && <p className="mt-4">{ description }</p>
+                            description && <p className="mt-2">{ description }</p>
                         }
                     </div>
-                )}
+                ) }
                 { children }
             </div>
         </div>

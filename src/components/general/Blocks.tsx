@@ -6,7 +6,7 @@ import Link from "next/link"
 export default function Blocks({ blocks }: { blocks: project[] | blog[] | any[] }) {
 
     return (
-        <div className="block-wrapper flex flex-col sm:flex-row gap-4">
+        <div className="block-wrapper flex flex-wrap flex-col sm:flex-row gap-4">
             {
                 blocks.map((block, index) => (
                     <Block key={ `block-${ index }` } content={ block } />
@@ -19,22 +19,22 @@ export default function Blocks({ blocks }: { blocks: project[] | blog[] | any[] 
 function Block({ content }: { content: project | blog | any }) {
     const block = content.attributes
     const link = block.link ? block.link : `/blogs/${ block.title.split(" ").join("-") }`
-    console.log(typeof content)
+
     return (
         <section className="
             block-item w-full border-solid border border-custom-default rounded-md
-            sm:w-1/2 lg:w-1/3 xlg:w-1/4
+            sm:w-custom-1/2 lg:w-custom-1/3 xlg:w-custom-1/4
         ">
             <header>
-                <div className="image-wrapper">
-                    <Link href={ link }>
-                        <Image className="rounded-t-md w-full" height="200" width="350"
-                            src={ block.thumbnail?.data.attributes.url || "/img/imageNotFound.png" }
-                            alt={ `${ block.title } image` }
-                        />
-                    </Link>
-                </div>
                 <Link href={ link } className="text-2xl font-bold">
+                    <div className="image-wrapper">
+                        <div className="h-48 overflow-y-hidden rounded-t-md">
+                            <Image className="rounded-t-md w-full" height="200" width="350"
+                                src={ block.thumbnail?.data.attributes.url || "/img/imageNotFound.png" }
+                                alt={ `${ block.title } image` }
+                            />
+                        </div>
+                    </div>
                     <h3 className="mx-4 mt-2">{ block.title }</h3>
                 </Link>
                 {
