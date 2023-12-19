@@ -1,9 +1,35 @@
-import { Url } from "url"
-
 interface image {
-    data: {
+    data?: {
+        id: number
         attributes: {
-            url: Url
+            name: string
+            alternativetext: string | null
+            caption: string | null
+            width: number
+            height: number
+            formats: {
+                thumbnail: {
+                    name: string
+                    hash: string
+                    ext: string
+                    mime: string
+                    path: string | null
+                    width: number
+                    height: number
+                    size: number
+                    url: string
+                }
+            }
+            hash: string
+            ext: string
+            mime: string
+            size: number
+            url: string
+            previewurl: string | null
+            provider: string
+            provider_metadata: string | null
+            createdAt: string
+            updatedAt: string
         }
     }
 }
@@ -14,7 +40,7 @@ export interface blog {
         title: string
         read_time: string | null
         tags: string | null
-        thumbnail: image | null
+        thumbnail: image
         original_publish_date: string | null
         blog_text: string
         createdAt: string
@@ -33,8 +59,8 @@ export interface project {
     attributes: {
         title: string
         description: string
-        link: Url
-        thumbnail: image | null
+        link: string
+        thumbnail: image
         createdAt: string
         updatedAt: string
         publishedAt: string
@@ -45,9 +71,9 @@ export interface skill {
     id: Number
     attributes: {
         name: string
-        link: Url | null
+        link: string | null
         acquired: string | null
-        deviconClass: string | null
+        class_name: string | null
         createdAt: string
         updatedAt: string
         publishedAt: string
@@ -59,7 +85,7 @@ export interface social {
     attributes: {
         link: string
         name: string
-        iconClass: string | null
+        class_name: string | null
         createdAt: string
         updatedAt: string
         publishedAt: string

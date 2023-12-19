@@ -20,13 +20,14 @@ export interface frontpage {
         projects_text: string
         toolkit_text: string
         links_text: string
+        show_blogs: boolean
         createdAt: string
         updatedAt: string
         publishedAt: string
         projects: projectsWrapped
         skills: skillsWrapped
         socials: socialsWrapped
-        cvs: cv
-        connects: connectionsWrapped
+        connects?: connectionsWrapped
+        cvs?: cv
     }
 }

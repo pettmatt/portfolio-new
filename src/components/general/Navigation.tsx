@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function Navigation({ showBlogLink = false }) {
+export default function Navigation({ showBlogLink = false, showFreelancing = false }) {
     // const [mobileView, setMobileView] = useState(false)
     const [showMobileMenu, setShowMobileMenu] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -27,7 +27,7 @@ export default function Navigation({ showBlogLink = false }) {
 
     return (
         <nav className="w-screen px-1 py-2 fixed flex justify-between">
-            <Link aria-label="To front page" href="/#" className="px-4 py-2">
+            <Link title="To front page" href="/#" id="logo" className="px-4 py-2">
                 pettmatt
             </Link>
 
@@ -39,7 +39,7 @@ export default function Navigation({ showBlogLink = false }) {
                 <div className="burger-container">
                     <button aria-label="mobile navigation toggle button" id="burger-button" onClick={ toggleMenu }>
                         { 
-                            (mobileMenuOpen)
+                            mobileMenuOpen
                                 ? "X"
                                 : <Image src="/menu-icon.svg" className="h-12 px-4"
                                     alt="Mobile open the menu icon" width={ 100 } height={ 100 } />
@@ -49,17 +49,17 @@ export default function Navigation({ showBlogLink = false }) {
             }
 
             { showMobileMenu &&
-                <Links menuClassName="narrow-screen-menu" showbloglink={ showBlogLink } />
+                <Links menuClassName="narrow-screen-menu" showbloglink={ showBlogLink } showFreelancing={ showFreelancing } />
             }
         </nav>
     )
 }
 
-const Links = ({ menuClassName = "", showbloglink = true }) => {
+const Links = ({ menuClassName = "", showbloglink = true, showFreelancing = false }) => {
     return (
-        <div className={ `${ menuClassName } flex justify-end` }>
+        <div className={ `${ menuClassName } flex justify-end gap-1` }>
             {
-                (showbloglink) &&
+                showbloglink &&
                     <Link href="/blogs" className="px-4 py-2">
                         Blogs
                     </Link>
@@ -73,7 +73,7 @@ const Links = ({ menuClassName = "", showbloglink = true }) => {
                 Toolkit
             </Link>
 
-            { (true) &&
+            { showFreelancing &&
                 <Link href="/#freelancing" className="px-4 py-2">
                     Freelancing
                 </Link>

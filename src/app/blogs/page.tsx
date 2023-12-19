@@ -6,6 +6,7 @@ import BlogHeader from "@/components/blogpage/BlogHeader"
 import Blocks from "@/components/general/Blocks"
 import Navigation from "@/components/general/Navigation"
 import SectionWrapper from "@/components/general/wrappers/SectionWrapper"
+import Footer from "@/components/general/Footer"
 
 export const metadata: Metadata = {
     title: "Pettmatt : Blog archive"
@@ -22,10 +23,14 @@ export default async function BlogArchive() {
                 <BlogHeader />
 
                 <SectionWrapper>
-                    <h2>There are currently <span>{ blogs.data.length | 0 }</span> blog posts</h2>
+                    <h2 className="my-4">
+                        There are currently <span>{ blogs.data.length | 0 }</span> blog posts
+                    </h2>
                     <Blocks blocks={ blogs.data } />
                 </SectionWrapper>
+
             </main>
+            <Footer />
         </>
     )
 }

@@ -11,7 +11,7 @@ export default function SectionWrapper(props: Props) {
 
     return (
         <div className={ `section-wrapper w-screen custom-height ${
-            background_color && (`${ background_color } text-custom-white`)
+            background_color ? (`${ background_color } text-custom-white`) : ""
         }` }>
             <div className="section w-screen m-auto md:max-w-custom-l-wide lg:max-w-custom-l-thin px-4">
                 { header && (

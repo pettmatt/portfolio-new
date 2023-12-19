@@ -20,23 +20,23 @@ export default async function Blogpage(props) {
                         <div className="tag">{ blog.attributes.tags }</div> */}
 
                         <div className="blog-details" aria-label="Element contains the date and estimated read time">
-                        <ul>
-                            {
-                                // (createDate.getMonth() + 1 === updateDate.getMonth() + 1) ?
-                                // <li aria-label="Blog post date">
-                                //     Posted on <span>
-                                //         { `${createDate.getDate()} ${pickAMonth(createDate.getMonth())} ${createDate.getFullYear()}` }
-                                //     </span>
-                                // </li>
-                                // :
-                                // <li aria-label="Blog update date">
-                                //     Updated on { `${updateDate.getDate()} ${pickAMonth(updateDate.getMonth())} ${updateDate.getFullYear()}` }
-                                // </li>
-                            }
-                            <li aria-label="read time estimate">
-                                {/* { blog.attributes.read_time } */}
-                            </li>
-                        </ul>
+                            <ul>
+                                {
+                                    // (createDate.getMonth() + 1 === updateDate.getMonth() + 1) ?
+                                        // <li aria-label="Blog post date">
+                                        //     Posted on <span>
+                                        //         { `${createDate.getDate()} ${pickAMonth(createDate.getMonth())} ${createDate.getFullYear()}` }
+                                        //     </span>
+                                        // </li>
+                                    // :
+                                        // <li aria-label="Blog update date">
+                                        //     Updated on { `${updateDate.getDate()} ${pickAMonth(updateDate.getMonth())} ${updateDate.getFullYear()}` }
+                                        // </li>
+                                }
+                                <li aria-label="read time estimate">
+                                    {/* { blog.attributes.read_time } */}
+                                </li>
+                            </ul>
                         </div>
                         {/* <ReactMarkdown>{ blog.attributes.content }</ReactMarkdown> */}
                     </article>

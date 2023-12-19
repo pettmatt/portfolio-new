@@ -21,8 +21,8 @@ export default function BlogHeader(props: Props) {
                 )
                 : (
                     <div className="max-w-custom-l-wide lg:max-w-custom-l-thin m-auto">
-                        <h1>Developer blogs</h1>
-                        <p className="motto text-xl mt-2">
+                        <h1 className="text-5xl">Developer blogs</h1>
+                        <p className="description text-xl mt-2">
                             Learn, code, reflect and share
                         </p>
                     </div>
