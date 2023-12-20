@@ -1,0 +1,32 @@
+/* Header */
+main .block-section img {
+    width: fit-content;
+    height: 100%;
+}
+
+/* Content */
+main article p {
+    margin: 1rem 0;
+}
+
+main article h2 {
+    font-size: 1.5rem;
+}
+
+main article h3 {
+    font-size: 1rem;
+}
+
+main article code {
+    color: rgb(62, 122, 124);
+    font-weight: 800;
+}
+
+main article p > a {
+    text-decoration-line: underline;
+}
+
+main article p > a:hover,
+main article p > a:active {
+    color: rgb(62, 122, 124);
+}

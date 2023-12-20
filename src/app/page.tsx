@@ -26,7 +26,7 @@ export default async function Home() {
             <Navigation showBlogLink={ show_blogs } showFreelancing={ showFreelancing } />
             <main className="flex flex-col items-start justify-center">
 
-                <SectionWrapper overwriteHeight="3/4" background_color="bg-custom-black">
+                <SectionWrapper overwriteHeight="3/4" additionalClass="bg-custom-black text-custom-white">
                     <Landing />
                 </SectionWrapper>
 
@@ -36,33 +36,38 @@ export default async function Home() {
 
                 <SectionWrapper header="Personal projects" description={ projects_text }>
                     <div className="flex flex-row gap-4">
-                        { show_blogs &&
-                            <ImageBlock link="/blogs" />
-                        }
+                        {/* { show_blogs &&
+                            <ImageBlock link="/blogs" blogs={} />
+                        } */}
                         <Blocks blocks={ projects.data } />
                     </div>
                 </SectionWrapper>
 
                 <SectionWrapper header="Toolkit" description={ toolkit_text
-                    ? toolkit_text
-                    : `I have experience with over ${Math.floor(skills.data.length / 10) * 10} tools`
+                        ? toolkit_text
+                        : `I have experience with over ${Math.floor(skills.data.length / 10) * 10
+                    } tools`
                 }>
                     <Slider array={["t", "e"]} />
-                    {
-                        skills.data.map((tool, index) =>
-                            <li key={`tool-${ index }`}
-                                className={
-                                    `${ (!tool.attributes.class_name) ? "no-icon" : tool.attributes.class_name }`
-                                }
-                            >
-                                { tool.attributes.name }
-                            </li>
-                        )
-                    }
+                    <ul className="flex flex-row flex-wrap gap-6">
+                        {
+                            skills.data.map((tool, index) =>
+                                <li key={`tool-${ index }`}
+                                    className={`${
+                                        !tool.attributes.class_name
+                                            ? "no-icon"
+                                            : tool.attributes.class_name 
+                                    } w-28`}
+                                >
+                                    { tool.attributes.name }
+                                </li>
+                            )
+                        }
+                    </ul>
                 </SectionWrapper>
 
                 { showFreelancing &&
-                    <SectionWrapper header="Freelancing" background_color="bg-custom-black">
+                    <SectionWrapper header="Freelancing" additionalClass="bg-custom-black text-custom-white">
                         <ul>
                             {
                                 connects?.data.map((company, index) =>
@@ -73,7 +78,7 @@ export default async function Home() {
                     </SectionWrapper>
                 }
 
-                <SectionWrapper header="Links" description={ links_text } background_color="bg-custom-black">
+                <SectionWrapper header="Links" description={ links_text } additionalClass="bg-custom-black text-custom-white">
                     <ul className="text-center my-20">
                         {
                             socials.data.map((social, index) => (

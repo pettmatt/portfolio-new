@@ -4,7 +4,7 @@ export interface blogpage {
     id: Number,
     attributes: {
         page_title: string
-        description_text: string
+        about_text: string
         blogs: blogsWrapped
         createdAt: string
         updatedAt: string

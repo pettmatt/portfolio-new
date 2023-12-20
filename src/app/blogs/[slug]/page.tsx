@@ -1,48 +1,65 @@
 import ReactMarkdown from "react-markdown"
-// import BlogHeader from "@/components/blogs/BlogHeader"
+import BlogHeader from "@/components/blogpage/BlogHeader"
 import { getData } from "@/services/cmsGetRequest"
-import { replaceCharacterInString } from "@/services/utilities"
+import { blog } from "@/types/strapi-components"
+import Navigation from "@/components/general/Navigation"
+import Footer from "@/components/general/Footer"
+import SectionWrapper from "@/components/general/wrappers/SectionWrapper"
 
-export default async function Blogpage(props) {
-    console.log("props", props)
-    // const blogTitle = window.location.href.split("?title=")
-    const blogdata = await getData("/blogs", "Blogsite")
-    console.log(blogdata)
+export default async function Blogpage({ params }: { params: { slug: string } }) {
+    const title = params.slug.split("-").join(" ")
+    const blogdata = await getData(`/blogs?filters[title][$eq]=${title}&populate=*`, "Blogsite")
+    const blog: blog = blogdata[0]
+
+    const createDate = new Date(blog.attributes.createdAt)
+    const updateDate = new Date(blog.attributes.updatedAt)
+    const ogCreateDate = blog.attributes.original_publish_date 
+        ? new Date(blog.attributes.original_publish_date)
+        : null
 
     return (
-        <div className="main-container">
+        <>
+            <Navigation showBlogLink={ true } />
             <main>
-                {/* <BlogHeader props={ blog } /> */}
+                <BlogHeader blog={ blog } />
 
-                <div id="article-container" className="section">
+                <div className="!pt-4 mx-auto w-blog-wide xl:w-blog-thin">
                     <article>
-                        {/* <h1>{ blog.attributes.header }</h1>
-                        <div className="tag">{ blog.attributes.tags }</div> */}
+                        <h1 className="text-5xl">{ blog.attributes.title }</h1>
+                        <div className="my-3">
+                            <span className="tag py-1 px-2 bg-custom-black text-custom-white">
+                                { blog.attributes.tags }
+                            </span>
+                        </div>
 
-                        <div className="blog-details" aria-label="Element contains the date and estimated read time">
+                        <div className="blog-details my-4">
                             <ul>
-                                {
-                                    // (createDate.getMonth() + 1 === updateDate.getMonth() + 1) ?
-                                        // <li aria-label="Blog post date">
-                                        //     Posted on <span>
-                                        //         { `${createDate.getDate()} ${pickAMonth(createDate.getMonth())} ${createDate.getFullYear()}` }
-                                        //     </span>
-                                        // </li>
-                                    // :
-                                        // <li aria-label="Blog update date">
-                                        //     Updated on { `${updateDate.getDate()} ${pickAMonth(updateDate.getMonth())} ${updateDate.getFullYear()}` }
-                                        // </li>
+                                { createDate.getMonth() + 1 === updateDate.getMonth() + 1
+                                    ?
+                                        <li aria-label="Blog post date">
+                                            Posted on <span className="bpd">
+                                            { ogCreateDate
+                                                ? `${ogCreateDate.getDate()} ${pickAMonth(ogCreateDate.getMonth())} ${ogCreateDate.getFullYear()}`
+                                                : `${createDate.getDate()} ${pickAMonth(createDate.getMonth())} ${createDate.getFullYear()}`
+                                            }
+                                            </span>
+                                        </li>
+                                    :
+                                        <li className="bud" aria-label="Blog update date">
+                                            Updated on { `${updateDate.getDate()} ${pickAMonth(updateDate.getMonth())} ${updateDate.getFullYear()}` }
+                                        </li>
                                 }
-                                <li aria-label="read time estimate">
-                                    {/* { blog.attributes.read_time } */}
+                                <li className="rte" aria-label="read time estimate">
+                                    { blog.attributes.read_time }
                                 </li>
                             </ul>
                         </div>
-                        {/* <ReactMarkdown>{ blog.attributes.content }</ReactMarkdown> */}
+                        <ReactMarkdown>{ blog.attributes.blog_text }</ReactMarkdown>
                     </article>
                 </div>
             </main>
-        </div>
+            <Footer />
+        </>
     )
 }
 

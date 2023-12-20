@@ -1,4 +1,3 @@
-// import BlogBlocks from "../../components/BlogBlocks"
 import { Metadata } from "next"
 import { blogpage } from "@/types/strapi-pages"
 import { getData } from "@/services/cmsGetRequest"
@@ -13,22 +12,21 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogArchive() {
-    const pageData: blogpage = await getData("/blogpage?populate=*", "Blogpage")
-    const { blogs } = pageData.attributes
+    const pageData: blogpage = await getData("/blogpage?populate=blogs.thumbnail", "Blogpage")
+    const { blogs, about_text, page_title } = pageData.attributes
 
     return (
         <>
-            <Navigation />
+            <Navigation showBlogLink={ true } />
             <main>
-                <BlogHeader />
+                <BlogHeader title={ page_title } subtext={ about_text } />
 
-                <SectionWrapper>
+                <SectionWrapper additionalClass="!pt-4 text-custom-black">
                     <h2 className="my-4">
                         There are currently <span>{ blogs.data.length | 0 }</span> blog posts
                     </h2>
                     <Blocks blocks={ blogs.data } />
                 </SectionWrapper>
-
             </main>
             <Footer />
         </>

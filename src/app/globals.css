@@ -1,7 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "./custom.css";
+@import "../styles/custom.css";
+@import "../styles/blog.css";
 
 :root {
 	--foreground-rgb: 0, 0, 0;
@@ -28,8 +29,16 @@
 } */
 
 nav {
+	z-index: 99;
 	color: #fff;
 	mix-blend-mode: difference;
+}
+
+nav button {
+	margin-right: 0.5em;
+	padding: 0.3em;
+	height: 2.5rem;
+	width: 2.5rem;
 }
 
 body {
@@ -46,7 +55,7 @@ main h1 .name {
     font-size: 1000;
 }
 
-main h2 {
+main h2, article h1 {
     font-weight: 600;
 }
 
@@ -62,13 +71,14 @@ main h2 {
 }
 
 /* animations & effects */
-nav a:hover, footer a:hover, ul li > a:hover,
-nav a:active, footer a:active, ul li > a:active {
+nav a:hover, nav button:hover, footer a:hover, ul li > a:hover,
+nav a:active, nav button:active, footer a:active, ul li > a:active {
 	background-color: #fff;
 	color: #000;
 }
 
 nav a,
+nav button,
 ul li > a,
 footer a {
 	transition: background-color 250ms ease-in-out, color 250ms ease-in-out;

@@ -24,11 +24,14 @@ const config: Config = {
       height: {
         "3/4": "75vh",
         "third": "33vh",
+        "l-third": "38vh",
       },
       width: {
         "custom-1/2": "48.6%",
         "custom-1/3": "31.4%",
         "custom-1/4": "23.6%",
+        "blog-thin": "38vw",
+        "blog-wide": "70vw",
       },
       backgroundColor: {
         "custom-black": "#000",

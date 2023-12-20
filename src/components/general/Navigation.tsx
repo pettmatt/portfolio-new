@@ -4,13 +4,15 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function Navigation({ showBlogLink = false, showFreelancing = false }) {
-    // const [mobileView, setMobileView] = useState(false)
     const [showMobileMenu, setShowMobileMenu] = useState(false)
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [narrowScreen, setNarrowScreen] = useState(false)
 
     useEffect(() => {
         const handleResize = () => {
-            let isMobileView = document.documentElement.clientWidth < 640
+            const isMobileView = document.documentElement.clientWidth < 640
+            setNarrowScreen(isMobileView)
+
+            if (!isMobileView) setShowMobileMenu(false)
         }
 
         window.addEventListener("resize", handleResize)
@@ -21,35 +23,37 @@ export default function Navigation({ showBlogLink = false, showFreelancing = fal
     }, [])
 
     function toggleMenu() {
-        if (showMobileMenu) setShowMobileMenu(false)
-        else setShowMobileMenu(true)
+        setShowMobileMenu(!showMobileMenu)
     }
 
     return (
-        <nav className="w-screen px-1 py-2 fixed flex justify-between">
+        <nav className="w-screen px-1 py-2 fixed flex flex-wrap justify-between">
             <Link title="To front page" href="/#" id="logo" className="px-4 py-2">
                 pettmatt
             </Link>
 
-            { !showMobileMenu &&
+            { !narrowScreen &&
                 <Links menuClassName="wide-screen-menu" showbloglink={ showBlogLink } />
             }
 
-            { showMobileMenu &&
-                <div className="burger-container">
-                    <button aria-label="mobile navigation toggle button" id="burger-button" onClick={ toggleMenu }>
-                        { 
-                            mobileMenuOpen
-                                ? "X"
-                                : <Image src="/menu-icon.svg" className="h-12 px-4"
-                                    alt="Mobile open the menu icon" width={ 100 } height={ 100 } />
+            { narrowScreen &&
+                <div className="mobile-wrapper">
+                    <button id="mobile-menu-button" onClick={ toggleMenu } 
+                        aria-label="mobile navigation toggle button"
+                    >
+                        { showMobileMenu
+                            ? <span className="px-2 py-2 font-medium text-2xl">X</span>
+                            : <Image src="/menu-icon.svg" className="text"
+                                alt="Mobile menu button icon" width={ 100 } height={ 100 } />
                         }
                     </button>
                 </div>
             }
 
             { showMobileMenu &&
-                <Links menuClassName="narrow-screen-menu" showbloglink={ showBlogLink } showFreelancing={ showFreelancing } />
+                <Links menuClassName="narrow-screen-menu w-full flex-col"
+                    showbloglink={ showBlogLink } showFreelancing={ showFreelancing } 
+                />
             }
         </nav>
     )
@@ -58,11 +62,10 @@ export default function Navigation({ showBlogLink = false, showFreelancing = fal
 const Links = ({ menuClassName = "", showbloglink = true, showFreelancing = false }) => {
     return (
         <div className={ `${ menuClassName } flex justify-end gap-1` }>
-            {
-                showbloglink &&
-                    <Link href="/blogs" className="px-4 py-2">
-                        Blogs
-                    </Link>
+            { showbloglink &&
+                <Link href="/blogs" className="px-4 py-2">
+                    Blogs
+                </Link>
             }
 
             <Link href="/#personal-projects" className="px-4 py-2">
@@ -74,7 +77,7 @@ const Links = ({ menuClassName = "", showbloglink = true, showFreelancing = fals
             </Link>
 
             { showFreelancing &&
-                <Link href="/#freelancing" className="px-4 py-2">
+                <Link href="/#freelancing" className="px-2 py-2">
                     Freelancing
                 </Link>
             }

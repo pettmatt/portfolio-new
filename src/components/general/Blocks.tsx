@@ -20,6 +20,7 @@ function Block({ content }: { content: project | blog | any }) {
     const block = content.attributes
     const link = block.link ? block.link : `/blogs/${ block.title.split(" ").join("-") }`
     const thumbnailUrl = block.thumbnail.data?.attributes.url
+    const cmsUrl = process.env.NEXT_PUBLIC_DOMAIN
 
     return (
         <section className="block-item w-full border-solid border border-custom-default rounded-md
@@ -29,9 +30,9 @@ function Block({ content }: { content: project | blog | any }) {
                 <Link href={ link } className="text-2xl font-bold">
                     <div className="image-wrapper">
                         <div className="h-48 overflow-y-hidden rounded-t-md">
-                            <Image className="rounded-t-md w-full" height="200" width="350"
-                                src={ thumbnailUrl ? "http://localhost:1337" + thumbnailUrl : "/img/imageNotFound.png" }
-                                alt={ `${ block.title } image` }
+                            <Image className="rounded-t-md w-full" height="200" width="500"
+                                src={ thumbnailUrl ? cmsUrl + thumbnailUrl : "/img/imageNotFound.png" }
+                                alt={ `${ block.title } thumbnail` }
                             />
                         </div>
                     </div>
@@ -39,8 +40,8 @@ function Block({ content }: { content: project | blog | any }) {
                 </Link>
                 {
                     block.tags && (
-                        <div className="tag mx-4 mt-1 w-auto">
-                            <span className="p-1 px-2 bg-custom-black text-white">
+                        <div className="tag mx-4 mt-1">
+                            <span className="p-1 px-2 bg-custom-black text-white w-fit inline-block">
                                 { block.tags }
                             </span>
                         </div>
