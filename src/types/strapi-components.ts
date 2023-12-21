@@ -74,6 +74,7 @@ export interface skill {
         link: string | null
         acquired: string | null
         class_name: string | null
+        service: boolean
         createdAt: string
         updatedAt: string
         publishedAt: string

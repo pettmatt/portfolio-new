@@ -10,16 +10,20 @@ import Footer from "@/components/general/Footer"
 import ReactMarkdown from "react-markdown"
 import Slider from "@/components/general/Slider"
 import ImageBlock from "@/components/general/ImageBlock"
+import { fab } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export default async function Home() {
     const pageData: frontpage = await getData("/frontpage?populate=projects.thumbnail,skills,socials", "Frontpage")
-    console.log("page", pageData.attributes)
     const { 
         show_blogs, about_text, projects_text, links_text, toolkit_text,
         projects, skills, connects, socials
     } = pageData.attributes
 
     const showFreelancing = connects ? connects.data.length > 0 : false
+
+    const tools = skills.data.filter(tool => !tool.attributes.service)
+    const services = skills.data.filter(tool => tool.attributes.service)
 
     return (
         <>
@@ -48,22 +52,44 @@ export default async function Home() {
                         : `I have experience with over ${Math.floor(skills.data.length / 10) * 10
                     } tools`
                 }>
-                    <Slider array={["t", "e"]} />
-                    <ul className="flex flex-row flex-wrap gap-6">
-                        {
-                            skills.data.map((tool, index) =>
-                                <li key={`tool-${ index }`}
-                                    className={`${
-                                        !tool.attributes.class_name
-                                            ? "no-icon"
-                                            : tool.attributes.class_name 
-                                    } w-28`}
-                                >
-                                    { tool.attributes.name }
-                                </li>
-                            )
-                        }
-                    </ul>
+                    <div className="my-4">
+                        <Slider array={tools} />
+                        <h3 className="text-3xl mb-4">General tools I utilize</h3>
+                        <ul className="flex flex-row flex-wrap gap-6">
+                            {
+                                tools.map((tool, index) =>
+                                    <li key={`tool-${ index }` } className="w-28">
+                                        { tool.attributes.class_name &&
+                                            <div>
+                                                <FontAwesomeIcon icon={fab[ tool.attributes.class_name || "faJava" ]} size="lg" />
+                                            </div>
+                                        }
+                                        <p>
+                                            { tool.attributes.name }
+                                        </p>
+                                    </li>
+                                )
+                            }
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 className="text-3xl">Services I have worked with</h3>
+                        <ul>
+                            {
+                                services.map((tool, index) =>
+                                    <li key={`tool-${ index }`}
+                                        className={`${
+                                            !tool.attributes.class_name
+                                                ? "no-icon"
+                                                : tool.attributes.class_name 
+                                        } w-28`}
+                                    >
+                                        { tool.attributes.name }
+                                    </li>
+                                )
+                            }
+                        </ul>
+                    </div>
                 </SectionWrapper>
 
                 { showFreelancing &&
