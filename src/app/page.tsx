@@ -10,8 +10,6 @@ import Footer from "@/components/general/Footer"
 import ReactMarkdown from "react-markdown"
 import Slider from "@/components/general/Slider"
 import ImageBlock from "@/components/general/ImageBlock"
-import { fab } from "@fortawesome/free-brands-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export default async function Home() {
     const pageData: frontpage = await getData("/frontpage?populate=projects.thumbnail,skills,socials", "Frontpage")
@@ -52,19 +50,18 @@ export default async function Home() {
                         : `I have experience with over ${Math.floor(skills.data.length / 10) * 10
                     } tools`
                 }>
-                    <div className="my-4">
-                        <Slider array={tools} />
-                        <h3 className="text-3xl mb-4">General tools I utilize</h3>
-                        <ul className="flex flex-row flex-wrap gap-6">
+                    <div>
+                        <h3 className="text-3xl my-10">Generic tools that I utilize</h3>
+                        <ul className="flex flex-row flex-wrap gap-7 justify-center md:justify-start">
                             {
                                 tools.map((tool, index) =>
-                                    <li key={`tool-${ index }` } className="w-28">
-                                        { tool.attributes.class_name &&
-                                            <div>
-                                                <FontAwesomeIcon icon={fab[ tool.attributes.class_name || "faJava" ]} size="lg" />
-                                            </div>
-                                        }
-                                        <p>
+                                    <li key={`tool-${ index }` } className="w-28 text-center">
+                                        <div className="h-20">
+                                            { tool.attributes.class_name &&
+                                                <i className={`text-7xl ${tool.attributes.class_name}`}></i>
+                                            }
+                                        </div>
+                                        <p className="mt-2">
                                             { tool.attributes.name }
                                         </p>
                                     </li>
@@ -73,18 +70,19 @@ export default async function Home() {
                         </ul>
                     </div>
                     <div>
-                        <h3 className="text-3xl">Services I have worked with</h3>
+                        <h3 className="text-3xl my-10">I'm also familiar with these libraries & services</h3>
                         <ul>
                             {
                                 services.map((tool, index) =>
-                                    <li key={`tool-${ index }`}
-                                        className={`${
-                                            !tool.attributes.class_name
-                                                ? "no-icon"
-                                                : tool.attributes.class_name 
-                                        } w-28`}
-                                    >
-                                        { tool.attributes.name }
+                                    <li key={`library-${ index }` } className="w-28 text-center">
+                                        <div className="h-20">
+                                            { tool.attributes.class_name &&
+                                                <i className={`text-7xl ${tool.attributes.class_name}`}></i>
+                                            }
+                                        </div>
+                                        <p className="mt-2">
+                                            { tool.attributes.name }
+                                        </p>
                                     </li>
                                 )
                             }

@@ -8,7 +8,14 @@ import SectionWrapper from "@/components/general/wrappers/SectionWrapper"
 import Footer from "@/components/general/Footer"
 
 export const metadata: Metadata = {
-    title: "Pettmatt : Blog archive"
+    title: "Pettmatt : Blog archive",
+    description: "Blogs about technical implementations and what problems they may introduce.",
+    twitter: {
+		card: "summary_large_image",
+		title: "Pettmatt : Blog archive",
+		creator: "@pettmattdev",
+		images: ["/icon.png"],
+	}
 }
 
 export default async function BlogArchive() {

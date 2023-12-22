@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import ReactMarkdown from "react-markdown"
 import BlogHeader from "@/components/blogpage/BlogHeader"
 import { getData } from "@/services/cmsGetRequest"
@@ -5,6 +6,22 @@ import { blog } from "@/types/strapi-components"
 import Navigation from "@/components/general/Navigation"
 import Footer from "@/components/general/Footer"
 import SectionWrapper from "@/components/general/wrappers/SectionWrapper"
+
+export let metadata: Metadata = {
+    title: "Pettmatt : Blog",
+    description: "Some technical blog.",
+    openGraph: {
+        type: "article",
+        authors: ["Petteri Mattila"],
+    },
+    twitter: {
+		card: "summary_large_image",
+		title: "Pettmatt : Blog page",
+        description: "",
+		creator: "@pettmattdev",
+		images: ["/icon.png"],
+	}
+} 
 
 export default async function Blogpage({ params }: { params: { slug: string } }) {
     const title = params.slug.split("-").join(" ")
@@ -16,6 +33,13 @@ export default async function Blogpage({ params }: { params: { slug: string } })
     const ogCreateDate = blog.attributes.original_publish_date 
         ? new Date(blog.attributes.original_publish_date)
         : null
+
+    metadata.title = title
+    metadata.description = blog.attributes.blog_text
+        .substring(0, blog.attributes.blog_text.indexOf(".") + 1)
+    metadata.twitter!.title = title
+    metadata.twitter!.description = blog.attributes.blog_text
+        .substring(0, blog.attributes.blog_text.indexOf(".") + 1)
 
     return (
         <>
