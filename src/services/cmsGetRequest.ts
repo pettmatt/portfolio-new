@@ -6,10 +6,11 @@ export async function getData(path: string = "", identity: string = "Unnamed") {
         },
         cache: "no-store",
     }
-
+    
     const res = await fetch(`${ cmsUrl }${ path }`, config)
 
-    if (!res.ok) return `${ identity } request was not OK`
+    if (!res.ok)
+        return `${ identity } request was not OK`
 
     const data = await res.json()
 

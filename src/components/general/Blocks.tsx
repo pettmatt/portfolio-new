@@ -8,7 +8,7 @@ export default function Blocks({ blocks }: { blocks: project[] | blog[] | any[] 
     return (
         <div className="block-wrapper flex flex-wrap flex-col sm:flex-row gap-4">
             {
-                blocks.map((block, index) => (
+                blocks?.map((block, index) => (
                     <Block key={ `block-${ index }` } content={ block } />
                 ))
             }

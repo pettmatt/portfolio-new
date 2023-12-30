@@ -13,19 +13,18 @@ import ImageBlock from "@/components/general/ImageBlock"
 
 export default async function Home() {
     const pageData: frontpage = await getData("/frontpage?populate=projects.thumbnail,skills,socials", "Frontpage")
-    const { 
-        show_blogs, about_text, projects_text, links_text, toolkit_text,
-        projects, skills, connects, socials
-    } = pageData.attributes
+    const data = pageData.attributes
 
-    const showFreelancing = connects ? connects.data.length > 0 : false
+    const showFreelancing = data?.connects
+        ? data.connects.data.length > 0 
+        : false
 
-    const tools = skills.data.filter(tool => !tool.attributes.service)
-    const services = skills.data.filter(tool => tool.attributes.service)
+    const tools = data?.skills.data.filter(tool => !tool.attributes.service)
+    const services = data?.skills.data.filter(tool => tool.attributes.service)
 
     return (
         <>
-            <Navigation showBlogLink={ show_blogs } showFreelancing={ showFreelancing } />
+            <Navigation showBlogLink={ pageData.attributes?.show_blogs || false } showFreelancing={ showFreelancing } />
             <main className="flex flex-col items-start justify-center">
 
                 <SectionWrapper overwriteHeight="3/4" additionalClass="bg-custom-black text-custom-white">
@@ -33,28 +32,27 @@ export default async function Home() {
                 </SectionWrapper>
 
                 <SectionWrapper header="About">
-                    <ReactMarkdown>{ about_text }</ReactMarkdown>
+                    <ReactMarkdown>{ data?.about_text }</ReactMarkdown>
                 </SectionWrapper>
 
-                <SectionWrapper header="Personal projects" description={ projects_text }>
+                <SectionWrapper header="Personal projects" description={ data?.projects_text }>
                     <div className="flex flex-row gap-4">
                         {/* { show_blogs &&
                             <ImageBlock link="/blogs" blogs={} />
                         } */}
-                        <Blocks blocks={ projects.data } />
+                        <Blocks blocks={ data?.projects.data } />
                     </div>
                 </SectionWrapper>
 
-                <SectionWrapper header="Toolkit" description={ toolkit_text
-                        ? toolkit_text
-                        : `I have experience with over ${Math.floor(skills.data.length / 10) * 10
-                    } tools`
+                <SectionWrapper header="Toolkit" description={ data?.toolkit_text
+                        ? data?.toolkit_text
+                        : `I have experience with over ${(Math.floor(data?.skills.data.length / 10) * 10) || 0} tools`
                 }>
                     <div>
                         <h3 className="text-3xl my-10">Generic tools that I utilize</h3>
                         <ul className="flex flex-row flex-wrap gap-7 justify-center md:justify-start">
                             {
-                                tools.map((tool, index) =>
+                                tools?.map((tool, index) =>
                                     <li key={`tool-${ index }` } className="w-28 text-center">
                                         <div className="h-20">
                                             { tool.attributes.class_name &&
@@ -73,7 +71,7 @@ export default async function Home() {
                         <h3 className="text-3xl my-10">I'm also familiar with these libraries & services</h3>
                         <ul>
                             {
-                                services.map((tool, index) =>
+                                services?.map((tool, index) =>
                                     <li key={`library-${ index }` } className="w-28 text-center">
                                         <div className="h-20">
                                             { tool.attributes.class_name &&
@@ -94,7 +92,7 @@ export default async function Home() {
                     <SectionWrapper header="Freelancing" additionalClass="bg-custom-black text-custom-white">
                         <ul>
                             {
-                                connects?.data.map((company, index) =>
+                                data.connects?.data.map((company, index) =>
                                     <li key={`company-${ index }`}>{ company.attributes.name }</li>
                                 )
                             }
@@ -102,10 +100,10 @@ export default async function Home() {
                     </SectionWrapper>
                 }
 
-                <SectionWrapper header="Links" description={ links_text } additionalClass="bg-custom-black text-custom-white">
+                <SectionWrapper header="Links" description={ data?.links_text } additionalClass="bg-custom-black text-custom-white">
                     <ul className="text-center my-20">
                         {
-                            socials.data.map((social, index) => (
+                            data?.socials.data.map((social, index) => (
                                 social.attributes.link &&
                                     <li key={ `link-${ index }` } className="inline px-1">
                                         <Link href={ social.attributes.link } className="px-4 py-2 text-2xl">
