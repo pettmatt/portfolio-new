@@ -5,8 +5,9 @@ export async function getData(path: string = "", identity: string = "Unnamed") {
         headers: {
             "Authorization": `Bearer ${ process.env.NEXT_PUBLIC_CMS_API_KEY}`
         },
+        cache: "force-cache"
         // Use "no-store" or specify when revalidation should happen to force next/react to not use cached data.
-        cache: "no-store",
+        // cache: "no-store",
         // next: { revalidate: 60 }
     })
 

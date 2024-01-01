@@ -21,7 +21,7 @@ export let metadata: Metadata = {
 		creator: "@pettmattdev",
 		images: ["/icon.png"],
 	}
-} 
+}
 
 export default async function Blogpage({ params }: { params: { slug: string } }) {
     const title = params.slug.split("-").join(" ")
