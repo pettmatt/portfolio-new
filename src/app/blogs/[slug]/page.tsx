@@ -63,8 +63,8 @@ export default async function Blogpage({ params }: { params: { slug: string } })
                                         <li aria-label="Blog post date">
                                             Posted on <span className="bpd">
                                             { ogCreateDate
-                                                ? `${ogCreateDate.getDate()} ${pickAMonth(ogCreateDate.getMonth())} ${ogCreateDate.getFullYear()}`
-                                                : `${createDate.getDate()} ${pickAMonth(createDate.getMonth())} ${createDate.getFullYear()}`
+                                                ? `${pickAMonth(ogCreateDate.getMonth())} ${ogCreateDate.getDate()}, ${ogCreateDate.getFullYear()}`
+                                                : `${pickAMonth(createDate.getMonth())} ${createDate.getDate()}, ${createDate.getFullYear()}`
                                             }
                                             </span>
                                         </li>
