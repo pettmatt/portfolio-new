@@ -8,8 +8,8 @@ import Landing from "@/components/frontpage/Landing"
 import Blocks from "@/components/general/Blocks"
 import Footer from "@/components/general/Footer"
 import ReactMarkdown from "react-markdown"
-import Slider from "@/components/general/Slider"
-import ImageBlock from "@/components/general/ImageBlock"
+// import Slider from "@/components/general/Slider"
+// import ImageBlock from "@/components/general/ImageBlock"
 import { project, skill } from "@/types/strapi-components"
 
 export default async function Home() {

@@ -1,15 +1,14 @@
 export async function getData(path: string = "", identity: string = "Unnamed") {
     const cmsUrl = process.env.NEXT_PUBLIC_URL
-    const config = {
+
+    const res = await fetch(`${ cmsUrl }${ path }`, {
         headers: {
             "Authorization": `Bearer ${ process.env.NEXT_PUBLIC_CMS_API_KEY}`
         },
         // Use "no-store" or specify when revalidation should happen to force next/react to not use cached data.
         cache: "no-store",
         // next: { revalidate: 60 }
-    }
-
-    const res = await fetch(`${ cmsUrl }${ path }`, config)
+    })
 
     if (!res.ok)
         return `${ identity } request was not OK`
