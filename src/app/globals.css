@@ -61,3 +61,12 @@ li > a {
 	text-decoration: underline;
 	font-weight: 600;
 }
+
+.section li > a {
+	text-decoration: none;
+}
+
+.section > p,
+main article p {
+	margin: 1rem 0;
+}

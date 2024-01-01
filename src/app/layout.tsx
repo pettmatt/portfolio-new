@@ -10,8 +10,8 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
 	metadataBase: new URL("https://pettmatt.com" || "localhost:3001" || "localhost:3000"),
 	title: "Pettmatt : Web developer",
-	description: "Independent web developer",
-	keywords: ["web developer", "portfolio", "freelancer"],
+	description: "A technology-oriented individual who isn't afraid to strive for perfection through failure.",
+	keywords: ["web developer", "portfolio"],
 	icons: {
 		icon: "/icon.png",
 	},

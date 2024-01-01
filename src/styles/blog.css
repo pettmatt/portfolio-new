@@ -5,10 +5,6 @@ main .block-section img {
 }
 
 /* Content */
-main article p {
-    margin: 1rem 0;
-}
-
 main article h2 {
     font-size: 1.5rem;
 }

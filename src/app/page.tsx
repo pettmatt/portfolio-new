@@ -10,6 +10,7 @@ import Footer from "@/components/general/Footer"
 import ReactMarkdown from "react-markdown"
 import Slider from "@/components/general/Slider"
 import ImageBlock from "@/components/general/ImageBlock"
+import { project, skill } from "@/types/strapi-components"
 
 export default async function Home() {
     const pageData: frontpage = await getData("/frontpage?populate=projects.thumbnail,skills,socials", "Frontpage")
@@ -19,8 +20,10 @@ export default async function Home() {
         ? data.connects.data.length > 0 
         : false
 
-    const tools = data?.skills.data.filter(tool => !tool.attributes.service)
-    const services = data?.skills.data.filter(tool => tool.attributes.service)
+    const projects: project[] = await getData("/projects?sort=createdAt:Desc&populate=thumbnail")
+    const skills: skill[] = await getData("/skills?sort=name")
+    // const tools = skills.filter(tool => !tool.attributes.service)
+    // const services = skills.filter(tool => tool.attributes.service)
 
     return (
         <>
@@ -40,19 +43,19 @@ export default async function Home() {
                         {/* { show_blogs &&
                             <ImageBlock link="/blogs" blogs={} />
                         } */}
-                        <Blocks blocks={ data?.projects.data } />
+                        <Blocks blocks={ projects } />
                     </div>
                 </SectionWrapper>
 
                 <SectionWrapper header="Toolkit" description={ data?.toolkit_text
                         ? data?.toolkit_text
-                        : `I have experience with over ${(Math.floor(data?.skills.data.length / 10) * 10) || 0} tools`
+                        : `Experience with over ${(Math.floor(skills.length / 10) * 10) || 0} tools`
                 }>
                     <div>
                         {/* <h3 className="text-3xl my-10">Generic tools that I utilize</h3> */}
                         <ul className="flex flex-row flex-wrap gap-7 justify-center md:justify-start">
                             {
-                                data?.skills.data.map((tool, index) =>
+                                skills.sort().map((tool, index) =>
                                     <li key={`tool-${ index }` } className="w-28 text-center">
                                         <div className="h-20">
                                             { tool.attributes.class_name &&
@@ -66,6 +69,7 @@ export default async function Home() {
                                 )
                             }
                         </ul>
+                        <p className="text-center mt-20 text-xl">And more to come . . .</p>
                     </div>
                     {/* <div>
                         <h3 className="text-3xl my-10">I'm also familiar with these libraries & services</h3>
