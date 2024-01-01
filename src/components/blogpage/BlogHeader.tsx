@@ -10,7 +10,9 @@ interface Props {
 export default function BlogHeader(props: Props) {
     const { blog, title, subtext } = props
     const cmsUrl = process.env.NEXT_PUBLIC_DOMAIN
-    const thumbnailUrl = blog?.attributes.thumbnail.data?.attributes.url
+    const thumbnailUrl = (blog?.attributes.thumbnail.data?.attributes.url.includes("res.cloudinary.com"))
+        ? blog?.attributes.thumbnail.data?.attributes.url
+        : cmsUrl! + blog?.attributes.thumbnail.data?.attributes.url
 
     return (
         <header className={
@@ -19,7 +21,7 @@ export default function BlogHeader(props: Props) {
             { blog
                 ? (
                     <div className="background-image h-full">
-                        <Image src={ thumbnailUrl ? cmsUrl + thumbnailUrl : "/img/imageNotFound.png" }
+                        <Image src={ thumbnailUrl ? thumbnailUrl : "/img/imageNotFound.png" }
                             className="mx-auto w-fit h-full"
                             height="500" width="500"
                             alt={ `${ blog.attributes.title } thumbnail`}
