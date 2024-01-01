@@ -49,10 +49,10 @@ export default async function Home() {
                         : `I have experience with over ${(Math.floor(data?.skills.data.length / 10) * 10) || 0} tools`
                 }>
                     <div>
-                        <h3 className="text-3xl my-10">Generic tools that I utilize</h3>
+                        {/* <h3 className="text-3xl my-10">Generic tools that I utilize</h3> */}
                         <ul className="flex flex-row flex-wrap gap-7 justify-center md:justify-start">
                             {
-                                tools?.map((tool, index) =>
+                                data?.skills.data.map((tool, index) =>
                                     <li key={`tool-${ index }` } className="w-28 text-center">
                                         <div className="h-20">
                                             { tool.attributes.class_name &&
@@ -67,7 +67,7 @@ export default async function Home() {
                             }
                         </ul>
                     </div>
-                    <div>
+                    {/* <div>
                         <h3 className="text-3xl my-10">I'm also familiar with these libraries & services</h3>
                         <ul>
                             {
@@ -85,7 +85,7 @@ export default async function Home() {
                                 )
                             }
                         </ul>
-                    </div>
+                    </div> */}
                 </SectionWrapper>
 
                 { showFreelancing &&

@@ -56,6 +56,8 @@ main h2, article h1 {
     font-weight: 600;
 }
 
-p > a {
+p > a,
+li > a {
 	text-decoration: underline;
+	font-weight: 600;
 }

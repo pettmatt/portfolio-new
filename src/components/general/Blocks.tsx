@@ -17,10 +17,12 @@ export default function Blocks({ blocks }: { blocks: project[] | blog[] | any[] 
 }
 
 function Block({ content }: { content: project | blog | any }) {
+    const cmsUrl = process.env.NEXT_PUBLIC_DOMAIN
     const block = content.attributes
     const link = block.link ? block.link : `/blogs/${ block.title.split(" ").join("-") }`
-    const thumbnailUrl = block.thumbnail.data?.attributes.url
-    const cmsUrl = process.env.NEXT_PUBLIC_DOMAIN
+    const thumbnailUrl = (block.thumbnail.data?.attributes.url.includes("res.cloudinary.com"))
+        ? block.thumbnail.data?.attributes.url
+        : cmsUrl + block.thumbnail.data?.attributes.url
 
     return (
         <section className="block-item w-full border-solid border border-custom-default rounded-md
@@ -31,7 +33,7 @@ function Block({ content }: { content: project | blog | any }) {
                     <div className="image-wrapper">
                         <div className="h-48 overflow-y-hidden rounded-t-md">
                             <Image className="rounded-t-md w-full" height="200" width="500"
-                                src={ thumbnailUrl ? cmsUrl + thumbnailUrl : "/img/imageNotFound.png" }
+                                src={ thumbnailUrl ? thumbnailUrl : "/img/imageNotFound.png" }
                                 alt={ `${ block.title } thumbnail` }
                             />
                         </div>
