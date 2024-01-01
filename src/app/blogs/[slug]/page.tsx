@@ -58,23 +58,25 @@ export default async function Blogpage({ params }: { params: { slug: string } })
 
                         <div className="blog-details my-4">
                             <ul>
-                                { createDate.getMonth() + 1 === updateDate.getMonth() + 1
-                                    ?
-                                        <li aria-label="Blog post date">
-                                            Posted on <span className="bpd">
-                                            { ogCreateDate
+                                { (ogCreateDate || createDate) &&
+                                    <li aria-label="Blog post date">
+                                        Posted on <span className="bpd font-bold">                                            
+                                            { (ogCreateDate)
                                                 ? `${pickAMonth(ogCreateDate.getMonth())} ${ogCreateDate.getDate()}, ${ogCreateDate.getFullYear()}`
                                                 : `${pickAMonth(createDate.getMonth())} ${createDate.getDate()}, ${createDate.getFullYear()}`
                                             }
-                                            </span>
-                                        </li>
-                                    :
-                                        <li className="bud" aria-label="Blog update date">
-                                            Updated on { `${updateDate.getDate()} ${pickAMonth(updateDate.getMonth())} ${updateDate.getFullYear()}` }
-                                        </li>
+                                        </span>
+                                    </li>
+                                }
+                                { (updateDate) &&
+                                    <li className="bud" aria-label="Blog update date">
+                                        Updated on <span className="upd font-bold">
+                                            { `${pickAMonth(updateDate.getMonth())} ${updateDate.getDate()}, ${updateDate.getFullYear()}` }
+                                        </span>
+                                    </li>
                                 }
                                 <li className="rte" aria-label="read time estimate">
-                                    { blog.attributes.read_time }
+                                    Estimated read time <span className="font-bold">{ blog.attributes.read_time }</span>
                                 </li>
                             </ul>
                         </div>
