@@ -1,7 +1,7 @@
 #landing {
     height: 80vh;
     animation-delay: 1.5s;
-    animation: fullScreenTo70 5000ms ease;
+    animation: fullScreenTo70 3000ms ease;
 }
 
 @keyframes fullScreenTo70 {

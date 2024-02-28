@@ -1,18 +1,20 @@
+"use client"
 import ReactMarkdown from "react-markdown"
 import { project, blog } from "@/types/strapi-components"
 import Image from "next/image"
 import Link from "next/link"
+import { useContext } from "react"
+import WrapperContext from "@/app/context/WrapperContext"
 
 export default function Blocks({ blocks }: { blocks: project[] | blog[] | any[] }) {
-
     return (
-        <div className="block-wrapper flex flex-wrap flex-col sm:flex-row gap-4">
-            {
-                blocks?.map((block, index) => (
-                    <Block key={ `block-${ index }` } content={ block } />
-                ))
-            }
-        </div>
+        <>
+        {
+            blocks?.map((block, index) => (
+                <Block key={ `block-${ index }` } content={ block } />
+            ))
+        }
+        </>
     )
 }
 
@@ -24,10 +26,10 @@ function Block({ content }: { content: project | blog | any }) {
         ? block.thumbnail.data?.attributes.url
         : cmsUrl + block.thumbnail.data?.attributes.url
 
+    const wrapperStatus = useContext(WrapperContext)
+
     return (
-        <section className="block-item w-full border-solid border border-custom-default rounded-md
-            sm:w-custom-1/2 lg:w-custom-1/3 xlg:w-custom-1/4"
-        >
+        <section className={`block-item border-solid border border-custom-default rounded-md ${ (wrapperStatus?.includes("flex-column")) ? "sm:w-custom-1/2 lg:w-custom-1/3 xlg:w-custom-1/4" : "min-w-60" }`}>
             <header>
                 <Link href={ link } className="text-2xl font-bold">
                     <div className="image-wrapper">
