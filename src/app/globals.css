@@ -3,7 +3,6 @@
 @tailwind utilities;
 @import "../styles/effects.css";
 @import "../styles/custom.css";
-@import "../styles/blog.css";
 
 :root {
 	--foreground-rgb: 0, 0, 0;

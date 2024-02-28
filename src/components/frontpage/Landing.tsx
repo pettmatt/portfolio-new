@@ -1,3 +1,5 @@
+import "../../styles/specific/landing.css"
+
 export default function Landing() {
     return (
         <div id="landing" className="flex flex-col sm:flex-row gap-6 py-12">

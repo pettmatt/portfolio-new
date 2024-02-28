@@ -59,7 +59,7 @@ export default async function Home() {
                                     <li key={`tool-${ index }` } className="w-28 text-center">
                                         <div className="h-20">
                                             { tool.attributes.class_name &&
-                                                <i className={`text-7xl ${tool.attributes.class_name}`}></i>
+                                                <i className={`text-7xl devicon-${tool.attributes.class_name}`}></i>
                                             }
                                         </div>
                                         <p className="mt-2">

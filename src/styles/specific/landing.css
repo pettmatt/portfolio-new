@@ -1,0 +1,11 @@
+#landing {
+    height: 80vh;
+    animation-delay: 1.5s;
+    animation: fullScreenTo70 5000ms ease;
+}
+
+@keyframes fullScreenTo70 {
+    0% { height: 100vh; }
+    60% { height: 100vh; }
+    100% { height: 80vh; }
+}

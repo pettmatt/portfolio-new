@@ -6,6 +6,7 @@ import Blocks from "@/components/general/Blocks"
 import Navigation from "@/components/general/Navigation"
 import SectionWrapper from "@/components/general/wrappers/SectionWrapper"
 import Footer from "@/components/general/Footer"
+import "../../styles/blog.css"
 
 export const metadata: Metadata = {
     title: "Pettmatt : Blog archive",
