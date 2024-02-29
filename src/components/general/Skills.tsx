@@ -26,9 +26,6 @@ function Skills({ skills }: { skills: skill[] }) {
                     </li>
                 )
             }
-            { wrapperStatus?.includes("flex-column") &&
-                <p className="wrapper-hide text-center mt-20 text-xl">And more to come . . .</p>
-            }
         </ul>
     )
 }

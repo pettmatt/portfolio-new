@@ -1,7 +1,7 @@
 "use client"
 import { MutableRefObject, useRef, useState } from "react"
-import "../../../styles/components/DynamicListWrapper.css"
 import WrapperContext from "@/app/context/WrapperContext"
+import "../../../styles/components/DynamicListWrapper.css"
 
 export default function DynamicListWrapper({
     children
@@ -9,30 +9,31 @@ export default function DynamicListWrapper({
     const [show, setShow] = useState(false)
     const scrollRef: MutableRefObject<HTMLDivElement | null> = useRef(null)
 
-    function handleScrollClick(scrollAmount: number) {
-        const currentScroll = scrollRef.current?.scrollLeft ?? 0
-        const scrollToOptions = {
-            left: 0,
+    function handleScrollClick(left: boolean) {
+        const config: ScrollToOptions = {
+            left: left 
+                ? -Math.abs(scrollRef.current?.clientWidth ?? 0)
+                : Math.abs(scrollRef.current?.clientWidth ?? 0),
+            top: 0,
             behavior: "smooth"
         }
 
-        if (scrollAmount < 0) scrollToOptions.left = currentScroll - scrollAmount
-        else scrollToOptions.left = currentScroll + scrollAmount
-
-        scrollRef.current?.scrollBy(scrollToOptions)
+        scrollRef.current?.scrollBy(config)
     }
 
     function showOnClick() {
         setShow(!show)
+        scrollRef.current?.scrollIntoView(true)
     }
 
     return (
         <div id="dynamic-list-wrapper">
             <div className="flex relative">
                 { !show && (
-                    <div className="absolute left-0 top-0 bottom-0">
-                        <button onClick={ () => handleScrollClick(-120) }
-                            className="button-next rounded-md"
+                    <div className="button-wrapper absolute sm:left-n-1 md:left-n-1 top-0 bottom-0">
+                        <button onClick={ () => handleScrollClick(true) }
+                            className="control-button rounded-md"
+                            aria-label="Previous slide button"
                         >
                             {"<"}
                         </button>
@@ -53,18 +54,21 @@ export default function DynamicListWrapper({
                 </div>
 
                 { !show && (
-                    <div className="absolute right-0 top-0 bottom-0">
-                        <button onClick={ () => handleScrollClick(120) }
-                            className="button-next rounded-md"
+                    <div className="button-wrapper absolute right-n-1 md:right-n-2 top-0 bottom-0">
+                        <button onClick={ () => handleScrollClick(false) }
+                            className="control-button rounded-md"
+                            aria-label="Next slide button"
                         >
                             {">"}
                         </button>
                     </div>
                 )}
             </div>
-            <button onClick={showOnClick}>
-                { show ? "Show less" : "Extend" }
-            </button>
+            <div className="relative text-center mt-2">
+                <button onClick={showOnClick} className="absolute">
+                    { show ? "Show less" : "Extend" }
+                </button>
+            </div>
         </div>
     )
 }

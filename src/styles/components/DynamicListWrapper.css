@@ -1,35 +1,25 @@
-.dynamic-list-wrapper {
+#dynamic-list-wrapper {
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: scroll;
-    padding: 0 1em 1.5em 1em;
+    padding: 0 1em;
 }
 
-.dynamic-list-wrapper > * {
-    min-width: 43vw;
+/* #dynamic-list-wrapper .button-wrapper:first-child {
+    left: -2.4em;
 }
 
-.dynamic-list-wrapper::after {
-    height: 15em;
-    width: 0.2em;
+#dynamic-list-wrapper .button-wrapper:last-child {
+    right: -2.4em;
+} */
+
+#dynamic-list-wrapper .control-button {   
+    padding: 0.5em 0.9em;
+    border-radius: 1.3rem;
     background-color: #000;
-    left: 0;
+    color: #fff;
 }
 
-.dynamic-list-wrapper::before {
-    height: 15em;
-    width: 0.2em;
-    background-color: #000;
-    left: 0;
-}
-
-.button-next, .button-previous {
-    padding: 1em;
-    color: #000;
-}
-
-@media only screen and (max-width: 1190px) {
-    .block-wrapper > * {
-        min-width: 36vw;
-    }
+#dynamic-list-wrapper .list-wrapper {
+    padding: 1em 0.5em;
+    overflow-x: hidden;
 }

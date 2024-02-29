@@ -41,6 +41,14 @@ const config: Config = {
       },
       borderColor: {
         "custom-default": "#bbb",
+      },
+      left: {
+        "left-n-1": "-1.4em",
+        "left-n-2": "-2.4em"
+      },
+      right: {
+        "right-n-1": "-1.4em",
+        "right-n-2": "-2.4em"
       }
     },
   },
