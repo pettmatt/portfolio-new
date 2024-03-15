@@ -52,11 +52,9 @@ export default async function Home() {
                 </SectionWrapper>
 
                 <SectionWrapper header="Personal projects" description={ data?.projects_text }>
-                    {/* <div className="flex flex-row gap-4"> */}
                     <DynamicListWrapper>
                         <Blocks blocks={ projects } />
                     </DynamicListWrapper>
-                    {/* </div> */}
                 </SectionWrapper>
 
                 <SectionWrapper header="Toolkit" description={data?.toolkit_text

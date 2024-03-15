@@ -28,15 +28,15 @@ const config: Config = {
       },
       width: {
         "custom-1/2": "48.6%",
-        "custom-1/3": "31.4%",
-        "custom-1/4": "23.6%",
+        "custom-1/3": "32.4%",
+        "custom-1/4": "23.8%",
         "blog-thin": "38vw",
         "blog-wide": "70vw",
       },
       minWidth: {
         "custom-1/2": "48.6%",
-        "custom-1/3": "31.4%",
-        "custom-1/4": "23.6%",
+        "custom-1/3": "32.4%",
+        "custom-1/4": "23.8%",
       },
       backgroundColor: {
         "custom-black": "#000",

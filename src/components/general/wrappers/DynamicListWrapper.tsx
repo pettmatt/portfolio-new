@@ -12,14 +12,15 @@ export default function DynamicListWrapper({
     function handleScrollClick(left: boolean) {
         const clientWidth = scrollRef.current?.clientWidth
         const offset = 14
+        console.log(clientWidth)
         const scrollLeftCalculation = -Math.abs(clientWidth
-            ? clientWidth < 526
+            ? clientWidth > 526
                 ? clientWidth + offset
                 : clientWidth
             : 0
         )
         const scrollRightCalculation = Math.abs(clientWidth
-            ? clientWidth < 526
+            ? clientWidth > 526
                 ? clientWidth + offset
                 : clientWidth
             : 0
@@ -45,7 +46,7 @@ export default function DynamicListWrapper({
         <div id="dynamic-list-wrapper">
             <div className="flex relative">
                 { !show && (
-                    <div className="button-wrapper absolute top-0 bottom-0 left-0 sm:left-n-3">
+                    <div className="button-wrapper absolute top-0 bottom-0 left-0 sm:left-n-3 flex justify-center items-center">
                         <button onClick={ () => handleScrollClick(true) }
                             className="control-button rounded-md font-bold"
                             aria-label="Previous slide button"
@@ -70,7 +71,7 @@ export default function DynamicListWrapper({
                 </div>
 
                 { !show && (
-                    <div className="button-wrapper absolute top-0 bottom-0 right-0 sm:right-n-3">
+                    <div className="button-wrapper absolute top-0 bottom-0 right-0 sm:right-n-3 flex justify-center items-center">
                         <button onClick={ () => handleScrollClick(false) }
                             className="control-button rounded-md font-bold"
                             aria-label="Next slide button"

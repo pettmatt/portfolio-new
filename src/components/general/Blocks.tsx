@@ -32,8 +32,8 @@ function Block({ content }: { content: project | blog | any }) {
         <section className={
             `block-item border-solid border border-custom-default rounded-md ${
                 wrapperStatus?.includes("flex-column")
-                    ? "min-w-full sm:min-w-custom-1/2"
-                    : "min-w-full sm:min-w-custom-1/2 lg:min-w-custom-1/3 xlg:min-w-custom-1/4" 
+                    ? "w-full sm:w-custom-1/2 xlg:w-custom-1/4"
+                    : "min-w-full sm:min-w-custom-1/2 lg:min-w-custom-1/3 xlg:min-w-custom-1/4"
             }`
         }>
             <header>
