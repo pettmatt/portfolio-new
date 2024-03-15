@@ -33,6 +33,11 @@ const config: Config = {
         "blog-thin": "38vw",
         "blog-wide": "70vw",
       },
+      minWidth: {
+        "custom-1/2": "48.6%",
+        "custom-1/3": "31.4%",
+        "custom-1/4": "23.6%",
+      },
       backgroundColor: {
         "custom-black": "#000",
       },
@@ -43,13 +48,13 @@ const config: Config = {
         "custom-default": "#bbb",
       },
       left: {
-        "left-n-1": "-1.4em",
-        "left-n-2": "-2.4em"
+        "n-1": "-1.4em",
+        "n-3": "-3em"
       },
       right: {
-        "right-n-1": "-1.4em",
-        "right-n-2": "-2.4em"
-      }
+        "n-1": "-1.4em",
+        "n-3": "-3em"
+      },
     },
   },
   plugins: [],

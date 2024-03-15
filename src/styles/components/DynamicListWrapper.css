@@ -1,16 +1,11 @@
 #dynamic-list-wrapper {
     flex-direction: row;
     flex-wrap: nowrap;
-    padding: 0 1em;
 }
 
-/* #dynamic-list-wrapper .button-wrapper:first-child {
-    left: -2.4em;
+#dynamic-list-wrapper .list-wrapper {
+    padding: 1em 0.5em;
 }
-
-#dynamic-list-wrapper .button-wrapper:last-child {
-    right: -2.4em;
-} */
 
 #dynamic-list-wrapper .control-button {   
     padding: 0.5em 0.9em;
@@ -20,6 +15,5 @@
 }
 
 #dynamic-list-wrapper .list-wrapper {
-    padding: 1em 0.5em;
     overflow-x: hidden;
 }

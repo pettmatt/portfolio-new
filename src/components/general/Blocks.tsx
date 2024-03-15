@@ -29,7 +29,13 @@ function Block({ content }: { content: project | blog | any }) {
     const wrapperStatus = useContext(WrapperContext)
 
     return (
-        <section className={`block-item border-solid border border-custom-default rounded-md ${ (wrapperStatus?.includes("flex-column")) ? "sm:w-custom-1/2 lg:w-custom-1/3 xlg:w-custom-1/4" : "min-w-60" }`}>
+        <section className={
+            `block-item border-solid border border-custom-default rounded-md ${
+                wrapperStatus?.includes("flex-column")
+                    ? "min-w-full sm:min-w-custom-1/2"
+                    : "min-w-full sm:min-w-custom-1/2 lg:min-w-custom-1/3 xlg:min-w-custom-1/4" 
+            }`
+        }>
             <header>
                 <Link href={ link } className="text-2xl font-bold">
                     <div className="image-wrapper">
@@ -53,11 +59,12 @@ function Block({ content }: { content: project | blog | any }) {
                 }
             </header>
             <div className="description-wrapper px-4 pt-2 pb-4">
-                <ReactMarkdown>{
-                    block.blog_text
+                <ReactMarkdown>
+                    { block.blog_text
                         ? block.blog_text.substring(0, block.blog_text.indexOf(".") + 1)
                         : block.description
-                }</ReactMarkdown>
+                    }
+                </ReactMarkdown>
             </div>
         </section>
     )

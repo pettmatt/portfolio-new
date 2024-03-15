@@ -59,7 +59,7 @@ export default async function Home() {
                     {/* </div> */}
                 </SectionWrapper>
 
-                <SectionWrapper header="Toolkit" description={ data?.toolkit_text
+                <SectionWrapper header="Toolkit" description={data?.toolkit_text
                         ? data?.toolkit_text
                         : `Experience with over ${(Math.floor(skills.length / 10) * 10) || 0} tools`
                 }>

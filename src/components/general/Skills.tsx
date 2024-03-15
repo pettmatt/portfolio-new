@@ -7,7 +7,7 @@ function Skills({ skills }: { skills: skill[] }) {
     const wrapperStatus = useContext(WrapperContext)
 
     return (
-        <ul className={`flex gap-7 justify-center md:justify-start ${
+        <ul className={`flex gap-2 sm:gap-7 justify-center md:justify-start ${
             (wrapperStatus?.includes("flex-column"))
                 ? "flex-column flex-wrap"
                 : "flex-row"
