@@ -27,7 +27,7 @@ export default function Navigation({ showBlogLink = false, showFreelancing = fal
     }
 
     return (
-        <nav className="w-screen px-1 py-2 fixed flex flex-wrap justify-between">
+        <nav className="w-screen p-3 fixed flex flex-wrap justify-between">
             <Link title="To front page" href="/#" id="logo" className="px-4 py-2">
                 pettmatt
             </Link>
