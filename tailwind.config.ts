@@ -47,11 +47,7 @@ const config: Config = {
       borderColor: {
         "custom-default": "#bbb",
       },
-      left: {
-        "n-1": "-1.4em",
-        "n-3": "-3em"
-      },
-      right: {
+      spacing: {
         "n-1": "-1.4em",
         "n-3": "-3em"
       },
