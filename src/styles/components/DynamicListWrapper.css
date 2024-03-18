@@ -17,3 +17,35 @@
 #dynamic-list-wrapper .list-wrapper {
     overflow-x: hidden;
 }
+
+/* Animations */
+#dynamic-list-wrapper .control-button {
+    /* transition: height 300ms ease; */
+    animation: appear 1000ms ease;
+}
+
+#dynamic-list-wrapper .animate-height {
+    animation: heightChange 500ms ease;
+}
+
+#dynamic-list-wrapper > #extend-button-container {
+    border-top: dotted 2px #000;
+}
+
+#dynamic-list-wrapper #extend-button-container > button {
+    top: -1.4em;
+    background-color: #fff;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+@keyframes heightChange {
+    0% { max-height: 0; }
+    50% { max-height: 40%; }
+    100% { max-height: 100%; }
+}
+
+@keyframes appear {
+    0% { background-color: #fff; }
+    100% { background-color: #000; }
+}

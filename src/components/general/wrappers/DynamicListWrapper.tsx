@@ -6,13 +6,14 @@ import "../../../styles/components/DynamicListWrapper.css"
 export default function DynamicListWrapper({
     children
 }: { children: React.ReactNode }) {
+    const [playShow, setPlayShow] = useState(false)
     const [show, setShow] = useState(false)
     const scrollRef: MutableRefObject<HTMLDivElement | null> = useRef(null)
 
     function handleScrollClick(left: boolean) {
         const clientWidth = scrollRef.current?.clientWidth
         const offset = 14
-        console.log(clientWidth)
+
         const scrollLeftCalculation = -Math.abs(clientWidth
             ? clientWidth > 526
                 ? clientWidth + offset
@@ -38,17 +39,20 @@ export default function DynamicListWrapper({
     }
 
     function showOnClick() {
-        setShow(!show)
+        console.log("CLICK")
+        setPlayShow(!playShow)
         scrollRef.current?.scrollIntoView(true)
     }
 
     return (
         <div id="dynamic-list-wrapper">
-            <div className="flex relative">
+            <div onAnimationEnd={() => { console.log("TRIGGERED") } } className={`flex relative ${
+                show ? "animate-height" : ""
+            }`}>
                 { !show && (
-                    <div className="button-wrapper absolute top-0 bottom-0 left-0 sm:left-n-3 flex justify-center items-center">
+                    <div className="button-wrapper absolute top-0 bottom-0 left-0 sm:left-n-1 md:left-n-3 flex justify-center items-center">
                         <button onClick={ () => handleScrollClick(true) }
-                            className="control-button rounded-md font-bold"
+                            className={`control-button rounded-md font-bold`}
                             aria-label="Previous slide button"
                         >
                             {"<"}
@@ -56,12 +60,10 @@ export default function DynamicListWrapper({
                     </div>
                 ) }
 
-                <div ref={scrollRef} className={`list-wrapper flex gap-4 overflow-hidden 
-                    ${ show
-                        ? "max-h-full flex-wrap flex-column"
-                        : "flex-row mx-12 sm:mx-0"
-                    }
-                `}>
+                <div ref={scrollRef} className={`list-wrapper flex gap-4 overflow-hidden ${ show
+                    ? "max-h-full flex-wrap flex-column"
+                    : "flex-row mx-12 sm:mx-0"
+                }`}>
                     <WrapperContext.Provider value={show
                         ? "max-h-full flex-wrap flex-column"
                         : "flex-row"
@@ -71,7 +73,7 @@ export default function DynamicListWrapper({
                 </div>
 
                 { !show && (
-                    <div className="button-wrapper absolute top-0 bottom-0 right-0 sm:right-n-3 flex justify-center items-center">
+                    <div className="button-wrapper absolute top-0 bottom-0 right-0 md:right-n-3 flex justify-center items-center">
                         <button onClick={ () => handleScrollClick(false) }
                             className="control-button rounded-md font-bold"
                             aria-label="Next slide button"
@@ -81,8 +83,8 @@ export default function DynamicListWrapper({
                     </div>
                 )}
             </div>
-            <div className="relative text-center mt-2 flex justify-center">
-                <button onClick={showOnClick} className="absolute p-2">
+            <div id="extend-button-container" className="relative text-center mt-6 flex justify-center">
+                <button onClick={showOnClick} className="absolute p-2 ">
                     { show ? "Show less" : "Extend" }
                 </button>
             </div>

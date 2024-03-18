@@ -40,7 +40,7 @@ function Block({ content }: { content: project | blog | any }) {
                 <Link href={ link } className="text-2xl font-bold">
                     <div className="image-wrapper">
                         <div className="h-48 overflow-y-hidden rounded-t-md">
-                            <Image className="rounded-t-md w-full" height="200" width="500"
+                            <Image className="rounded-t-md w-full h-full object-cover" height="200" width="500"
                                 src={ thumbnailUrl ? thumbnailUrl : "/img/imageNotFound.png" }
                                 alt={ `${ block.title } thumbnail` }
                             />

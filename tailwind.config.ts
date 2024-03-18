@@ -48,7 +48,7 @@ const config: Config = {
         "custom-default": "#bbb",
       },
       spacing: {
-        "n-1": "-1.4em",
+        "n-1": "-0.8em",
         "n-3": "-3em"
       },
     },

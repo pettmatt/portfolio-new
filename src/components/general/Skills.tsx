@@ -14,7 +14,7 @@ function Skills({ skills }: { skills: skill[] }) {
         }`}>
             {
                 skills.sort().map((tool, index) =>
-                    <li key={`tool-${ index }` } className="w-28 text-center">
+                    <li key={`tool-${ index }` } className="w-28 mt-2 mb-2 text-center">
                         <div className="h-20">
                             { tool.attributes.class_name &&
                                 <i className={`text-7xl devicon-${tool.attributes.class_name}`}></i>
