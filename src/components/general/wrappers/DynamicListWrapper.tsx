@@ -6,10 +6,11 @@ import "../../../styles/components/DynamicListWrapper.css"
 export default function DynamicListWrapper({
     children
 }: { children: React.ReactNode }) {
-    const [playAnimation, setPlayAnimation] = useState(false)
     const [showControls, setShowControls] = useState(true)
     const [show, setShow] = useState(false)
     const scrollRef: MutableRefObject<HTMLDivElement | null> = useRef(null)
+    const leftButtonRef: MutableRefObject<HTMLButtonElement | null> = useRef(null)
+    const rightButtonRef: MutableRefObject<HTMLButtonElement | null> = useRef(null)
 
     function handleScrollClick(left: boolean) {
         const clientWidth = scrollRef.current?.clientWidth
@@ -44,27 +45,36 @@ export default function DynamicListWrapper({
         scrollRef.current?.scrollIntoView(true)
     }
 
-    useEffect(() => {
-        if (playAnimation) {
-            const timeout = setTimeout(() => {
+    // useEffect(() => {
+    //     const timeout = setTimeout(() => {
+    //         setShowControls(!show)
+    //     }, 300)
 
-            }, 300)
-        }
-
-        else {
-
-        }
-    }, [playAnimation])
+    //     return () => clearTimeout(timeout)
+    // }, [show])
 
     return (
         <div id="dynamic-list-wrapper">
-            <div className={`flex relative${
-                playAnimation ? " animate-height" : ""
-            }`}>
-                <div aria-hidden={!showControls}
-                    className={`button-wrapper absolute top-0 bottom-0 left-0 sm:left-n-1 md:left-n-3 flex justify-center items-center${showControls ? "" : " hidden"}`}>
-                    <button onClick={ () => handleScrollClick(true) }
-                        className={`control-button rounded-md font-bold${showControls ? " appear" : " disappear"}`}
+            <div className={`flex relative`}>
+                <div aria-hidden={show}
+                    className={`button-wrapper absolute top-0 bottom-0 left-0 sm:left-n-1 md:left-n-3 flex justify-center items-center`}
+                >
+                    <button ref={leftButtonRef}
+                        onClick={() => handleScrollClick(true)}
+                        onAnimationEnd={() => {
+                            if (show) {
+                                leftButtonRef.current?.classList.remove("opacity-100")
+                                leftButtonRef.current?.classList.add("hidden")
+                            }
+                            else {
+                                leftButtonRef.current?.classList.remove("hidden")
+                                leftButtonRef.current?.classList.remove("opacity-0")
+                            }
+                        }}
+                        className={
+                            `control-button rounded-md font-bold
+                            ${show ? "disappear opacity-100" : "appear opacity-0"}`
+                        }
                         aria-label="Previous slide button"
                     >
                         {"<"}
@@ -84,9 +94,24 @@ export default function DynamicListWrapper({
                 </div>
 
                 <div aria-hidden={!showControls}
-                    className={`button-wrapper absolute top-0 bottom-0 right-0 md:right-n-3 flex justify-center items-center${showControls ? "" : " hidden"}`}>
-                    <button onClick={ () => handleScrollClick(false) }
-                        className={`control-button rounded-md font-bold${showControls ? " appear" : " disappear"}`}
+                    className={`button-wrapper absolute top-0 bottom-0 right-0 sm:right-n-1 md:right-n-3 flex justify-center items-center
+                    ${show ? "hidden" : ""}`}
+                >
+                    <button ref={rightButtonRef} 
+                        onAnimationEnd={() => {
+                            if (show) {
+                                leftButtonRef.current?.classList.remove("opacity-100")
+                                leftButtonRef.current?.classList.add("hidden")
+                            }
+                            else {
+                                leftButtonRef.current?.classList.remove("hidden")
+                                leftButtonRef.current?.classList.remove("opacity-0")
+                            }
+                        }}
+                        onClick={ () => handleScrollClick(false) }
+                        className={`control-button rounded-md font-bold
+                            ${show ? "disappear" : "appear"}`
+                        }
                         aria-label="Next slide button"
                     >
                         {">"}
