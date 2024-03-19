@@ -68,3 +68,13 @@ li > a {
 main article p {
 	margin: 1rem 0;
 }
+
+/* Animations */
+.nav-animate {
+	animation: appearToScreen 1000ms ease;
+}
+
+@keyframes appearToScreen {
+	0% { top: -50em; }
+	100% { top: 0; }
+}

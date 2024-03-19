@@ -15,7 +15,7 @@ export default function Navigation({ showBlogLink = false, showFreelancing = fal
             if (!isMobileView) setShowMobileMenu(false)
         }
 
-        window.addEventListener("resize", handleResize)
+        // window.addEventListener("resize", handleResize)
 
         return () => {
             window.addEventListener("resize", handleResize)
