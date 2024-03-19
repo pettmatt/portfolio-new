@@ -51,6 +51,10 @@ const config: Config = {
         "n-1": "-0.8em",
         "n-3": "-3em"
       },
+      borderWidth: {
+        "t-dotted": "dotted 2px #000",
+        "t-solid": "solid 2px #000",
+      }
     },
   },
   plugins: [],

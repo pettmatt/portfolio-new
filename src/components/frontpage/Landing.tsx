@@ -1,8 +1,29 @@
+"use client"
+import { useEffect, useRef, useState } from "react"
 import "../../styles/specific/landing.css"
 
 export default function Landing() {
+    const [animate, setAnimate] = useState(false)
+    const parentRef = useRef<HTMLDivElement | null>(null)
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            if (window.scrollY === 0) setAnimate(true)
+        }, 2000)
+
+        return () => clearTimeout(timeout)
+    }, [])
+
     return (
-        <div id="landing" className="flex flex-col sm:flex-row gap-6 py-12">
+        <div ref={parentRef} id="landing"
+            onAnimationEnd={() => {
+                parentRef.current?.classList.remove("full-height")
+                parentRef.current?.classList.add("min-height")
+            }}
+            className={`flex flex-col sm:flex-row gap-6 py-12 full-height${
+                animate ? " animate" : ""
+            }`}
+        >
             <div className="title-wrapper flex-1">
                 <h1 className="flex flex-col"
                     title="Hello, I am your ordinary web developer with versatile skills"
