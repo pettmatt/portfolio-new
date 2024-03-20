@@ -16,7 +16,7 @@ export default function Navigation({ showBlogLink = false, showFreelancing = fal
     }
 
     useEffect(() => {    
-        checkScreenSize()
+        window.addEventListener("resize", checkScreenSize)
 
         return () => {
             window.addEventListener("resize", checkScreenSize)
