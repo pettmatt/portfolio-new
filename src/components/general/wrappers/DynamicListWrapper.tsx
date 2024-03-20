@@ -81,18 +81,6 @@ export default function DynamicListWrapper({
                     </button>
                 </div>
 
-                <div ref={scrollRef} className={`list-wrapper flex gap-4 overflow-hidden ${ show
-                    ? "max-h-full flex-wrap flex-column"
-                    : "flex-row mx-12 sm:mx-0"
-                }`}>
-                    <WrapperContext.Provider value={show
-                        ? "max-h-full flex-wrap flex-column"
-                        : "flex-row"
-                    }>
-                        { children }
-                    </WrapperContext.Provider>
-                </div>
-
                 <div aria-hidden={!showControls}
                     className={`button-wrapper absolute top-0 bottom-0 right-0 sm:right-n-1 md:right-n-3 flex justify-center items-center
                     ${show ? "hidden" : ""}`}
@@ -116,6 +104,18 @@ export default function DynamicListWrapper({
                     >
                         {">"}
                     </button>
+                </div>
+
+                <div ref={scrollRef} className={`list-wrapper flex gap-4 overflow-hidden ${ show
+                    ? "max-h-full flex-wrap flex-column"
+                    : "flex-row mx-12 sm:mx-0"
+                }`}>
+                    <WrapperContext.Provider value={show
+                        ? "max-h-full flex-wrap flex-column"
+                        : "flex-row"
+                    }>
+                        { children }
+                    </WrapperContext.Provider>
                 </div>
             </div>
             <div id="extend-button-container" className={`relative text-center mt-6 flex justify-center border-width-t-${show ? "solid" : "dotted"}`}>

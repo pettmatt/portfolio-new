@@ -29,7 +29,7 @@ export default async function Home() {
     return (
         <>
             <Navigation showBlogLink={ pageData.attributes?.show_blogs || false } showFreelancing={ showFreelancing } />
-            <main className="flex flex-col items-start justify-center">
+            <main id="main-content" className="flex flex-col items-start justify-center">
 
                 <SectionWrapper overwriteHeight="3/4" additionalClass="bg-custom-black text-custom-white">
                     <Landing />

@@ -3,7 +3,7 @@ html {
 }
 
 /* Links*/
-nav a:hover, nav button:hover, footer a:hover, ul li > a:hover, footer button:hover
+nav a:hover, nav button:hover, footer a:hover, ul li > a:hover, footer button:hover,
 nav a:active, nav button:active, footer a:active, ul li > a:active, footer button:active {
 	background-color: #fff;
 	color: #000;
