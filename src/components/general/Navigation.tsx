@@ -1,6 +1,5 @@
 "use client"
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import BurgerIcon from "../icons/burger"
 
@@ -29,10 +28,10 @@ export default function Navigation({ showBlogLink = false, showFreelancing = fal
 
     return (
         <>
-            <a href="/#main-content" className="skip-link accessability-element">
-                Skip to content
-            </a>
             <nav className="w-screen p-3 fixed flex flex-wrap justify-between">
+                <a href="/#main-content" className="skip-link accessability-element">
+                    Skip to content
+                </a>
                 <Link href="/#" id="logo" className="px-4 py-2">
                     pettmatt
                 </Link>
