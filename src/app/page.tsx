@@ -17,10 +17,6 @@ export default async function Home() {
     const pageData: frontpage = await getData("/frontpage?populate=projects.thumbnail,skills,socials", "Frontpage")
     const data = pageData.attributes
 
-    const showFreelancing = data?.connects
-        ? data.connects.data.length > 0 
-        : false
-
     const projects: project[] = await getData("/projects?sort=createdAt:Desc&populate=thumbnail")
     const skills: skill[] = await getData("/skills?sort=name")
     // const tools = skills.filter(tool => !tool.attributes.service)
@@ -28,61 +24,116 @@ export default async function Home() {
 
     return (
         <>
-            <Navigation showBlogLink={ pageData.attributes?.show_blogs || false } showFreelancing={ showFreelancing } />
-            <main id="main-content" className="flex flex-col items-start justify-center">
+            {/* <Navigation showBlogLink={ pageData.attributes?.show_blogs || false } showFreelancing={ showFreelancing } /> */}
+            <main id="main-content" className="flex flex-col items-start justify-center max-height-20">
 
-                <SectionWrapper overwriteHeight="3/4" additionalClass="bg-custom-black text-custom-white">
-                    <Landing />
-                </SectionWrapper>
+                <div className="header section flex row">
+					<div className="introduction">
+						<h1>Hidden header for search engines</h1>
+						<h2>Petteri Mattila <span>Software Developer</span></h2>
+					</div>
+					<div className="link-container">
+						<ul className="flex column">
+							<li>email</li>
+							<li>linkedin</li>
+							<li>github</li>
+						</ul>
+					</div>
+					<div className="paragraph-container">
+						<p>
+							As a technology-centric individual, I am always eager to learn new technologies and
+							improve my skills. I have a passion for problem-solving and enjoy working in a
+							collaborative environment where I can share my knowledge and learn from others.
+							While my focus has been on web technologies, I am open to broadening my skills
+							and expertise in new areas.
+						</p>
+					</div>
+				</div>
 
-                { showFreelancing &&
-                    <SectionWrapper header="Freelancing" additionalClass="bg-custom-black text-custom-white">
-                        <ul>
-                            {
-                                data.connects?.data.map((company, index) =>
-                                    <li key={`company-${ index }`}>{ company.attributes.name }</li>
-                                )
-                            }
-                        </ul>
-                    </SectionWrapper>
-                }
+				<div className="skills section flex column max-height-30">
+					<h3>Skills</h3>
+					<div className="technical">
+						<h4>Technical</h4>
+						<div className="often-used">
+							JavaScript, TypeScript, Lua, Rust, PHP, C#, NoSQL, SQL
+						</div>
+						<div className="database">
+							AWS, Serverless, Firebase, MongoDB, MySQL, SQLite
+						</div>
+						<div className="frontend">
+							React, Vue, Svelte, Next, Nuxt, jQuery, HTML, CSS, Sass, Tailwind
+						</div>
+						<div className="backend">
+							Node.js, Deno, Express
+						</div>
+						<div className="other">
+							Vite, Webpack, Jest, WordPress, Three, Unix, Docker, Git
+						</div>
+					</div>
+					<div className="soft">
+						<h4>Soft skills</h4>
+						Concepting, prototyping, problem solving, accessibility, scheduling, communication
+					</div>
+					<div className="other">
+						<h4>Other</h4>
+						<div className="programming-styles">
+							Data oriented programming, functional programming
+						</div>
+						<div className="architectures">
+							Serverless architecture, microservice architecture
+						</div>
+					</div>
+				</div>
 
-                <SectionWrapper header="About">
-                    <ReactMarkdown>{ data?.about_text }</ReactMarkdown>
-                </SectionWrapper>
+				<div className="work-experience section flex column max-height-30">
+					<h3>Work Experience</h3>
 
-                <SectionWrapper header="Personal projects" description={ data?.projects_text }>
-                    <DynamicListWrapper>
-                        <Blocks blocks={ projects } />
-                    </DynamicListWrapper>
-                </SectionWrapper>
+					<div className="content-container">
+						<ul className="flex column">
+							<li>
+								<h4 className="title">
+									<span className="company">Capacic</span> - Full-stack web developer
+								</h4>
+								<div className="timeline flex row">
+									<span className="time">2024</span>
+									<div className="employment-type">Contract</div>
+								</div>
+								<div className="description-container">
+									<p>
+										Capacic is a startup that aims to provide a more
+										intuitive, flexible and user-friendly ERP system that
+										adapts seamlessly to the unique needs of modern
+										businesses.
+									</p>
+									<p>
+										My responsibility was to provide my perspectives
+										on new UI elements, developing essential Vue.js
+										components, and writing Lua scripts for backend
+										processes to generate Vue components. I was also
+										responsible for creating documention from a
+										technical perspective and researching the
+										possibilities of AI technologies.
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
 
-                <SectionWrapper header="Toolkit" description={data?.toolkit_text
-                        ? data?.toolkit_text
-                        : `Experience with over ${(Math.floor(skills.length / 10) * 10) || 0} tools`
-                }>
-                    <DynamicListWrapper>
-                        <Skills skills={ skills } />
-                    </DynamicListWrapper>
-                </SectionWrapper>
+				<div className="education section max-height-20">
+					<h3>Education</h3>
 
-                <SectionWrapper header="Links" description={ data?.links_text } additionalClass="bg-custom-black text-custom-white">
-                    <ul className="text-center my-20">
-                        {
-                            data?.socials.data.map((social, index) => (
-                                social.attributes.link &&
-                                    <li key={ `link-${ index }` } className="inline px-1">
-                                        <Link href={ social.attributes.link } className="px-4 py-2 text-2xl">
-                                            { social.attributes.name }
-                                        </Link>
-                                    </li>
-                            ))
-                        }
-                    </ul>
-                </SectionWrapper>
+					<div className="content-container">
+						<h4>Jamk University of Applied Sciences</h4>
+						<div className="details flex column children-max-width">
+							<p className="program">Bachelor of Business Administration</p>
+							<p className="timeline">2019 - 2022 (~3.5 years)</p>
+						</div>
+					</div>
+				</div>
 
             </main>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }
