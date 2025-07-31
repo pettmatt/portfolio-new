@@ -1,0 +1,91 @@
+body {
+	padding: 1rem 2rem;
+	background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, p, div, ul, li {
+	color: var(--text-color);
+}
+
+h1, h2, h3, h4 {
+	margin: 0.5rem 0;
+	width: 100%;
+}
+
+h1 {
+	display: none;
+}
+
+h2 {
+	font-size: 3rem;
+	display: flex;
+	flex-direction: column;
+}
+
+h2 > span {
+	font-weight: 400;
+	font-size: 1.75rem;
+}
+
+h3 {
+	font-size: 1.5rem;
+}
+
+h4 {
+	font-size: 1.25rem;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.weighted {
+	font-weight: bold;
+}
+
+.weighted-children > * {
+	font-weight: bold;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.row {
+	flex-direction: row;
+}
+
+.column {
+	flex-direction: column;
+}
+
+.gap-between {
+	justify-content: space-between;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.width-50 {
+	width: 50%;
+}
+
+.max-width-75 {
+	width: 75vw;
+}
+
+.max-height-20 {
+	height: 20vh;
+}
+
+.max-height-30 {
+	height: 30vh;
+}
+

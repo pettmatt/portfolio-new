@@ -72,12 +72,15 @@ export default async function Skills() {
 			<h3>{ data.title }</h3>
 			{
 				data.skillSections.map((section: SkillSection, index: number) => (
-					<div key={index} className={ section.title.toLowerCase().replaceAll(" ", "-") }>
+					<div key={index} className={
+						section.title.toLowerCase().replaceAll(" ", "-") + " " +
+						"flex column gap-between width-50"
+					}>
 						<h4>{ section.title }</h4>
 						{
 							section.skills.map((skillSection: Skills, ii: number) => (
 								<div key={ii} className={ skillSection.className.toLowerCase() }>
-									{ skillSection.skills.join(", ") }
+									<p>{ skillSection.skills.join(", ") }</p>
 								</div>
 							))
 						}

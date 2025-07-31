@@ -9,7 +9,7 @@ export default async function Header() {
 		},
 		socials: ["email", "linkedin", "github"],
 		description: `
-			<p>
+			<p className="max-width-75">
 				As a technology-centric individual, I am always eager to learn new technologies and
 				improve my skills. I have a passion for problem-solving and enjoy working in a
 				collaborative environment where I can share my knowledge and learn from others.
@@ -21,12 +21,14 @@ export default async function Header() {
 
 	return (
 		<>
-			<div className="introduction">
-				<h1>{ data.hidden_title }</h1>
-				<h2>{ data.title.main } <span>{ data.title.span }</span></h2>
-			</div>
-			<div className="link-container">
-				<List list={data.socials} className="flex column" />
+			<div className="flex row gap-between">
+				<div className="introduction">
+					<h1>{ data.hidden_title }</h1>
+					<h2>{ data.title.main } <span>{ data.title.span }</span></h2>
+				</div>
+				<div className="link-container">
+					<List list={data.socials} className="link-list flex column text-right weighted-children" />
+				</div>
 			</div>
 			<div className="paragraph-container">
 				{

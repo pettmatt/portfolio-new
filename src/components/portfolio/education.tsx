@@ -6,8 +6,8 @@ export default async function Education() {
 				school: "Jamk University of Applied Sciences",
 				program: "Bachelor of Business Administration",
 				date: {
-					start: new Date("08.2019"),
-					ending: new Date("11.2022"),
+					start: new Date(),
+					ending: new Date(),
 					estimation: "~3.5 years"
 				}
 			}

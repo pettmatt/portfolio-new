@@ -13,8 +13,8 @@ export default async function Home() {
 
     return (
         <>
-            <main id="main-content" className="flex flex-col items-start justify-center">
-				<div className="work-experience section flex column max-height-30">
+            <main className="flex column">
+				<div className="header section flex column max-height-20">
 					<Header />
 				</div>
 				<div className="skills section flex column max-height-30">
