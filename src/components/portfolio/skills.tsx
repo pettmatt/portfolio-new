@@ -1,3 +1,5 @@
+import "@/styles/components/skills.css"
+
 export default async function Skills() {
 	interface Data {
 		title: string,
@@ -25,7 +27,7 @@ export default async function Skills() {
 						skills: ["JavaScript", "TypeScript", "Lua", "Rust", "PHP", "C#", "NoSQL", "SQL"]
 					},
 					{
-						className: "data-heavy",
+						className: "data-cloud",
 						skills: ["AWS", "Serverless", "Firebase", "MongoDB", "MySQL", "SQLite"]
 					},
 					{
@@ -70,6 +72,7 @@ export default async function Skills() {
 	return (
 		<>
 			<h3>{ data.title }</h3>
+			<div className="skill-list inner-container flex column wrap max-height-20">
 			{
 				data.skillSections.map((section: SkillSection, index: number) => (
 					<div key={index} className={
@@ -87,6 +90,7 @@ export default async function Skills() {
 					</div>
 				))
 			}
+			</div>
 		</>
 	)
 }

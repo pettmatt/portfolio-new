@@ -1,0 +1,19 @@
+main {
+	gap: 3rem;
+}
+
+main > div {
+	contain: layout;
+}
+
+.section h3 {
+	width: 100%;
+}
+
+.section .inner-container {
+
+}
+
+.section p {
+	margin: 0.5em 0;
+}

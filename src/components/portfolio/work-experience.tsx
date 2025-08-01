@@ -78,7 +78,7 @@ export default async function WorkExperience() {
 			<h3>{ data.title }</h3>
 
 			<div className="content-container">
-				<ul className="flex column">
+				<ul className="flex row wrap">
 					{
 						data.jobs.map((job: Job, index: number) => (
 							<li key={index}>

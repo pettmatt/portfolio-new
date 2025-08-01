@@ -17,7 +17,7 @@ export default async function Home() {
 				<div className="header section flex column max-height-20">
 					<Header />
 				</div>
-				<div className="skills section flex column max-height-30">
+				<div className="skills section flex column max-height-25">
 					<Skills />
 				</div>
 				<div className="work-experience section flex column max-height-30">

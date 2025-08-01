@@ -1,4 +1,5 @@
 import List from "./elements/List"
+import "@/styles/components/header.css"
 
 export default async function Header() {
 	const data = {
@@ -9,7 +10,7 @@ export default async function Header() {
 		},
 		socials: ["email", "linkedin", "github"],
 		description: `
-			<p className="max-width-75">
+			<p>
 				As a technology-centric individual, I am always eager to learn new technologies and
 				improve my skills. I have a passion for problem-solving and enjoy working in a
 				collaborative environment where I can share my knowledge and learn from others.
@@ -32,7 +33,7 @@ export default async function Header() {
 			</div>
 			<div className="paragraph-container">
 				{
-					<div dangerouslySetInnerHTML={
+					<div className="dangerous-container width-75" dangerouslySetInnerHTML={
 						{ __html: data.description }
 					} />
 				}

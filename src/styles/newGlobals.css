@@ -3,6 +3,11 @@ body {
 	background-color: var(--background-color);
 }
 
+main {
+	max-width: 53rem;
+	margin: 0 auto;
+}
+
 h1, h2, h3, h4, p, div, ul, li {
 	color: var(--text-color);
 }
@@ -73,19 +78,31 @@ ul {
 	text-align: right;
 }
 
+.wrap {
+	flex-wrap: wrap;
+}
+
 .width-50 {
 	width: 50%;
 }
 
+.width-75 {
+	width: 75%;
+}
+
 .max-width-75 {
-	width: 75vw;
+	max-width: 75vw;
 }
 
 .max-height-20 {
-	height: 20vh;
+	max-height: 20vh;
+}
+
+.max-height-25 {
+	max-height: 27vh;
 }
 
 .max-height-30 {
-	height: 30vh;
+	max-height: 30vh;
 }
 
