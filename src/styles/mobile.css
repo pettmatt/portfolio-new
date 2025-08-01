@@ -1,0 +1,40 @@
+@media only screen and (max-width: 725px) {
+	main .section {
+
+	}
+
+	main .section .width-75 {
+		width: 100%;
+	}
+
+	body > main > .max-height-25,
+	body > main > .max-height-20,
+	body > main > .max-height-30 {
+		max-height: none;
+	}
+
+	main .section > .column {
+		flex-direction: row;
+	}
+}
+
+@media only screen and (max-width: 655px) {
+	main .section .link-container {
+		width: 100%;
+	}
+
+	main .section .link-container .link-list {
+		flex-direction: row;
+		justify-content: left;
+		gap: 0.5em 1em;
+		margin-top: 0.25em;
+	}
+
+	main .section .link-container .link-list > li {
+		text-align: left;
+	}
+
+	main .section .link-container .link-list > li:nth-child(1) {
+		width: 100%;
+	}
+}
