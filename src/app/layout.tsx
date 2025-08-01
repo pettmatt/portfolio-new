@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://pettmatt.com" || "localhost:3001" || "localhost:3000"),
 	title: "Pettmatt : Web developer",
 	description: "A technology-oriented individual who isn't afraid to strive for perfection through failure. Always eager to learn about new as well as old technologies to expand their skills. They have passion for problem-solving and they enjoy working in a collaborative environment where they can share and acquire knowledge from others. While their focus has been for the last eight years on web technologies, they are always looking for a reason to dive into other environments.",
-	keywords: ["web developer", "portfolio"],
+	keywords: ["software developer", "web developer", "portfolio"],
 	icons: {
 		icon: "/icon.png",
 	},

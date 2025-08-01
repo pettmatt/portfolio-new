@@ -77,7 +77,7 @@ export default async function Skills() {
 				data.skillSections.map((section: SkillSection, index: number) => (
 					<div key={index} className={
 						section.title.toLowerCase().replaceAll(" ", "-") + " " +
-						"flex column gap-between width-50"
+						"flex column gap-between"
 					}>
 						<h4>{ section.title }</h4>
 						{

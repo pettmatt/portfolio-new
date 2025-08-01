@@ -45,6 +45,14 @@ ul {
 	padding-left: 0;
 }
 
+.title > span {
+	font-weight: bold;
+}
+
+.title {
+	font-weight: 400;
+}
+
 .weighted {
 	font-weight: bold;
 }
@@ -83,7 +91,7 @@ ul {
 }
 
 .width-50 {
-	width: 50%;
+	width: 47%;
 }
 
 .width-75 {
@@ -105,4 +113,3 @@ ul {
 .max-height-30 {
 	max-height: 30vh;
 }
-

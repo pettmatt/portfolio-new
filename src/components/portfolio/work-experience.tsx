@@ -86,7 +86,7 @@ export default async function WorkExperience() {
 									<span className="company">{ job.company }</span> - { job.job_title }
 								</h4>
 								<div className="timeline flex row">
-									<span className="time">{ formatDuration(job.date) }</span>
+									<div className="time">{ formatDuration(job.date) }</div>
 									<div className="employment-type">{ job.contract_type }</div>
 								</div>
 								<div className="description-container">
