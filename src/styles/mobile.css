@@ -1,20 +1,22 @@
 @media only screen and (max-width: 725px) {
-	main .section {
-
-	}
-
 	main .section .width-75 {
 		width: 100%;
 	}
 
-	body > main > .max-height-25,
-	body > main > .max-height-20,
-	body > main > .max-height-30 {
+	body > main > .flex {
 		max-height: none;
+		height: auto;
+	}
+
+	body > main > .flex > div {
+		width: 100%;
 	}
 
 	main .section > .column {
-		flex-direction: row;
+		flex-wrap: nowrap;
+		flex: 1;
+		row-gap: 3em;
+		column-gap: 0em;
 	}
 }
 

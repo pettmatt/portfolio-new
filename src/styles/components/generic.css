@@ -2,24 +2,18 @@ main {
 	gap: 3rem;
 }
 
-main > div {
-	contain: layout;
-}
-
 main > div .flex {
 	column-gap: 3em;
 }
 
-main > div > .flex {
-	flex: 1;
+main > div:nth-child(2) > div > div,
+main > div:nth-child(3) > div > div,
+main > div:nth-child(4) > div > div {
+	flex: 0 1;
 }
 
 .section h3 {
 	width: 100%;
-}
-
-.section .inner-container {
-
 }
 
 .section p {

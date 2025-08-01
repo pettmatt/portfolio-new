@@ -45,6 +45,10 @@ ul {
 	padding-left: 0;
 }
 
+main p {
+	overflow-wrap: break-word;
+}
+
 .title > span {
 	font-weight: bold;
 }
